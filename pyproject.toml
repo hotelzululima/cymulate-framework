@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "cymulate-framework"
+version = "0.1.0"
+description = ""
+authors = ["opabravo"]
+readme = "README.md"
+packages = [{include = "cymulate-framework"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
