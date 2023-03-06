@@ -1,5 +1,5 @@
 import unittest
-from core.dependeny.windows.utils import *
+from core.dependency.windows.utils import *
 
 
 class TestDependenciesChecker(unittest.TestCase):

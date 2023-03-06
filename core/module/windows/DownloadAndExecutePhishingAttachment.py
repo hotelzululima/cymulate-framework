@@ -1,5 +1,5 @@
 from core.module.base.BaseModule import BaseModule
-from core.dependeny.windows.checker import microsoft_office_installed, file_exist
+from core.dependency.windows.checker import microsoft_office_installed, file_exist
 
 
 class DownloadAndExecutePhishingAttachment(BaseModule):
@@ -56,7 +56,7 @@ Remove-Item $env:temp\PhishingAttachment.xlsm -Force"""
         """Checks if a chrome.exe process was created under an EXCEL.EXE process (macro)"""
 
     def check_dependencies(self):
-        """Check dependeny before running"""
+        """Check dependency before running"""
         test1 = microsoft_office_installed()
         if not test1:
             print(f"Failed the check:\n{test1.__doc__}\n")

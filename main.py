@@ -1,5 +1,5 @@
-from core.dependeny.windows.checker import *
-from core.dependeny.windows.utils import *
+from core.dependency.windows.checker import *
+from core.dependency.windows.utils import *
 from core.template import apt34
 
 if __name__ == '__main__':
