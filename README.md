@@ -1,6 +1,6 @@
 # cymulate-framework
 
-* **Notice**: This project is still in development and not ready for production use.
+- **Notice**: This project is still under development and not ready for production use.
 
 ## Introduction
 
@@ -12,8 +12,9 @@ This project is aimed to help security professionals construct fully customizabl
 
 ## Functionality
 
-- [ ] Scrape modules and templates from Cymulate's website and transform them to scripts.
+- [ ] Scrape modules and templates from Cymulate's and transform them into scripts.
 - [ ] Automate the execution of templates such as APT, Phishing, etc.
+- [ ] Generate standalone EXE for templates and bypass AMSI, Antivirus
 
 ## Environment
 
@@ -36,6 +37,8 @@ poetry shell
 - `Scrape modules and templates` - Scrape modules and templates via Cymulate's [API](https://api.app.cymulate.com/docs/#/)
 - `Transform modules and templates` - Transform modules and templates into cymulate-framework modules.
 - `Automate execution` - Automate the execution of templates.
+- `APT Script generator` - Generate scripts for APT template with extracted specific execution scripts (don't wanna load the 20+mb json file) and load corresponding required 3rd party pip packages into scripts
+- `Pack Script to EXE` - Pack generated template script with its requirements(pip packages, execution scripts) into EXE via `pyisntaller` or `py2exe`, `Nuitka`
 - `ClI` - A CLI to interact with the framework.
 
 ## Contributing
