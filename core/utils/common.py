@@ -7,10 +7,12 @@ def powershell_encode(cmd: str) -> str:
     """Encode powershell command"""
     return b64encode(cmd.encode('utf_16_le')).decode()
 
+
 def powershell(cmd: str) -> tuple:
-    """Run powershell commands"""
+    """Run powershell commands & return output and error"""
     encoded_cmd = powershell_encode(cmd)
-    p = subprocess.Popen(f'powershell -ExecutionPolicy RemoteSigned -e {encoded_cmd}', stdin=PIPE, stderr=PIPE, stdout=PIPE)
+    p = subprocess.Popen(f'powershell -ExecutionPolicy RemoteSigned -e {encoded_cmd}', stdin=PIPE, stderr=PIPE,
+                         stdout=PIPE)
     return p.communicate()
 
 
