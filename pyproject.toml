@@ -8,6 +8,8 @@ packages = [{include = "cymulate-framework"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+requests = "^2.28.2"
+dacite = "^1.8.0"
 
 
 [build-system]
