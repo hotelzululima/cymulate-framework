@@ -1,3 +1,3 @@
 """
-Cymulate's Mitre ATT&CK Technique model
+Cymulate's Mitre ATT&CK Tactic model
 """
