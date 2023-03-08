@@ -1,5 +1,5 @@
 """
-Windows Dependencies Utils
+Windows Dependencies Installer
 """
 from core.utils.common import powershell
 
@@ -17,5 +17,4 @@ if ($proxy.AbsoluteUri -ne "{download_file_url}"){{
 }}"""
     result = powershell(powershell_script)
     return result
-
 
