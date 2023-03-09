@@ -1,6 +1,3 @@
-from core.dependency.windows.checker import *
-from core.dependency.windows.installer import *
-from core.template import apt34
 from core.module.windows.D import DownloadAndExecutePhishingAttachment
 
 
