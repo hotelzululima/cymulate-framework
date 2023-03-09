@@ -2,6 +2,8 @@ import json
 from core.model.execution import Execution
 from dacite import from_dict
 from pathlib import Path
+from typing import Optional
+
 
 class BaseModule:
     """
@@ -23,7 +25,7 @@ class BaseModule:
         execution_dict = self.get_execution(execution_id)
         self.execution = from_dict(data_class=Execution, data=execution_dict)
 
-    def get_execution(self, execution_id: str) -> dict:
+    def get_execution(self, execution_id: str) -> Optional[dict, None]:
         """
         Get Execution dict from executions json file by id
         """
@@ -44,4 +46,3 @@ class BaseModule:
         The following code is used to clean up after the scenario or restore a state that was changed.
         """
         pass
-
