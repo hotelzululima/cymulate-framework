@@ -25,7 +25,9 @@ class BaseModule:
         self.logger = Log(log_name='module', log_level='DEBUG').get_logger()
         self.execution_id = execution_id
         execution_dict = self.get_execution(execution_id)
+        # Deserialize execution dict into Execution object
         self.execution = from_dict(data_class=Execution, data=execution_dict)
+        # Replace variable name in powershell script to actual value
         self.input_arguments = self.get_input_arguments()
 
     @staticmethod
@@ -72,11 +74,22 @@ class BaseModule:
             command = command.replace(f'#{{{name}}}', value)
         return command
 
+    def resolve_file_path(self, file_path: str) -> str:
+        """
+        Resolve file path if it is a variable
+        """
+        return powershell(f'echo {file_path}')[0].decode('big5').strip()
+
     def execute(self):
         """
         Main execution function
         """
         if self.execution.executor.name == 'powershell':
+            # Not resolving absolute path at init because the temp path might change if evaluated to other users
+            for name, value in self.input_arguments.items():
+                if value.startswith('$env'):
+                    self.input_arguments[name] = self.resolve_file_path(value)
+
             powershell_script = self.replace_input_arguments(self.execution.executor.command)
             self.logger.debug(f'Running Powershell Script: {powershell_script}\n')
             result_list = powershell(powershell_script)
