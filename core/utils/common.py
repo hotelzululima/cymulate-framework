@@ -22,5 +22,5 @@ def powershell_return_code(cmd: str) -> int:
     Example: 0 , 1
     """
     encoded_cmd = powershell_encode(cmd)
-    p = run(f'powershell -ExecutionPolicy RemoteSigned -e {encoded_cmd}')
+    p = run(f'powershell -ExecutionPolicy RemoteSigned -e {encoded_cmd}', stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     return p.returncode
