@@ -2,7 +2,8 @@ import json
 from core.model.execution import Execution
 from dacite import from_dict
 from pathlib import Path
-from typing import Optional
+from core.utils.log import Log
+from core.utils.common import powershell, powershell_return_code
 
 
 class BaseModule:
@@ -21,11 +22,14 @@ class BaseModule:
         Tactics: ID of MITRE ATT&CK Tactics
         Technique: ID of MITRE ATT&CK Technique
         """
+        self.logger = Log(log_name='module', log_level='DEBUG').get_logger()
         self.execution_id = execution_id
         execution_dict = self.get_execution(execution_id)
         self.execution = from_dict(data_class=Execution, data=execution_dict)
+        self.input_arguments = self.get_input_arguments()
 
-    def get_execution(self, execution_id: str) -> Optional[dict, None]:
+    @staticmethod
+    def get_execution(execution_id: str) -> dict:
         """
         Get Execution dict from executions json file by id
         """
@@ -35,14 +39,52 @@ class BaseModule:
         execution = next((e for e in execution_data['data'] if e['_id'] == execution_id), None)
         return execution
 
-    def run(self):
+    def get_input_arguments(self) -> dict:
         """
-        The following code is used to run the scenario.
+        Turn input arguments into a dict
         """
-        pass
+        return {arg.name: arg.default[0] for arg in self.execution.inputArguments}
+
+    def check_dependency(self) -> bool:
+        """
+        Check if dependencies are installed
+        """
+        for dependency in self.execution.dependencies:
+            self.logger.info(f'Checking : {dependency.description}')
+            if dependency.dependencyExecutorName == 'powershell':
+                get_pre_req_cmd = self.replace_input_arguments(dependency.getPrereqCommand)
+                result = powershell(get_pre_req_cmd)
+                self.logger.debug(f'Get-Pre-req command result: {result}\n')
+                pre_req_cmd = self.replace_input_arguments(dependency.prereqCommand)
+                is_dependency_installed = powershell_return_code(pre_req_cmd) == 0
+                if not is_dependency_installed:
+                    self.logger.error(f'\nFailed this check: {dependency.description}')
+                    return False
+
+        self.logger.success('All dependency checks passed')
+        return True
+
+    def replace_input_arguments(self, command: str) -> str:
+        """
+        Replace input arguments in command -> name: value
+        """
+        for name, value in self.input_arguments.items():
+            command = command.replace(f'#{{{name}}}', value)
+        return command
+
+    def execute(self):
+        """
+        Main execution function
+        """
+        if self.execution.executor.name == 'powershell':
+            powershell_script = self.replace_input_arguments(self.execution.executor.command)
+            self.logger.debug(f'Running Powershell Script: {powershell_script}\n')
+            result_list = powershell(powershell_script)
+            result = "\n".join([r.decode('big5') for r in result_list])
+            self.logger.debug(f'Powershell script result: {result}\n')
 
     def cleanup(self):
         """
-        The following code is used to clean up after the scenario or restore a state that was changed.
+        Clean up after the scenario
         """
         pass
