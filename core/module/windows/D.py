@@ -1,6 +1,6 @@
 from core.module.base.BaseModule import BaseModule
-from core.dependency.windows.checker import microsoft_office_installed, file_exist
-from core.dependency.windows.installer import download
+from core.module.windows.dependency.checker import microsoft_office_installed, file_exist
+from core.module.windows.dependency.installer import download
 
 
 class DownloadAndExecutePhishingAttachment(BaseModule):
