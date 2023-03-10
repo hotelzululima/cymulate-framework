@@ -43,6 +43,10 @@ poetry shell
 - `Pack Script to EXE` - Pack generated template script with its requirements(pip packages, execution scripts) into EXE via `pyisntaller`, `py2exe` or `Nuitka`
 - `ClI` - A CLI to interact with the framework.
 
+### Notes
+
+- Using `builtin dataclass` + `dacite` for JSON deserializing model instead of `pydantic` because `dacite` is enough for the purpose.
+
 ## Contributing
 
 Feel free to submit pull requests and issues.
