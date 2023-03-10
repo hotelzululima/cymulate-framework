@@ -4,6 +4,8 @@
 
 ## Introduction
 
+![](https://i.imgur.com/f1LLGB6.png)
+
 A framework to automate Cymulate's modules and templates.
 
 It's based On the [Cymualte](https://cymulate.com/) BAS (Break and Attack Simulation) platform.
