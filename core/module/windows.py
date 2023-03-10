@@ -2,7 +2,7 @@
 Windows module for execution
 """
 
-from core.module.base.BaseModule import BaseModule
+from core.module.base import BaseModule
 from core.utils.common import powershell, powershell_return_code
 
 
