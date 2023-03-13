@@ -3,7 +3,7 @@ Windows module for execution
 """
 
 from core.module.base import BaseModule
-from core.utils.common import powershell
+from core.utils.common import powershell, gain_admin_priv
 
 
 class WindowsModule(BaseModule):
@@ -54,6 +54,10 @@ class WindowsModule(BaseModule):
                 self.input_arguments[name] = self.resolve_file_path(value)
 
     def execute(self):
+        if self.execution.executor.elevationRequired:
+            self.logger.info('Elevation required, requesting admin privilege...')
+            gain_admin_priv()
+
         if self.execution.executor.name == 'powershell':
             # Not resolving absolute path at init because the temp path might change if evaluated to other users
             self.set_input_arguments_abs()
@@ -89,4 +93,12 @@ class WindowsModule(BaseModule):
                     return True
                 else:
                     self.logger.warning(f'Failed Success Indicator: {success_indicator.description}')
+            elif success_indicator.successIndicatorExecutor == "python":
+                python_script = self.resolve_variable(success_indicator.successIndicatorCommand)
+                python_script = python_script.replace('exit(0)', 'os._sexit(0)').replace('exit(1)', 'os._exit(1)')
+                # Append the execution output variable to the python script at the beginning
+                python_script = f"import os\npiped_output = {self.execution_output}\n" + python_script
+                self.logger.debug(f'Running Python Script: {python_script}\n')
+                exec(python_script)
+                pass
         return False
