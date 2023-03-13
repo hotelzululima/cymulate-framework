@@ -87,16 +87,16 @@ class Execution:
     cleanupCommands: List[CleanupCommand]
     outputParsers: List[OutputParser]
     successIndicators: List[SuccessIndicator]
-    iocs: list
-    tags: list
+    iocs: Optional[list]
+    tags: Optional[list]
     dataSources: Optional[list]
-    cves: list
-    timeout: int
-    author: str
+    cves: Optional[list]
+    timeout: Optional[int]
+    author: Optional[str]
     keywords: Optional[list]
-    date: str
+    date: Optional[str]
     # not using __v because it has problem with instance private variable -> _Execution__v
     # __v: int
-    nistTechniques: list
-    displayDate: str
+    nistTechniques: Optional[list]
+    displayDate: Optional[str]
 
