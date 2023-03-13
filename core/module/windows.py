@@ -57,15 +57,13 @@ class WindowsModule(BaseModule):
             self.logger.debug(f'Powershell script result: {result}\n')
 
     def success_indicate(self) -> bool:
-        success_flag = False
         for success_indicator in self.execution.successIndicators:
             if success_indicator.successIndicatorExecutor == "powershell":
                 powershell_script = self.resolve_variable(success_indicator.successIndicatorCommand)
                 result = powershell_return_code(powershell_script)
                 if result == 0:
                     self.logger.success(f'Success Indicator: {success_indicator.description}')
-                    success_flag = True
-                    break
+                    return True
                 else:
                     self.logger.warning(f'Failed Success Indicator: {success_indicator.description}')
-        return success_flag
+        return False
