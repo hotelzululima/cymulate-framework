@@ -1,0 +1,5772 @@
+[
+    {
+        "_id": "640864b23f857dff3a513402",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "powershell"
+        ],
+        "commands": 5,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - Equation",
+        "description": "Advanced Scenario - Equation establishes persistence by setting up autostart during boot or logon, and uses Guardrails to evade defensive measures. then it places an obfuscated command into a registry key. This action is followed by executing this command from a registry key. Then it discovers peripheral devices by enumerating drivers, and, finally, creates a hidden file system.",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-03-08T10:34:26.069Z",
+        "lastUpdated": "2023-03-08T10:34:26.069Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63f0ed2520709ae84a4a9bac",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "powershell",
+            "python",
+            "command_prompt"
+        ],
+        "commands": 24,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - APT 32",
+        "description": "Advanced Scenario - APT 32 initiates its attack by downloading and executing a VBA script. It then proceeds to execute commands using the Windows Event Log, downloads a file from the internet, and executes a batch script. APT 32 creates persistence in the registry run keys and verifies the success of the created persistence. Then attempts to discover domain admins, steal credentials from the local machine, and use them to attempt lateral movement. It also maps admin shares, logs key inputs, discovers the file and directory structure, receives system information, encrypts files, and compresses and exfiltrates data in parallel. Finally, it lists credential files stored in current user AppData folders, performs DLL Search Order Hijacking, enumerates non-default installed applications, installs and runs a service, and creates a new user.",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": true,
+        "date": "2023-02-18T15:22:13.608Z",
+        "lastUpdated": "2023-02-18T16:14:31.770Z",
+        "__v": 1,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63e50d783b411332af6b4520",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 21,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - On-Prem Scanner",
+        "description": "Kubernetes - On-Prem Scanner",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "kubeconfig_path"
+        ],
+        "cleanup_at_end": false,
+        "date": "2023-02-09T15:12:56.322Z",
+        "lastUpdated": "2023-02-13T13:49:20.091Z",
+        "__v": 0,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "63e50c2fc4414e3005e6b571",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 20,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - AZURE Scanner",
+        "description": "Kubernetes - AZURE Scanner",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "email",
+            "password",
+            "cluster_name",
+            "resource_group"
+        ],
+        "cleanup_at_end": true,
+        "date": "2023-02-09T15:07:27.819Z",
+        "lastUpdated": "2023-02-19T12:57:06.297Z",
+        "__v": 0,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "63e5019aeb2760c538d3e580",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 20,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - AWS Scanner",
+        "description": "Kubernetes - AWS Scanner",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "aws_access_key_id",
+            "aws_secret_access_key",
+            "cluster_name",
+            "region"
+        ],
+        "cleanup_at_end": true,
+        "date": "2023-02-09T14:22:18.292Z",
+        "lastUpdated": "2023-02-19T12:56:51.262Z",
+        "__v": 0,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "63e4ffa595006362ec75c0f1",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 20,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - GCP Scanner",
+        "description": "Kubernetes - GCP Scanner",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "client_email",
+            "private_key",
+            "cluster_name",
+            "zone"
+        ],
+        "cleanup_at_end": true,
+        "date": "2023-02-09T14:13:57.356Z",
+        "lastUpdated": "2023-02-19T13:52:00.812Z",
+        "__v": 0,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "63e378250b63bc828ee46e96",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Forbidden Container Registries (On-Prem)",
+        "description": "Kubernetes - Forbidden Container Registries (On-Prem)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-02-08T10:23:33.302Z",
+        "lastUpdated": "2023-02-13T10:48:27.649Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63dfc03c9a0583d6ec394dde",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Nginx Ingress CVE-2021-25742 (On-Prem)",
+        "description": "Kubernetes - Nginx Ingress CVE-2021-25742 (On-Prem)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-02-05T14:42:04.356Z",
+        "lastUpdated": "2023-02-05T14:42:04.356Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63dfbddb550ba967543de951",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 2,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Anonymous Access To Kubelet Service (On-Prem)",
+        "description": "Kubernetes - Anonymous Access To Kubelet Service (On-Prem)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-02-05T14:31:55.617Z",
+        "lastUpdated": "2023-02-05T14:44:41.986Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63dfbd4082e06990bf1d493b",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 2,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Api Server Insecure Port (On-Prem)",
+        "description": "Kubernetes - Api Server Insecure Port (On-Prem)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-02-05T14:29:20.508Z",
+        "lastUpdated": "2023-02-05T14:44:19.254Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63dfba856db9c4e736bdf2b6",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Grafana Auth Bypass (On-Prem)",
+        "description": "Kubernetes - Grafana Auth Bypass (On-Prem)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-02-05T14:17:41.062Z",
+        "lastUpdated": "2023-02-05T14:44:01.111Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63dfb3936db9c4e736ba3828",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Host IPC Privilege (On-Prem)",
+        "description": "Kubernetes - Host IPC Privilege (On-Prem)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-02-05T13:48:03.588Z",
+        "lastUpdated": "2023-02-13T10:49:09.063Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63dfb2bb3e682682411fa519",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Host Path Mount (On-Prem)",
+        "description": "Kubernetes - Host Path Mount (On-Prem)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-02-05T13:44:27.963Z",
+        "lastUpdated": "2023-02-13T10:55:39.427Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63dfb245550ba967543837e1",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Resources Memory Limit And Request (On-Prem)",
+        "description": "Kubernetes - Resources Memory Limit And Request (On-Prem)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-02-05T13:42:29.749Z",
+        "lastUpdated": "2023-02-13T12:07:11.182Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63dfb13e550ba96754377c73",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Resources CPU Limit And Request (On-Prem)",
+        "description": "Kubernetes - Resources CPU Limit And Request (On-Prem)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-02-05T13:38:06.183Z",
+        "lastUpdated": "2023-02-13T12:03:19.215Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63dfb0e64e18cd3bf8ed9525",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Host PID Privilege (On-Prem)",
+        "description": "Kubernetes - Host PID Privilege (On-Prem)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-02-05T13:36:38.088Z",
+        "lastUpdated": "2023-02-13T11:08:52.228Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63dfad286692d46676941f30",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Resource Limits (On-Prem)",
+        "description": "Kubernetes - Resource Limits (On-Prem)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-02-05T13:20:40.326Z",
+        "lastUpdated": "2023-02-13T11:23:52.361Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63dfacfa3e682682411c8e51",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Insecure Capabilities (On-Prem)",
+        "description": "Kubernetes - Insecure Capabilities (On-Prem)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-02-05T13:19:54.599Z",
+        "lastUpdated": "2023-02-13T11:55:31.611Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63dfa6c4b3910914d1f3048c",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - List Secrets (On-Prem)",
+        "description": "Kubernetes - List Secrets (On-Prem)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-02-05T12:53:24.033Z",
+        "lastUpdated": "2023-02-13T10:58:56.993Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63dfa5c734cfdc8c2f15eeec",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Host Network Access (On-Prem)",
+        "description": "Kubernetes - Host Network Access (On-Prem)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-02-05T12:49:11.950Z",
+        "lastUpdated": "2023-02-13T10:51:32.200Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63dfa3b536e3c5bc78408643",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Privileged Container (On-Prem)",
+        "description": "Kubernetes - Privileged Container (On-Prem)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-02-05T12:40:21.203Z",
+        "lastUpdated": "2023-02-13T12:05:32.993Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63dfa34334cfdc8c2f1507b0",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 2,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Enforce Kubelet client TLS authentication (On-Prem)",
+        "description": "Kubernetes - Enforce Kubelet client TLS authentication (On-Prem)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-02-05T12:38:27.639Z",
+        "lastUpdated": "2023-02-06T08:12:27.906Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63dfa26c82e06990bf114f91",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Application Credentials in Configuration Files (On-Prem)",
+        "description": "Kubernetes - Application Credentials in Configuration Files (On-Prem)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-02-05T12:34:52.433Z",
+        "lastUpdated": "2023-02-13T10:40:06.731Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63df9c4d6b862ec4a73cc6bc",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Vulnerable Exposed Pods (On-Prem)",
+        "description": "Kubernetes - Vulnerable Exposed Pods (On-Prem)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-02-05T12:08:45.666Z",
+        "lastUpdated": "2023-02-05T14:38:40.524Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63df962f82e06990bf0e73f3",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Writeable Host Path Mount (On-Prem)",
+        "description": "Kubernetes - Writeable Host Path Mount (On-Prem)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-02-05T11:42:39.209Z",
+        "lastUpdated": "2023-02-05T14:38:09.955Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d8f9fd769694d5be19bd7a",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "powershell",
+            "command_prompt"
+        ],
+        "commands": 12,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - Qakbot",
+        "description": "The advanced scenario Qakbot involves a malicious software program executing a DLL file to gain unauthorized access to a system. \nThe program then proceeds to discover the configuration of the local system, create persistence through the use of a local scheduled task, identify local and domain groups and power users, and perform enumeration of the domain controller (DC).\n\nThe tool then attempts to access the DC through remote desktop protocol (RDP), steal credentials from local system, which then are used to remotely access and run commands on a remote host. The program also lists any installed security software and uses ADFind to gather additional relevant information.",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "command"
+        ],
+        "cleanup_at_end": false,
+        "date": "2023-01-31T11:22:37.011Z",
+        "lastUpdated": "2023-01-31T11:32:24.796Z",
+        "__v": 0,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "63d69b07c9ec69b0a46c5b12",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Vulnerable Exposed Pods (AZURE)",
+        "description": "Kubernetes - Vulnerable Exposed Pods (AZURE)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T16:12:55.398Z",
+        "lastUpdated": "2023-02-05T12:37:07.697Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d69aa7bd878cfb9c72327e",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Vulnerable Exposed Pods (AWS)",
+        "description": "Kubernetes - Vulnerable Exposed Pods (AWS)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T16:11:19.828Z",
+        "lastUpdated": "2023-02-05T12:35:50.005Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d69650f7793308c6705615",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Vulnerable Exposed Pods (GCP)",
+        "description": "Kubernetes - Vulnerable Exposed Pods (GCP)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T15:52:48.445Z",
+        "lastUpdated": "2023-02-05T12:34:25.024Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d688868fceda90569ab641",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Writeable Host Path Mount (AZURE)",
+        "description": "Kubernetes - Writeable Host Path Mount (AZURE)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T14:53:58.568Z",
+        "lastUpdated": "2023-02-05T12:32:46.374Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d688361106154e4f07807e",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Writeable Host Path Mount (AWS)",
+        "description": "Kubernetes - Writeable Host Path Mount (AWS)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T14:52:38.523Z",
+        "lastUpdated": "2023-02-05T12:30:53.100Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d6862cbd878cfb9c6fc304",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Writeable Host Path Mount (GCP)",
+        "description": "Kubernetes - Writeable Host Path Mount (GCP)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T14:43:56.894Z",
+        "lastUpdated": "2023-02-13T15:09:56.512Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d676f51106154e4f02273a",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Privileged Container (AZURE)",
+        "description": "Kubernetes - Privileged Container (AZURE)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T13:39:01.979Z",
+        "lastUpdated": "2023-02-13T12:05:09.122Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d676969253c1e12daf0ab8",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Privileged Container (AWS)",
+        "description": "Kubernetes - Privileged Container (AWS)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T13:37:26.554Z",
+        "lastUpdated": "2023-02-13T12:04:07.764Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d67129ef72a42a73afeadb",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Privileged Container (GCP)",
+        "description": "Kubernetes - Privileged Container (GCP)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T13:14:17.434Z",
+        "lastUpdated": "2023-02-13T12:03:39.147Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d65649bd878cfb9c627176",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Nginx Ingress CVE-2021-25742 (AZURE)",
+        "description": "Kubernetes - Nginx Ingress CVE-2021-25742 (AZURE)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T11:19:37.937Z",
+        "lastUpdated": "2023-02-05T12:48:43.767Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d6552e1106154e4ff9ae5d",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Nginx Ingress CVE-2021-25742 (AWS)",
+        "description": "Kubernetes - Nginx Ingress CVE-2021-25742 (AWS)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T11:14:54.589Z",
+        "lastUpdated": "2023-02-05T12:48:09.111Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d6537dbd878cfb9c61e5a8",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Nginx Ingress CVE-2021-25742 (GCP)",
+        "description": "Kubernetes - Nginx Ingress CVE-2021-25742 (GCP)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T11:07:41.312Z",
+        "lastUpdated": "2023-02-05T12:47:40.736Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d64fe3e20537aa866e06e5",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Insecure Capabilities (AZURE)",
+        "description": "Kubernetes - Insecure Capabilities (AZURE)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T10:52:19.385Z",
+        "lastUpdated": "2023-02-13T11:55:13.483Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d64f4cef72a42a73a85685",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Insecure Capabilities (AWS)",
+        "description": "Kubernetes - Insecure Capabilities (AWS)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T10:49:48.342Z",
+        "lastUpdated": "2023-02-13T11:54:47.905Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d64e01769694d5be5b8571",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Insecure Capabilities (GCP)",
+        "description": "Kubernetes - Insecure Capabilities (GCP)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T10:44:17.482Z",
+        "lastUpdated": "2023-02-13T11:54:20.112Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d64632e20537aa866c4823",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Host PID Privilege (AZURE)",
+        "description": "Kubernetes - Host PID Privilege (AZURE)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T10:10:58.259Z",
+        "lastUpdated": "2023-02-13T11:08:34.335Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d645af1106154e4ff6fd8d",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Resources Memory Limit And Request (AWS)",
+        "description": "Kubernetes - Resources Memory Limit And Request (AWS)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T10:08:47.284Z",
+        "lastUpdated": "2023-02-13T12:07:34.591Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d6459788c972965b733108",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Host PID Privilege (AWS)",
+        "description": "Kubernetes - Host PID Privilege (AWS)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T10:08:23.165Z",
+        "lastUpdated": "2023-02-13T11:07:56.676Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d645559839dfcb66265f40",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Resources Memory Limit And Request (GCP)",
+        "description": "Kubernetes - Resources Memory Limit And Request (GCP)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T10:07:17.850Z",
+        "lastUpdated": "2023-02-13T12:08:07.952Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d64511ef72a42a73a687d6",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Resources Memory Limit And Request (AZURE)",
+        "description": "Kubernetes - Resources Memory Limit And Request (AZURE)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T10:06:09.804Z",
+        "lastUpdated": "2023-02-13T12:08:35.004Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d644a1769694d5be59bad3",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Resources CPU Limit And Request (AWS)",
+        "description": "Kubernetes - Resources CPU Limit And Request (AWS)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T10:04:17.348Z",
+        "lastUpdated": "2023-02-13T12:03:46.580Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d6445ff09bf46c10565246",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Resources CPU Limit And Request (GCP)",
+        "description": "Kubernetes - Resources CPU Limit And Request (GCP)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T10:03:11.441Z",
+        "lastUpdated": "2023-02-13T12:04:11.254Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d6442488c972965b72c9c5",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Resources CPU Limit And Request (AZURE)",
+        "description": "Kubernetes - Resources CPU Limit And Request (AZURE)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T10:02:12.315Z",
+        "lastUpdated": "2023-02-13T12:04:37.705Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d64254f7793308c65d3b20",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Host PID Privilege (GCP)",
+        "description": "Kubernetes - Host PID Privilege (GCP)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T09:54:28.093Z",
+        "lastUpdated": "2023-02-13T11:07:38.729Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d641ee769694d5be5907c3",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Resource Limits (AWS)",
+        "description": "Kubernetes - Resource Limits (AWS)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T09:52:46.385Z",
+        "lastUpdated": "2023-02-13T11:58:21.423Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d6417988c972965b722675",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Resource Limits (GCP)",
+        "description": "Kubernetes - Resource Limits (GCP)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T09:50:49.562Z",
+        "lastUpdated": "2023-02-13T11:58:55.510Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d6413ae20537aa866b148e",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Resource Limits (AZURE)",
+        "description": "Kubernetes - Resource Limits (AZURE)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T09:49:46.129Z",
+        "lastUpdated": "2023-02-13T11:59:30.813Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d63eb688c972965b71866e",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Host Path Mount (AZURE)",
+        "description": "Kubernetes - Host Path Mount (AZURE)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T09:39:02.488Z",
+        "lastUpdated": "2023-02-13T10:55:17.805Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d63e2888c972965b716abc",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Host Path Mount (AWS)",
+        "description": "Kubernetes - Host Path Mount (AWS)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T09:36:40.301Z",
+        "lastUpdated": "2023-02-13T10:54:55.081Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d63a7488c972965b70c13a",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - List Secrets (AWS)",
+        "description": "Kubernetes - List Secrets (AWS)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T09:20:52.607Z",
+        "lastUpdated": "2023-02-13T10:59:50.774Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d63831e20537aa86695ea3",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - List Secrets (GCP)",
+        "description": "Kubernetes - List Secrets (GCP)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T09:11:13.524Z",
+        "lastUpdated": "2023-02-13T11:00:19.716Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d637f7bd878cfb9c5cc947",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - List Secrets (AZURE)",
+        "description": "Kubernetes - List Secrets (AZURE)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T09:10:15.801Z",
+        "lastUpdated": "2023-02-13T11:00:42.752Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d635756f5e144c7fc14568",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Host Path Mount (GCP)",
+        "description": "Kubernetes - Host Path Mount (GCP)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T08:59:33.810Z",
+        "lastUpdated": "2023-02-13T10:54:36.596Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d6353e769694d5be568eb1",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Forbidden Container Registries (AWS)",
+        "description": "Kubernetes - Forbidden Container Registries (AWS)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T08:58:38.146Z",
+        "lastUpdated": "2023-02-13T10:48:49.795Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d634fb8af51f85c7fba04e",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Forbidden Container Registries (GCP)",
+        "description": "Kubernetes - Forbidden Container Registries (GCP)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T08:57:31.062Z",
+        "lastUpdated": "2023-02-13T10:50:02.325Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d6346af7793308c65a7e61",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Forbidden Container Registries (AZURE)",
+        "description": "Kubernetes - Forbidden Container Registries (AZURE)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-29T08:55:06.041Z",
+        "lastUpdated": "2023-02-13T10:50:23.492Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d2ac28c9ec69b0a4d3061f",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Host IPC Privilege (AZURE)",
+        "description": "Kubernetes - Host IPC Privilege (AZURE)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-26T16:36:56.559Z",
+        "lastUpdated": "2023-02-13T10:48:47.057Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d2ab311106154e4f6feb41",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Host IPC Privilege (AWS)",
+        "description": "Kubernetes - Host IPC Privilege (AWS)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-26T16:32:49.180Z",
+        "lastUpdated": "2023-02-13T10:48:02.784Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d286f4f7793308c6c5aa42",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Grafana Auth Bypass (AZURE)",
+        "description": "Kubernetes - Grafana Auth Bypass (AZURE)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-26T13:58:12.995Z",
+        "lastUpdated": "2023-02-05T14:16:54.244Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d285a888c972965bd93e84",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Grafana Auth Bypass (AWS)",
+        "description": "Kubernetes - Grafana Auth Bypass (AWS)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-26T13:52:40.825Z",
+        "lastUpdated": "2023-02-05T14:16:16.375Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d283e5ef72a42a730ac5fd",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Grafana Auth Bypass (GCP)",
+        "description": "Kubernetes - Grafana Auth Bypass (GCP)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-26T13:45:09.606Z",
+        "lastUpdated": "2023-02-05T14:15:40.998Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d2632c8af51f85c756d518",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 2,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Anonymous Access To Kubelet Service (AZURE)",
+        "description": "Kubernetes - Anonymous Access To Kubelet Service (AZURE)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-26T11:25:32.299Z",
+        "lastUpdated": "2023-02-05T14:31:18.844Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d261058fceda9056df0175",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 2,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Anonymous Access To Kubelet Service (AWS)",
+        "description": "Kubernetes - Anonymous Access To Kubelet Service (AWS)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-26T11:16:21.069Z",
+        "lastUpdated": "2023-02-05T14:30:55.345Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d24ce2f7793308c6ad24b7",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 2,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Anonymous Access To Kubelet Service (GCP)",
+        "description": "Kubernetes - Anonymous Access To Kubelet Service (GCP)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-26T09:50:26.258Z",
+        "lastUpdated": "2023-02-05T14:30:22.394Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d2406b8807a061bd999b66",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 2,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Enforce Kubelet client TLS authentication (AWS)",
+        "description": "Kubernetes - Enforce Kubelet client TLS authentication (AWS)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-26T08:57:15.601Z",
+        "lastUpdated": "2023-02-05T12:39:56.556Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d23f59c9ec69b0a4a22559",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 2,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Enforce Kubelet client TLS authentication (GCP)",
+        "description": "Kubernetes - Enforce Kubelet client TLS authentication (GCP)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-26T08:52:41.643Z",
+        "lastUpdated": "2023-02-05T12:40:37.541Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d23f159253c1e12debf2de",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 2,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Enforce Kubelet client TLS authentication (AZURE)",
+        "description": "Kubernetes - Enforce Kubelet client TLS authentication (AZURE)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-26T08:51:33.753Z",
+        "lastUpdated": "2023-02-05T12:41:09.467Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d23a641106154e4f3e027d",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Application Credentials in Configuration Files (AWS)",
+        "description": "Kubernetes - Application Credentials in Configuration Files (AWS)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-26T08:31:32.182Z",
+        "lastUpdated": "2023-02-13T10:40:50.688Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d239fbc9ec69b0a49fff6c",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Application Credentials in Configuration Files (GCP)",
+        "description": "Kubernetes - Application Credentials in Configuration Files (GCP)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-26T08:29:47.656Z",
+        "lastUpdated": "2023-02-13T10:41:28.296Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d2398a8fceda9056cf39b5",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Application Credentials in Configuration Files (AZURE)",
+        "description": "Kubernetes - Application Credentials in Configuration Files (AZURE)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-26T08:27:54.660Z",
+        "lastUpdated": "2023-02-13T10:42:03.780Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d236afe20537aa86b2ba3c",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Host Network Access (GCP)",
+        "description": "Kubernetes - Host Network Access (GCP)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-26T08:15:43.031Z",
+        "lastUpdated": "2023-02-13T10:51:58.492Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d2359ee20537aa86b2335c",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Host Network Access (AWS)",
+        "description": "Kubernetes - Host Network Access (AWS)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-26T08:11:10.114Z",
+        "lastUpdated": "2023-02-13T10:52:20.075Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d14a4c1106154e4f0a5a93",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Host Network Access (AZURE)",
+        "description": "Kubernetes - Host Network Access (AZURE)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-25T15:27:08.346Z",
+        "lastUpdated": "2023-02-13T10:52:46.742Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63d10189769694d5be4d1f70",
+        "supportedPlatforms": [
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac",
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python",
+            "powershell"
+        ],
+        "commands": 8,
+        "public": true,
+        "visible": true,
+        "name": "Top Data Exfiltration - Techniques By Cymulate 2022",
+        "description": "The template contains the following top 2022 methods for data exfiltration:\nExfiltration Over DNS, Exfiltration using PSFTP, HTTP Data Exfiltration from String (XOR Encrypted), HTTP (Data Hidden in Cookie) Data Exfiltration from String, TELNET Data Exfiltration from String, Exchange Exfiltration using Basic HTTP Request, Webupload, Git Exfiltration (Windows)",
+        "author": "Cymulate",
+        "group": "2022 - Yearly top techniques",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "hostname",
+            "driver"
+        ],
+        "cleanup_at_end": false,
+        "date": "2023-01-25T10:16:41.667Z",
+        "lastUpdated": "2023-02-15T09:56:55.146Z",
+        "__v": 1,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "63c7ce0480a1c76d86fb6df8",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "powershell",
+            "command_prompt",
+            "python"
+        ],
+        "commands": 24,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - REvil",
+        "description": "Advanced Scenario REvil starts with downloading and running VBscript as a phishing attachment, then downloads and executes a file with WMIC, then it compiles and runs an executable file from a variable in an environment variable, using native API, Then it enumerates passwords from Powershell history file and looks for interesting keywords in that file. It uses 3'rd party tool to prevent the machine from shutdown, runs mimikatz to steal credentials and performs privilege escalation to SYSTEM. It, then, modifies the registry and verifies the success of modification, it impedes defense software, deletes the prefetch files, and some folders, masquerades it’s executables to match legitimate files, decodes encoded executables and runs them, enumerates power groups, folders and files and performs general recon of information, usable for export, exfiltrates system information and encrypts files. Finally, it stops services and deletes shadow copies.",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": true,
+        "date": "2023-01-18T10:46:28.729Z",
+        "lastUpdated": "2023-01-18T11:56:44.313Z",
+        "__v": 2,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63c54770cd82bbf7901bea0b",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "command_prompt",
+            "powershell",
+            "python"
+        ],
+        "commands": 11,
+        "public": true,
+        "visible": true,
+        "name": "Top Credential Dumping - Techniques By Cymulate 2022",
+        "description": "The template contains the following top 2022 methods for credentials dumping:\nCreate Volume Shadow Copy with WMI\nRegistry dump of LSA secrets\nRegistry dump of SAM, creds, and secrets\nDump *All* credentials using all LaZagne methods availiable (Windows)\nDCSync using Mimikatz (All users)\nDCSync using packed Mimikatz (64)\nPowershell DPAPI Unprotect (decrypt) data from file\nDump SPN user's hash with Kerberoasting\nKerberos ticket with unconstrained delegation\nSpoolSample : tool to coerce Windows hosts authenticate to other machines via the MS-RPRN RPC interface",
+        "author": "Cymulate",
+        "group": "2022 - Yearly top techniques",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2023-01-16T12:47:44.910Z",
+        "lastUpdated": "2023-01-17T10:32:15.003Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63ad868f4f587853ea895df0",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "powershell",
+            "command_prompt"
+        ],
+        "commands": 22,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - Quantum Ransomware Affiliate Intrusion",
+        "description": "Quantom ransomware is typically deployed by ransomware affiliates using the initial access of the Emotet malware. This malicious software is designed to encrypt data on a computer, making it inaccessible to the owner. Once the data is encrypted, a ransom note is displayed, usually demanding a payment in exchange for a decryption key.\n\nEmotet malware, is typically delivered through a malicious email attachment or link. Once the malicious file is opened, it will be deployed onto the system, allowing the ransomware to be delivered by ransomware affiliates.\n\nThe ransom message will include instructions for making a payment, usually in the form of a cryptocurrency such as Bitcoin, as well as details on what the payment will provide the victim. Typically, this includes a decryption key that will allow the user to regain access to their data.\n\nFirst the victim runs the ISO file and clicks on the LNK file inside.\nThat in turn will launch an encoded powershell script that uses Regsvr32 to load a local DLL and executes it.\n\nNext the attacker will attempt to persist in the machine by modifying the registry run key.\n\nThe attackers will then install AnyDesk on the machine to achieve additional persistency.\n\nThe attackers  will attempt to use Zero Logon on the domain controller which upon success will launch mimikatz.\n\nThen the attackers use Process Injection to run another DLL file into memory.\n\nThe attackers will try to hide their artifacts by deleting them from the system.\n\nOn the next step the attackers will use ADFind to enumerate AD Groups.\n\nThe attackers will then preform various domain, system, shares and network discovery operations.\n\nThe attackers will use SoftPerfect IP Scanner to scan the network.\n\nThe attackers will attempt to dump LSASS using ProcDump and exfiltrate it to an SFTP server using rclone.\n\nThe attackers will attempt to RDP to a machine.\n\nThe attackers will prevent the system from shutting down and logging off using DontSleep.exe.\n\nFinally, the attackers will deploy ransomware on the machine.",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2022-12-29T12:22:39.346Z",
+        "lastUpdated": "2022-12-29T14:21:03.643Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63ad66307dcf2f02f73e3d8a",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 4,
+        "public": true,
+        "visible": true,
+        "name": "OKTA Administrative activity",
+        "description": "Simulates administrative activity on OKTA platform to create suspicious activity by creating a new user, creating a new group, adding the user to a group, and enrolling the new user to the SMS factor.",
+        "author": "Cymulate",
+        "group": "Identity and Access Management",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "remote_host",
+            "token",
+            "username",
+            "password",
+            "group_name"
+        ],
+        "cleanup_at_end": false,
+        "date": "2022-12-29T10:04:32.138Z",
+        "lastUpdated": "2022-12-29T10:08:26.832Z",
+        "__v": 0,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "63ac5852beed2c2c2a64364f",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "powershell",
+            "python",
+            "command_prompt"
+        ],
+        "commands": 13,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - Zirconium",
+        "description": "Advanced Scenario Zirconium uses obfuscated files, attempts credential theft with an external resource(online tool), runs an .msi executor, modifies registry Run keys to establish persistence and checks for a successful execution. It also tries to perform DSync attack on a domain controller with the obtained user credentials and parallel to that creates yet another persistence with logon script. It obtains system information, encodes it and exfiltrates over HTTP. It executes remote payload with javascript and masquerades it’s executables for legitimate files.",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": true,
+        "date": "2022-12-28T14:53:06.317Z",
+        "lastUpdated": "2022-12-29T14:06:54.090Z",
+        "__v": 1,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63ac4cdad092397286803f42",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "powershell",
+            "command_prompt"
+        ],
+        "commands": 12,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - APT 28",
+        "description": "Advanced Scenario APT 28 Starts with dropping and executing MS Office macro-containing file and hides previously dropped file with attrib. It modifies registry Run keys to obtain persistence, runs commands in a hidden window, performs password spray. Attempts obtaining NTLN hash and perform Pass-the-Hash attack with Mimikatz, uses powershell to drop on disk malicious files and web-shell, executes a .dll file with RunDll32, enumerates users and accounts and escalates privileges using a known tool.",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "password",
+            "hostname",
+            "domain"
+        ],
+        "cleanup_at_end": true,
+        "date": "2022-12-28T14:04:10.539Z",
+        "lastUpdated": "2022-12-28T16:01:01.977Z",
+        "__v": 0,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "63a45ba4966ba2d7bdedee1a",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "powershell",
+            "command_prompt",
+            "python"
+        ],
+        "commands": 14,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - APT 34 (OilRig)",
+        "description": "OilRig is a suspected Iranian threat group that has targeted Middle Eastern and international victims since at least 2014.\nThe group has targeted a variety of sectors, including financial, government, energy, chemical, and telecommunications, the group carries out supply chain attacks, leveraging the trust relationship between organizations to attack their primary targets.\nThe intrusion begins with a spear phishing attachment arriving in an email. Upon initial access, the attackers begin utilizing PowerShell to execute Scheduled tasks to gain persistence, then loads custom tools by injecting .NET assembly into memory, the PowerShell commands are encoded with base64, then tools for sandbox or Virtual machine detection are used, it performs various discovery and exfiltration activities and exfiltrates via DNS based C2 communication",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2022-12-22T13:29:08.077Z",
+        "lastUpdated": "2023-01-18T12:15:10.835Z",
+        "__v": 1,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63a2d9ea941bb115bb355648",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "powershell",
+            "python"
+        ],
+        "commands": 8,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - Charming Kittens (Magic Hound)",
+        "description": "Advanced Scenario Charming kittens starts with downloading and running a vbs script. Downloads a file from an external source, using PowerShell, runs a command in a hidden window, modifies the registry, and runs an encrypted command from within it, then starts a keylogger. Finally, it obtains system information, compresses it, and exfiltrates it as XOR-encrypted file.",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": true,
+        "date": "2022-12-21T10:03:22.846Z",
+        "lastUpdated": "2022-12-21T10:03:22.847Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "63a197ecb0af88f384d3bca2",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Host IPC Privilege (GCP)",
+        "description": "Kubernetes - Host IPC Privilege (GCP)",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2022-12-20T11:09:32.989Z",
+        "lastUpdated": "2023-02-13T10:46:55.006Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "638f14fae7a28a5dafece7d0",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python",
+            "powershell"
+        ],
+        "commands": 4,
+        "public": true,
+        "visible": true,
+        "name": "Azure - Password Spray (Reporting Endpoint) to Database Access",
+        "description": "This scenario performs a password spray attack for a given username list and a chosen password and proceeds to use the detected credentials and attempt accessing a target Azure SQL database and run an arbitrary SQL query on it remotely.",
+        "author": "Cymulate",
+        "group": "Cloud Security - Azure",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "database_server_name",
+            "database_name",
+            "query_to_run",
+            "azure_password",
+            "azure_resource_group",
+            "subscription",
+            "tenant",
+            "azure_users"
+        ],
+        "cleanup_at_end": true,
+        "date": "2022-12-06T10:10:02.018Z",
+        "lastUpdated": "2022-12-06T10:10:02.019Z",
+        "__v": 0,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "631ef81167a0b3942fce427f",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "powershell"
+        ],
+        "commands": 1,
+        "public": true,
+        "visible": true,
+        "name": "Log4j Internal Scanner - Windows ",
+        "description": "This template uses a custom scanner to scan for log4j vulnerability in windows environments internally",
+        "author": "Cymulate",
+        "group": "Scanners",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2022-09-12T09:12:49.307Z",
+        "lastUpdated": "2022-09-12T09:14:01.307Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "62f21c815bf46124e70d0e68",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "powershell"
+        ],
+        "commands": 5,
+        "public": true,
+        "visible": true,
+        "name": "Gap Analysis Template",
+        "description": "Gap Analysis Template",
+        "author": "Cymulate",
+        "group": "Cymulate Templates",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "date": "2022-08-09T08:36:17.065Z",
+        "lastUpdated": "2022-09-13T11:15:48.934Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "62eb833562313bdf958dfa18",
+        "supportedPlatforms": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac"
+        ],
+        "os": [],
+        "executors": [
+            "powershell",
+            "python"
+        ],
+        "commands": 15,
+        "public": true,
+        "visible": true,
+        "name": "Basic Windows Tests",
+        "description": "Run basic Windows security checks to assess the security posture of Windows machines' configurations and and the Windows domain environment.",
+        "author": "Cymulate",
+        "group": "Cymulate Best Practice ",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": true,
+        "date": "2022-08-04T08:28:37.305Z",
+        "lastUpdated": "2022-09-18T17:11:53.533Z",
+        "__v": 2,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "62e1485ced4bd2499d12f7a3",
+        "supportedPlatforms": [
+            "mac",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "bash",
+            "python",
+            "sh"
+        ],
+        "commands": 16,
+        "public": true,
+        "visible": true,
+        "name": "MacOS Basic Tests",
+        "description": "Run basic MacOS security checks to assess the security posture of Linux machines' configurations.",
+        "author": "Cymulate",
+        "group": "Cymulate Best Practice ",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": true,
+        "date": "2022-07-27T14:14:52.109Z",
+        "lastUpdated": "2022-07-27T14:19:10.870Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "62de85db3a864bc3eb0015bc",
+        "supportedPlatforms": [
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac",
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "bash",
+            "python",
+            "sh"
+        ],
+        "commands": 15,
+        "public": true,
+        "visible": true,
+        "name": "Basic Linux Tests",
+        "description": "Run basic Linux security checks to assess the security posture of Linux machines' configurations.",
+        "author": "Cymulate",
+        "group": "Cymulate Best Practice ",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": true,
+        "date": "2022-07-25T12:00:27.676Z",
+        "lastUpdated": "2022-07-25T12:00:27.676Z",
+        "__v": 0,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "62b837b5579082d2e60cbd71",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "powershell",
+            "command_prompt",
+            "python"
+        ],
+        "commands": 14,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - TA505 (CL0P)",
+        "description": "TA505 - \"Clop\" (sometimes stylized as \"Cl0p\") has been one of the most prolific ransomware families in the past three years. It has gained infamy for compromising high-profile organizations in various industries worldwide using multilevel extortion techniques that resulted in huge payouts estimated at US$500 million.\nThe actor initially accesses the machine using a spear-phishing attachment containing a malicious macro.\nCreates persistency by abusing the port monitors registry key.\nUsing bypass technique UAC WSReset.\nAttempts to tamper with Windows Defender using the registry.\nDecrypt files on the workstation.\nRuns various discovery commands to discover files and directories.\nRuns a network sweep to perform network discovery.\nEnables RDP on the infected workstation and attempts to use it to connect to another server.\nDumps SQL data from an SQL server and attempts to exfiltrate it through HTTP.\nFinally, the actor drops a WebShell on the infected machine.\nThe actor initially access the machine using a spear phishing attachment containing a malicious macro.\n\nThen the actor creates persistency by abusing the port monitors registry key.\n\nThen the actors bypass using UAC using WSReset\nThe actors then attempts to tamper with Windows Defender using the registry.\n\nThe actor then attempts to decrypt files on the workstation.\n\nThe actor then runs various discovery commands to discover files and directories.\n\nAdditionally the actor runs a network sweep to perform network discovery.\n\nThe actor enables RDP on the infected workstation and attempts to use it to connect to another server.\n\nThe actor dumps SQL data from an SQL server and attempts to exfiltrate it through HTTP.\n\nFinally the actor drops a webshell on the infected machine.",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "subnet"
+        ],
+        "cleanup_at_end": true,
+        "date": "2022-06-26T10:40:53.232Z",
+        "lastUpdated": "2022-12-05T09:08:18.958Z",
+        "__v": 7,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "62b1b97679e646f9ffe3324a",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "powershell",
+            "python"
+        ],
+        "commands": 13,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - Indrik Spider (Evil Corp)",
+        "description": "Indrik Spider (Evil Corp) is responsible for the distribution of various Ransomware strains such as BitPaymer and WastedLocker. Additionally, this group is responsible for the distribution of the Dridex trojan.\n\nThe intrusion begins with a phishing email with a malicious attachment, after execution the actor runs recon commands using PowerShell.\nNext, a scheduled job is started and the registry run keys are modified for persistence.\nNext, the actor tampers with Windows Defender.\nMimikatz is executed to steal credentials. \nThe actor then runs various discovery CMDlets and executes ADFind.\nFor the lateral movement, the actor executes PSexec.\nThen the actor dumps LSASS, and exfiltrates it using a C2.\nFinally, ransomware is deployed on the workstation.",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "input_file_path",
+            "username",
+            "password"
+        ],
+        "cleanup_at_end": true,
+        "date": "2022-06-21T12:28:38.606Z",
+        "lastUpdated": "2022-11-24T14:37:28.344Z",
+        "__v": 3,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "628f547094822884b62b427a",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "powershell"
+        ],
+        "commands": 4,
+        "public": true,
+        "visible": true,
+        "name": "KrbRelayUp(Universal no fix LPE) to Domain Admin",
+        "description": "This template abuse default ADCS configuration by requesting the DC machine account certificate. then the template performs pass-the-ticket attack using rubeus and eventually elevating our privileges using dcsync.",
+        "author": "Cymulate",
+        "group": "Cymulate Templates",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "cleanup_at_end": true,
+        "date": "2022-05-26T10:20:32.246Z",
+        "lastUpdated": "2022-09-18T07:35:55.277Z",
+        "__v": 1,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "627b6f0f1adbba359d33ca27",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "powershell"
+        ],
+        "commands": 3,
+        "public": true,
+        "visible": true,
+        "name": "KrbRelayUp(No fix Universal LPE) to Lateral Movement",
+        "description": "the template will use krbrelayup(universal no fix lpe) to elevate the privileges of the current user to system and then perform a mimikatz dump to collect credentials. once credentials has been obtained the credentials will be passed and be used to check where the current user have access to and perform lateral movement to those targets.",
+        "author": "Cymulate",
+        "group": "Cymulate Templates",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "date": "2022-05-11T08:08:47.278Z",
+        "lastUpdated": "2022-09-18T08:25:20.847Z",
+        "__v": 0,
+        "cleanup_at_end": true,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "627a55d8a2b5a2097c028376",
+        "supportedPlatforms": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac"
+        ],
+        "os": [],
+        "executors": [
+            "python",
+            "powershell",
+            "command_prompt"
+        ],
+        "commands": 14,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenarios - MuddyWater APT",
+        "description": "MuddyWater is an Iranian threat group that has primarily targeted Middle Eastern nations, and has also targeted European and North American nations. The group's victims are mainly in the telecommunications, government (IT services), and oil sectors. \n\nThe intrusion starts with a phishing email which an attachment that leads to Script execution or installation of ScreenConnect Remote Administration tool. The actors then use WMI to launch local processes. Additionally a scheduled task is launched to gain persistence.\nThe actors extract passwords using Lazagne.\nThe actors disable Windows Defender using CMD.\nThe actors use Steganography for Defense Evasion. \nThe actors will dump LSASS and LSA secrets for Credential Access. \nThe actors will run a variety of discovery cmdlets. \nThe actors will exfiltrate data by archiving it and extracting it over the standard HTTP protocol.",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "date": "2022-05-10T12:08:56.320Z",
+        "lastUpdated": "2022-11-07T16:08:36.039Z",
+        "__v": 8,
+        "cleanup_at_end": true,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "626e9a1432f49fcee1dedf51",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "powershell",
+            "command_prompt",
+            "python"
+        ],
+        "commands": 14,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - Cobalt Group",
+        "description": "Cobalt Group Advanced scenario starts with downloading a phishing attachment, written in VBS. Then it'll place it into the Start-Up folder and execute it from there. It will establish persistence by creating an on-startup task job, which is programmed for running the same VBS file. It will also attempt to create a Windows service with the task of running that file.\n Then it will list security products and attempt ingress tool transfer by downloading a file with certutil. The action will be followed by privilege escalation of bypassing UAC and modifying the registry, so it'll run the previously downloaded file. After that, it'll attempt remote file execution with Regsvr32.\n Then it'll attempt a port scan with Nmap and RDP into one of the found servers. Finally, it'll create an exfiltration folder, compress data, found during Nmap scan, and exfiltrate it over HTTP and over DNS.",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "service_name",
+            "password",
+            "remote_host",
+            "username"
+        ],
+        "date": "2022-05-01T14:32:52.297Z",
+        "lastUpdated": "2022-10-13T15:47:36.807Z",
+        "__v": 6,
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "62695c55175d1711c4c74f24",
+        "supportedPlatforms": [
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac",
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "python",
+            "bash",
+            "sh"
+        ],
+        "commands": 8,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - Sandworm for Linux",
+        "description": "Sandworm for Linux Advanced Scenario starts with establishing an ssh tunnel, proceeds to disable history collection, then scenario disables the firewall. Then it tests the usage of the uncommonly used port. Then it masquerades a user process for a Kernel process. Then it collects system information, encodes it, and exfiltrates it over HTTP ***NOTE***This scenario contains distro-specific executions, that might not work on other distros",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "username",
+            "remote_host",
+            "remote_port",
+            "Port",
+            "sudo_password",
+            "port",
+            "domain"
+        ],
+        "date": "2022-04-27T15:08:05.477Z",
+        "lastUpdated": "2022-10-27T19:01:29.222Z",
+        "__v": 5,
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "62695aef9e58fd6729b1fd7f",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "powershell",
+            "python"
+        ],
+        "commands": 15,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - Lapsus$ for AWS",
+        "description": "Lapsus$ Advanced Scenario for AWS starts with downloading and executing phishing attachment, Then it queries the web for a specific tool, creates a folder for future exfiltration, searchers for AWS credentials and, if found, uses them to execute a custom command on one of Windows-based instances. The command includes downloading and unpacking a masqueraded mimikatz. Then it creates an IAM user and enumerates S3 buckets. Parallel to that all passwords are collected from history file, then compressed and exfiltrated over HTTP. The file, containing collected passwords in encrypted with AES to simulate data encryption. Then EC2 instances are being enumerated with following attempt of accessing one of them via RDP. At the end desktop background is defaced to simulate defacing action. ***NOTE***This scenario will run completely only if the tested instance connected via ssm agent",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "username",
+            "password",
+            "remote_host",
+            "aws_access_key_id",
+            "aws_secret_access_key",
+            "instance_id",
+            "region"
+        ],
+        "date": "2022-04-27T15:02:07.905Z",
+        "lastUpdated": "2022-10-27T13:34:16.824Z",
+        "__v": 4,
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "6269268ce84a0cc7277040f2",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "powershell",
+            "python"
+        ],
+        "commands": 9,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - Lapsus$ for Azure",
+        "description": "Lapsus$ Advanced Scenario for Azure starts with downloading and executing phishing attachment, Then it queries the web for a specific tool, creates a folder for future exfiltration, then it collects all relevant to Azure passwords from history file, compresses them and exfiltrates over HTTP. Then it’ll try to authenticate to Azure, enumerate Windows-based instances, create Azure AD user, RDP to one of found instances and run a script on one of them with Run command. The script includes downloading and unpacking masqueraded mimikatz file and querying the web for specific information. It also will try to exfiltrate a calc.exe file from the instance. At the end desktop background is defaced to simulate defacing action.",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "azure_username",
+            "azure_password",
+            "subscription",
+            "tenant",
+            "vm_name",
+            "resource_group"
+        ],
+        "date": "2022-04-27T11:18:36.292Z",
+        "lastUpdated": "2022-10-25T12:21:28.682Z",
+        "__v": 4,
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "6253db28ff800c3e2d5521cd",
+        "supportedPlatforms": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac"
+        ],
+        "os": [],
+        "executors": [
+            "powershell",
+            "python"
+        ],
+        "commands": 15,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - Lockbit 2.0 Ransomware Intrusion",
+        "description": "LockBit ransomware is malicious software designed to block user access to computer systems in exchange for a ransom payment. LockBit will automatically vet for valuable targets, spread the infection, and encrypt all accessible computer systems on a network. This ransomware is used for highly targeted attacks against enterprises and other organizations.\n\nLockbit arrives via spam email or by brute forcing insecure RDP or VPN credentials.\nThe phishing attachment would execute various scripting languages on the machine.\nThe actors will attempt to persist on the machine by using Boot Or Logon Initialization scripts.\nThe actors will attempt to use DLL Side-Loading.\nThe actors will attempt to gain higher privileges using Access Token Manipulation.\nThe actors will attempt to disable security solutions.\nThe actors will dump credentials and scan the network to perform lateral movement.\nThe actors will using mimikatz to collect credentials and exfiltrate them using HTTP.\nThe actors will perform network share discovery using Powershell.\nThe actors will attempt to use Advanced IP Scanner to perform network scans.\nFinally, the actors will deploy ransomware on the attacked machine.",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "command",
+            "logon_script"
+        ],
+        "date": "2022-04-11T07:39:20.339Z",
+        "lastUpdated": "2022-12-29T14:33:10.583Z",
+        "__v": 8,
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "624c38f959e74fd861c96b26",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "command_prompt",
+            "powershell",
+            "python"
+        ],
+        "commands": 17,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - Sandworm for Windows",
+        "description": "Sandworm advanced scenario starts with downloading a phishing attachment and then runs a vbs script from that attachment.\n Then it uses WMI to download a file with PowerShell, then it writes a web-shell on the disk. It creates an admin user on SQL server, it creates a new SMB share for anonymous access.\n Then it discovers domains within the organization, attempts password spray and RDP connection to one of them. Then it attempts execution of a command with run32.dll and tries to install a keylogger, following by keystrokes capture.\n Then, it enumerates all local and domain users, compresses the data and exfiltrates with C2 channel. Parallel to that it encrypts a file in temp folder to simulate data encryption. Then, it deletes Event Viewer logs.",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "web_server_www_path"
+        ],
+        "date": "2022-04-05T12:41:29.817Z",
+        "lastUpdated": "2022-12-05T09:08:47.043Z",
+        "__v": 10,
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "624a8e06fa1fb298e470542a",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "powershell",
+            "python",
+            "command_prompt"
+        ],
+        "commands": 20,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - Cuba Ransomware Intrusion",
+        "description": "UNC2596, a threat actor that deploys COLDDRAW ransomware, publicly known as Cuba Ransomware.\nCuba ransomware begins by initiating a scheduled task on the target endpoint and drop a webshell that will be deployed on it.\nThe actors will attempt various actions to finalize their attack:\nEnumerate all accounts on the system and exfiltrate them using DNS.\nAttempt to detect if the system is a Virtual Machine\nAttempt to execute a signed variant of Mimikatz will be executed.\nAdd a new account to a local group within the endpoint.\nUse Process Injection to bypass defenses.\nUtilize a bug in an Avast driver to terminate processes from the kernel.\nGrant themselves access to all shares using net share.\nPing sweep the network for discovery purposes.\nUse Lazagne to drop credentials from browsers.\nExfiltrate all the data dumped during the intrusion using PSFTP.\nAttempt to use RDP for lateral movement.\nKill services by killing their corresponding processes.\nFinally, a Ransomware variant is executed on the machine.\nA mandatory system restart is required to fully remove the Avast driver sys file which will be located in the preferred location (default: Windows temp folder within the following path 'windows\\avast').",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "command"
+        ],
+        "date": "2022-04-04T06:19:50.867Z",
+        "lastUpdated": "2022-12-29T14:32:27.118Z",
+        "__v": 4,
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "6241c7e43a794738be96908d",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "command_prompt",
+            "powershell"
+        ],
+        "commands": 18,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - Wizard Spider Intrusion",
+        "description": "This Intrusion mimics a real intrusion by Wizard Spider which deployed Diavol Ransomware.\nWizard spider perform internal discovery using Windows utilities, execute lateral movement using AnyDesk and RDP, dump credentials multiple ways, exfiltrate data and deploy domain wide ransomware.",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "full_domain_name",
+            "ip_range"
+        ],
+        "date": "2022-03-28T14:36:20.903Z",
+        "lastUpdated": "2022-12-29T14:32:45.975Z",
+        "__v": 4,
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "624176b90a01ab5e6697695e",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "powershell",
+            "command_prompt",
+            "python"
+        ],
+        "commands": 20,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - Fin7",
+        "description": "Fin7 Advanced scenario will start with Downloading a VBS script as a spearphishing attachment and executing it from a startup folder.\nThen it'll perform a web request with Powershell to simulate the download of a file and then it'll encode a simple string and execute it from the registry while creating the necessary key, thus setting persistency.\nIt'll also perform additional persistency settings, such as creating a task job and running the mshta executor.\nThen, it'll perform kerberosting, and then it'll scan for a ZeroLogon vulnerability.\nAfter this, the scenario will create new shim database files, which will be followed by lateral movement activities, such as: invoking the VNC injector, discovering and connecting to a remote host via RDP.\nAfter that, it'll collect information such as: doc files, screenshots, video captures and system information\nThat action will be followed by archiving the obtained information and exfiltrating it over a DNS. \nAt the final stage, the archived file will be encrypted with the AES256 algorithm to simulate ransomware activity",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "domain_controller_name",
+            "remote_host",
+            "username",
+            "custom_folder_path",
+            "custom64_folder_path"
+        ],
+        "date": "2022-03-28T08:50:01.334Z",
+        "lastUpdated": "2022-10-09T11:08:25.896Z",
+        "__v": 4,
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "623874f0d94edf230f1f0494",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "powershell",
+            "python",
+            "command_prompt"
+        ],
+        "commands": 12,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - APT 33",
+        "description": "APT 33 starts with a spear-phishing attack of an excel with an embedded macro. It creates a shortcut in Start folders, then sets persistence via WMI Event Subscription. Then it executes an obfuscated PowerShell command and uses LaZagne tool to extract all possible credentials. Following that it compresses it with Winrar and exfiltrates with multiple ways. Then it enumerates domain users and performs password spraying, attempting to log into the discovered users.",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "password"
+        ],
+        "date": "2022-03-21T12:52:00.458Z",
+        "lastUpdated": "2022-10-26T15:26:31.027Z",
+        "__v": 0,
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "6230683d2e7fa0ae1ccee016",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "powershell",
+            "command_prompt",
+            "python"
+        ],
+        "commands": 10,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - APT 38 for Windows",
+        "description": "APT 38 for Windows performs a spearphishing, executes a command as a service, while creating a taskjob with that command for further use, stops Microsoft firewall, tampers with Defender Registry, clears Event logs, captures inputs with keylogger and then exfiltrates information, encoded with XOR. Finally it obtains system information and encrypts resulting file with AES to simulate data encryption, performed by APT 38 in the wild.",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "time",
+            "remote_host",
+            "username",
+            "domain",
+            "password"
+        ],
+        "date": "2022-03-15T10:19:41.105Z",
+        "lastUpdated": "2022-08-31T14:39:17.044Z",
+        "__v": 1,
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "623061cbabdd43d36c766c7a",
+        "supportedPlatforms": [
+            "ubuntu",
+            "centos",
+            "debian",
+            "redhat"
+        ],
+        "os": [],
+        "executors": [
+            "bash",
+            "python"
+        ],
+        "commands": 2,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - APT 38 for Linux",
+        "description": "APT 38 for Linux drops a web shell file into a default folder of Apache Tomcat and Parallel to that attempts an RCE on Apache Strus 2 application. Upon successful execution of the RCE, an executable will be downloaded. An executable, in turn, deletes bash history for current shell and adds a whoami command to cron of root user. It also adds to cron commands of creating and deleting 10 empty files, to simulate disk wipe, performed by APT 38 in the wild.",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "web_server_www_path",
+            "url"
+        ],
+        "date": "2022-03-15T09:52:11.876Z",
+        "lastUpdated": "2022-09-01T11:56:40.506Z",
+        "__v": 0,
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "6225ce49afca2f66e68330ed",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "powershell",
+            "python",
+            "command_prompt"
+        ],
+        "commands": 18,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - APT Lazarus",
+        "description": "APT Lazarus performs spearphishing, downloads and executes a file, while performing multiple persistence setting and defense evasion actions, such as: modifying registry, hiding files and creating dynamic links(shortcuts). Then it queries for a specific registry values, enumerates domain users and attempts to brute force their credentials. It also attempts to access SMB shares and Remote Desktop Protocol for lateral movement, for that reason it modifies defence system (such as firewall) rules. In addition it uses a keylogger for collecting information, which is later on exfiltrated with custom encryption. It attempts Command and Control activities through a remote connection. Finally it stops vital services on the attacked machines.",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "password",
+            "username",
+            "full_domain_name",
+            "domain",
+            "remote_host",
+            "share_path"
+        ],
+        "date": "2022-03-07T09:20:09.546Z",
+        "lastUpdated": "2022-10-26T15:27:07.188Z",
+        "__v": 6,
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "cleanup_at_end": false,
+        "_id": "621f8bae682cbd4fdbbbdf3a",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "os": [],
+        "executors": [
+            "command_prompt",
+            "python",
+            "powershell"
+        ],
+        "commands": 7,
+        "public": true,
+        "visible": true,
+        "name": "XLoader Cross-platform RAT",
+        "description": "Template which attempts to successfully emulate XLoader on a Windows platform ",
+        "author": "Cymulate",
+        "group": "Malicious Tools",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "date": "2022-03-02T15:22:22.514Z",
+        "lastUpdated": "2022-03-03T13:44:15.048Z",
+        "__v": 1,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "62027ae1a2bafeb3adb18e00",
+        "supportedPlatforms": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac"
+        ],
+        "os": [],
+        "executors": [
+            "powershell",
+            "command_prompt",
+            "python"
+        ],
+        "commands": 14,
+        "public": true,
+        "visible": true,
+        "name": "Advanced Scenario - APT 29",
+        "description": "APT29 performs network configuration discovery, disables windows firewall, performs a UAC bypass, uses different abilities of mimikatz while bypassing PowerShell AMSI, downloads and masquerades AdFind as csrss.exe, then uses it to create a task job and pull out relevant information from the domain, then it performs kerberosting and pass-the-ticket attacks, finally, it compresses data and exfiltrates it over HTTPS.",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "output_file_path",
+            "output_file_path_domain"
+        ],
+        "date": "2022-02-08T14:14:57.451Z",
+        "lastUpdated": "2022-10-09T11:07:46.311Z",
+        "__v": 6,
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "61dd931b0714f3015aed1c5a",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "commands": 1,
+        "public": true,
+        "visible": true,
+        "name": "Scanner: Child domain to parent domain trust compromise",
+        "description": "Scanner: Child domain to parent domain trust compromise",
+        "author": "Cymulate",
+        "group": "Scanners",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "date": "2022-01-11T14:24:27.663Z",
+        "lastUpdated": "2022-09-18T08:27:03.786Z",
+        "__v": 0,
+        "os": [
+            "windows"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "61dd92a827e2d083108ec5c1",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "commands": 1,
+        "public": true,
+        "visible": true,
+        "name": "Scanner: Lateral movement through PSEXEC - User specific",
+        "description": "Scanner: Lateral movement through PSEXEC - User specific",
+        "author": "Cymulate",
+        "group": "Scanners",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "date": "2022-01-11T14:22:32.477Z",
+        "lastUpdated": "2022-09-18T08:58:22.641Z",
+        "__v": 0,
+        "os": [
+            "windows"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "61dc4fcc27e2d08310553412",
+        "supportedPlatforms": [
+            "debian",
+            "ubuntu",
+            "centos"
+        ],
+        "executors": [
+            "bash"
+        ],
+        "commands": 1,
+        "public": true,
+        "visible": true,
+        "name": "Log4j - Internal Scanner - Linux",
+        "description": "Log4j - Internal Scanner - Linux",
+        "author": "Cymulate",
+        "group": "Scanners",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "date": "2022-01-10T15:25:00.206Z",
+        "lastUpdated": "2022-09-18T08:56:32.151Z",
+        "__v": 1,
+        "os": [
+            "ubuntu",
+            "debian"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": false
+    },
+    {
+        "cleanup_at_end": false,
+        "_id": "61d4507c6c2d5043b54e21f2",
+        "supportedPlatforms": [
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat"
+        ],
+        "executors": [
+            "python",
+            "bash"
+        ],
+        "commands": 5,
+        "public": true,
+        "visible": true,
+        "name": "log4j Vcenter RCE",
+        "description": "this template emulate an attack on vcenter using the log4j exploit and steal the admin token and run command on VM's that conected to the Vcenter ",
+        "author": "Cymulate",
+        "group": "Exploitation",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "date": "2022-01-04T13:49:48.212Z",
+        "lastUpdated": "2022-01-04T13:49:48.212Z",
+        "__v": 0,
+        "os": [
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat"
+        ],
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "61c0b971b307c64434a1298f",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "python"
+        ],
+        "commands": 1,
+        "public": true,
+        "visible": true,
+        "name": "Log4j Vulnerability Scanner - External",
+        "description": "Log4j Vulnerability Scanner - External",
+        "author": "Cymulate",
+        "group": "Scanners",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "date": "2021-12-20T17:12:17.006Z",
+        "lastUpdated": "2022-09-18T08:57:24.532Z",
+        "__v": 0,
+        "os": [
+            "windows"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": false
+    },
+    {
+        "cleanup_at_end": false,
+        "_id": "61af7ee2ab55ea0f1274c668",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "python",
+            "powershell"
+        ],
+        "commands": 2,
+        "public": true,
+        "visible": true,
+        "name": "Scanner: Domain Admin Through Resource-based Constrained Delegation",
+        "description": "Scanner: Domain Admin Through Resource-based Constrained Delegation",
+        "author": "Cymulate",
+        "group": "Scanners",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "date": "2021-12-07T15:33:54.591Z",
+        "lastUpdated": "2021-12-07T15:33:54.591Z",
+        "__v": 0,
+        "os": [
+            "windows"
+        ],
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "61acb1b572630aef8e387f88",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "commands": 9,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - AWS Managed (EKS)",
+        "description": "Current template deals with various possible scenarios with the Kubernetes platform, including querying and dumping information.\nThe current template requires Amazon EKS - Managed (by AWS) Kubernetes service.",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "aws_access_key_id",
+            "aws_secret_access_key",
+            "region",
+            "cluster_name",
+            "config_file_path",
+            "account_id",
+            "pod_name"
+        ],
+        "date": "2021-12-05T12:33:57.239Z",
+        "lastUpdated": "2022-11-13T18:04:22.574Z",
+        "__v": 1,
+        "os": [
+            "kubernetes",
+            "aws",
+            "windows"
+        ],
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "cleanup_at_end": false,
+        "_id": "61acae07ab55ea0f1269f170",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell",
+            "command_prompt",
+            "python"
+        ],
+        "commands": 17,
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes - Standalone",
+        "description": "Current template deals with various possible scenarios with the Kubernetes platform, including querying and dumping information, container escaping, and more",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "kube_secret",
+            "cluster_master",
+            "config_file_path"
+        ],
+        "date": "2021-12-05T12:18:15.881Z",
+        "lastUpdated": "2021-12-05T12:31:44.149Z",
+        "__v": 0,
+        "os": [
+            "kubernetes",
+            "aws",
+            "windows"
+        ],
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "61a748e28c6b044da05e2522",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "python"
+        ],
+        "commands": 2,
+        "public": true,
+        "visible": true,
+        "name": "Azure database dump through Key-vault compromise - Username based.",
+        "description": "Azure database dump through Key-vault compromise - Username based.",
+        "author": "Cymulate",
+        "group": "Cloud Security - Azure",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "azure_username",
+            "azure_password",
+            "database_server_name",
+            "database_name",
+            "query_to_run",
+            "keyvault_name",
+            "target_secret_keys",
+            "tenant_id"
+        ],
+        "date": "2021-12-01T10:05:22.116Z",
+        "lastUpdated": "2022-09-20T12:18:39.178Z",
+        "__v": 1,
+        "os": [
+            "windows"
+        ],
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "61a4fc3814d07b0a2b70060c",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell",
+            "python"
+        ],
+        "commands": 5,
+        "public": true,
+        "visible": true,
+        "name": "O365 - Malicious Outlook Rules",
+        "description": "O365 - Malicious Outlook Rules",
+        "author": "Cymulate",
+        "group": "Cloud Security - Azure",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "username",
+            "user_password",
+            "domain"
+        ],
+        "date": "2021-11-29T16:13:44.401Z",
+        "lastUpdated": "2022-09-11T12:30:50.699Z",
+        "__v": 0,
+        "os": [
+            "windows"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": true
+    },
+    {
+        "cleanup_at_end": false,
+        "_id": "61926870211e62e53a180dbe",
+        "supportedPlatforms": [
+            "ubuntu",
+            "debian",
+            "centos",
+            "mac",
+            "redhat"
+        ],
+        "executors": [
+            "sh",
+            "bash"
+        ],
+        "commands": 7,
+        "public": true,
+        "visible": true,
+        "name": "Cryptominer - Linux",
+        "description": "Simulates a local machine infection with Cryptominer (Will consume high CPU), creates persistency, and deletes bash history.",
+        "author": "Cymulate Research",
+        "group": "Malicious Tools",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": true,
+        "globalInputs": [],
+        "date": "2021-11-15T14:02:24.029Z",
+        "lastUpdated": "2021-11-28T09:54:13.261Z",
+        "__v": 1,
+        "os": [
+            "ubuntu",
+            "debian",
+            "centos",
+            "mac",
+            "redhat"
+        ],
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "618160ffd4c8265781bf18a7",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Windows Malicious Traffic: Ip and Port scanning",
+        "description": "The template will create traffic that simulates an attacker scanning the environment.",
+        "author": "Cymulate",
+        "group": "Malicious Network Traffic for IPS Assessments",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "commands": 2,
+        "date": "2021-11-02T16:02:07.114Z",
+        "lastUpdated": "2022-09-01T12:46:10.722Z",
+        "__v": 0,
+        "os": [
+            "windows"
+        ],
+        "cleanup_at_end": true,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "61800a191ff5515733057f17",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Azure - Password Spray Reporting Endpoint and Outlook Forms Attack",
+        "description": "Azure - Password Spray Reporting Endpoint and Outlook Forms Attack",
+        "author": "Cymulate",
+        "group": "Cloud Security - Azure",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "azure_password",
+            "domain",
+            "form_name",
+            "azure_users"
+        ],
+        "commands": 2,
+        "date": "2021-11-01T15:39:05.254Z",
+        "lastUpdated": "2022-09-19T12:09:54.480Z",
+        "__v": 0,
+        "os": [
+            "azure",
+            "windows"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "618009e41ff5515733057a17",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Azure - Password Spray MSSOL and Outlook Forms Attack",
+        "description": "Azure - Password Spray MSSOL and Outlook Forms Attack",
+        "author": "Cymulate",
+        "group": "Cloud Security - Azure",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "azure_password",
+            "domain",
+            "form_name",
+            "command",
+            "azure_users"
+        ],
+        "commands": 2,
+        "date": "2021-11-01T15:38:12.393Z",
+        "lastUpdated": "2022-11-29T12:45:29.175Z",
+        "__v": 0,
+        "os": [
+            "windows",
+            "azure"
+        ],
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "6176dbe27e1a2c2b52f22cca",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "python",
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Azure - Password Spray MSSOL and lateral movement to DB",
+        "description": "Azure - Password Spray MSSOL and lateral movement to DB",
+        "author": "Cymulate",
+        "group": "Cloud Security - Azure",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "database_server_name",
+            "database_name",
+            "query_to_run",
+            "keyvault_name",
+            "target_secret_keys",
+            "azure_password",
+            "azure_users"
+        ],
+        "commands": 4,
+        "date": "2021-10-25T16:31:30.051Z",
+        "lastUpdated": "2022-11-29T12:48:55.177Z",
+        "__v": 3,
+        "os": [
+            "windows",
+            "azure"
+        ],
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "6176d7763416222aca318933",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "python",
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Azure - Password Spray Reporting Endpoint and lateral movement to DB",
+        "description": "Azure - Password Spray Reporting Endpoint and lateral movement to DB",
+        "author": "Cymulate",
+        "group": "Cloud Security - Azure",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "database_server_name",
+            "database_name",
+            "query_to_run",
+            "azure_password",
+            "azure_resource_group",
+            "azure_users"
+        ],
+        "commands": 4,
+        "date": "2021-10-25T16:12:38.836Z",
+        "lastUpdated": "2022-11-30T18:56:28.639Z",
+        "__v": 1,
+        "os": [
+            "windows",
+            "azure"
+        ],
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "6176be5a05c8a630be5723ae",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "python"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Azure - Instance Key-Vault Token and lateral movement to DB",
+        "description": "Azure - Instance Key-Vault Token and lateral movement to DB",
+        "author": "Cymulate",
+        "group": "Cloud Security - Azure",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "database_server_name",
+            "database_name",
+            "azure_key_vault_token",
+            "azure_key_vault_vault_name"
+        ],
+        "commands": 2,
+        "date": "2021-10-25T14:25:30.495Z",
+        "lastUpdated": "2022-09-19T12:32:01.561Z",
+        "__v": 0,
+        "os": [
+            "azure",
+            "windows"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "6138fe842384be795b393ce5",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Scanner : Initial Foothold To Enterprise Admin (Spooler vulnerability)",
+        "description": "this template scans the entire environment to determine where its possible to run the Initial Foothold To Enterprise Admin (Spooler vulnerability) Template",
+        "author": "Cymulate",
+        "group": "Scanners",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": null,
+        "commands": 1,
+        "date": "2021-09-08T18:18:44.193Z",
+        "lastUpdated": "2022-09-18T08:27:37.330Z",
+        "__v": 0,
+        "os": [
+            "windows"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "6138f83934629746e2b83410",
+        "supportedPlatforms": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac"
+        ],
+        "executors": [
+            "powershell",
+            "python"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Scanner : Kubernetes Service Account To Cluster Admin",
+        "description": "scans where its possible to run the Kubernetes Service Accont To Cluster Admin template.",
+        "author": "Cymulate",
+        "group": "Scanners",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": null,
+        "commands": 4,
+        "date": "2021-09-08T17:51:53.040Z",
+        "lastUpdated": "2022-08-21T08:03:27.627Z",
+        "__v": 2,
+        "os": [
+            "windows"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "6138f3214194ed7912b939d0",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "python",
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Scanner : Resource Based Constrained Delegation to Domain Admin",
+        "description": "This scanner will scan the environment to determine where its possible to run the resource based constrained delegation template.",
+        "author": "Cymulate",
+        "group": "Scanners",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": null,
+        "commands": 3,
+        "date": "2021-09-08T17:30:09.010Z",
+        "lastUpdated": "2022-09-18T08:29:06.176Z",
+        "__v": 1,
+        "os": [
+            "windows"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "6138ed8cdb9d5a472f37c1cb",
+        "supportedPlatforms": [
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac",
+            "windows"
+        ],
+        "executors": [
+            "python",
+            "bash"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Scanner : SSH Session Hijacking",
+        "description": "This Scanner attempts to find machines where its possible to run the SSH Session Hijacking Template ",
+        "author": "Cymulate",
+        "group": "Scanners",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "username",
+            "password",
+            "port"
+        ],
+        "commands": 3,
+        "date": "2021-09-08T17:06:20.681Z",
+        "lastUpdated": "2022-09-18T14:06:54.092Z",
+        "__v": 2,
+        "os": [
+            "windows",
+            "linux",
+            "mac"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "6138eca643fdcb794b22cd64",
+        "supportedPlatforms": [
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac",
+            "windows"
+        ],
+        "executors": [
+            "python"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Scanner: NTLMRelay Scanner",
+        "description": "This Scanner scans a given range if its possible to perform NTLMRelay and on which hosts.",
+        "author": "Cymulate",
+        "group": "Scanners",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": null,
+        "commands": 1,
+        "date": "2021-09-08T17:02:30.925Z",
+        "lastUpdated": "2022-09-18T08:30:10.906Z",
+        "__v": 1,
+        "os": [
+            "windows",
+            "ubuntu",
+            "redhat",
+            "debian",
+            "centos",
+            "mac"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "6138ea6448845a797bff0d47",
+        "supportedPlatforms": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac"
+        ],
+        "executors": [
+            "python"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Scanner: ZeroLogon To Enterprise Admin",
+        "description": "This template will scan the entire environment and output if its possible to run the ZeroLogon To Enterprise Admin Template",
+        "author": "Cymulate",
+        "group": "Scanners",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": null,
+        "commands": 2,
+        "date": "2021-09-08T16:52:52.783Z",
+        "lastUpdated": "2022-09-18T08:35:07.786Z",
+        "__v": 1,
+        "os": [
+            "windows",
+            "linux",
+            "mac"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": false
+    },
+    {
+        "cleanup_at_end": false,
+        "_id": "6123882de8b5fb4c68c8b52a",
+        "supportedPlatforms": [
+            "mac",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat"
+        ],
+        "executors": [
+            "sh",
+            "bash"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "MacOS Various Tests ",
+        "description": "this template perform different tests to validate endpoint solutions, mac misconfigurations.",
+        "author": "Cymulate",
+        "group": "Cymulate Templates",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "commands": 26,
+        "date": "2021-08-23T11:36:13.828Z",
+        "lastUpdated": "2021-08-23T11:36:13.828Z",
+        "__v": 0,
+        "os": [
+            "mac",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat"
+        ],
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "60fd7721ddc6f412941be235",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "python",
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "FIN06 - More_Eggs",
+        "description": "FIN06 More_Eggs Campaign attack simulation",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": null,
+        "commands": 11,
+        "date": "2021-07-25T14:37:21.506Z",
+        "lastUpdated": "2022-10-13T15:13:11.588Z",
+        "__v": 6,
+        "os": [
+            "windows"
+        ],
+        "cleanup_at_end": true,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "60f068a882c2e933ae349ea8",
+        "supportedPlatforms": [
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac"
+        ],
+        "executors": [
+            "bash",
+            "python"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Lateral movement with SSH Session Hijacking ",
+        "description": "This template uses the SSH Session hijacking technique to hijack existing ssh session on a linux machine. ",
+        "author": "Cymulate",
+        "group": "Cymulate Templates",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "username",
+            "hostname",
+            "command"
+        ],
+        "commands": 2,
+        "date": "2021-07-15T16:56:08.057Z",
+        "lastUpdated": "2022-09-06T13:44:43.519Z",
+        "__v": 1,
+        "os": [
+            "ubuntu",
+            "debian",
+            "centos",
+            "mac",
+            "redhat"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "60e59fcc67fdf66554bb9e4d",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "command_prompt",
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Resource Based Constrained Delegation to Domain Admin",
+        "description": "this template assumes that the curent user have GenericWrite privilege over a computer object. it will query the domain to make sure its possible to add a new computer to the domain, add it and then with the write privileges on the vulenrable machine it will allow the newly created machine to perform actions on behalf of that computer. then it will request a TGS for a high privilege account to compromise the domain.",
+        "author": "Cymulate",
+        "group": "Cymulate Templates",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "hostname",
+            "domain_name"
+        ],
+        "commands": 5,
+        "date": "2021-07-07T12:36:28.952Z",
+        "lastUpdated": "2022-09-18T15:23:55.660Z",
+        "__v": 0,
+        "os": [
+            "windows"
+        ],
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "60e59e36fcc7eb65084ef5df",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell",
+            "command_prompt"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "ZeroLogon to Enterprise Admin ",
+        "description": "This template will scan for the ZeroLogon vulnerability if vulnerable will run the exploit and proceed to DCSync on the current domain Grab the Krbtgt enumerate the parent forest and attempt to escalate to the root domain.",
+        "author": "Cymulate",
+        "group": "Exploitation",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "commands": 7,
+        "date": "2021-07-07T12:29:42.267Z",
+        "lastUpdated": "2022-09-18T09:39:05.679Z",
+        "__v": 1,
+        "os": [
+            "windows"
+        ],
+        "cleanup_at_end": true,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "60d1956d1599ee06c61119dd",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Kubernetes service account to cluster admin",
+        "description": "This Module will attempt to search if the current user can extract the default service account token, mount it and then dump secrets with the current privs. once dumped, the module will try to escalate to by dumping the kube-system secrets resulting in cluster admin privs",
+        "author": "Cymulate",
+        "group": "Kubernetes",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "pod_name"
+        ],
+        "commands": 4,
+        "date": "2021-06-22T07:46:53.983Z",
+        "lastUpdated": "2022-09-18T17:12:08.221Z",
+        "__v": 0,
+        "os": [
+            "kubernetes"
+        ],
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "60be5740ac607c1e6400354a",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "CSPM - AWS: IAM manipulation + hiding logs",
+        "description": "Mimics malicious behavior in an attempt of gaining persistence while evading defense mechanisms.\nThe scenario includes stopping Cloudtrail, creation of an IAM user, enumerating IAM groups with administrator permissions, adding the created user into one of them, and then starting Cloudtrail service again.",
+        "author": "Cymulate",
+        "group": "Cloud Security - AWS",
+        "scenariosDelay": 0,
+        "addCleanup": false,
+        "isTrojan": false,
+        "globalInputs": [
+            "aws_access_key_id",
+            "aws_secret_access_key",
+            "username",
+            "region",
+            "cloudtrail"
+        ],
+        "commands": 5,
+        "date": "2021-06-07T17:28:32.203Z",
+        "lastUpdated": "2022-08-31T15:38:51.214Z",
+        "__v": 2,
+        "os": [
+            "aws"
+        ],
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "60be54ee6fe6ee57856ce6b1",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "CSPM - AWS: Spinning malicious instance",
+        "description": "Spins an instance, mimicking an attacker attempting to gain persistence by placing a malicious instance in an AWS account.\nThe scenario includes the creation, modification, and attachment of a Security group and the creation of an instance from a preconfigured image on Amazon Marketplace.",
+        "author": "Cymulate",
+        "group": "Cloud Security - AWS",
+        "scenariosDelay": 0,
+        "addCleanup": false,
+        "isTrojan": false,
+        "globalInputs": [
+            "aws_access_key_id",
+            "aws_secret_access_key",
+            "region",
+            "vpc"
+        ],
+        "commands": 4,
+        "date": "2021-06-07T17:18:38.085Z",
+        "lastUpdated": "2022-08-31T15:49:04.966Z",
+        "__v": 0,
+        "os": [
+            "aws"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "60be4ce49ebfd7219ed3d675",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "CSPM - AWS: AMI deletion",
+        "description": "Removes an Amazon Machine Image from your account, mimicking destructive attack action. The scenario includes the creation of an AMI from an AWS instance and then deleting it.",
+        "author": "Cymulate",
+        "group": "Cloud Security - AWS",
+        "scenariosDelay": 0,
+        "addCleanup": false,
+        "isTrojan": false,
+        "globalInputs": [
+            "aws_access_key_id",
+            "aws_secret_access_key",
+            "instance_id"
+        ],
+        "commands": 2,
+        "date": "2021-06-07T16:44:20.700Z",
+        "lastUpdated": "2022-08-31T16:02:09.197Z",
+        "__v": 0,
+        "os": [
+            "aws"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "60be4bea27ee0803433d6a6f",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell",
+            "python"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "CSPM - AWS: IAM user added to admin group",
+        "description": "Adds an IAM user to the IAM group with high permissions.\nThe scenario includes creating an IAM user, Enumerating groups with administrative rights on your account, and adding the created user into one of them.",
+        "author": "Cymulate",
+        "group": "Cloud Security - AWS",
+        "scenariosDelay": 0,
+        "addCleanup": false,
+        "isTrojan": false,
+        "globalInputs": [
+            "aws_access_key_id",
+            "aws_secret_access_key",
+            "region"
+        ],
+        "commands": 5,
+        "date": "2021-06-07T16:40:10.266Z",
+        "lastUpdated": "2022-08-31T16:34:40.274Z",
+        "__v": 0,
+        "os": [
+            "aws"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "60be4974339e98057e3f9dae",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "CSPM - AWS: Instance theft",
+        "description": "Allows downloading an instance as an ova container in order to perform further breaching activities. As an example-mounting an instance to a Virtual Machine as a disk and placing malicious content into it.\nThe scenario includes creating an S3 bucket, granting it the needed level of permissions, and downloading one of the instances to the bucket.",
+        "author": "Cymulate",
+        "group": "Cloud Security - AWS",
+        "scenariosDelay": 0,
+        "addCleanup": false,
+        "isTrojan": false,
+        "globalInputs": [
+            "aws_access_key_id",
+            "aws_secret_access_key",
+            "s3_bucket_name",
+            "region",
+            "instance_id",
+            "target_environment",
+            "DiskImageFormat",
+            "ContainerFormat"
+        ],
+        "commands": 4,
+        "date": "2021-06-07T16:29:40.508Z",
+        "lastUpdated": "2022-08-31T16:19:00.572Z",
+        "__v": 0,
+        "os": [
+            "aws"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "60be44ed893a9103cfd7f9ad",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "CSPM - AWS: Security groups manipulation",
+        "description": "Manipulates the Security group in your account. The scenario contains creating a security group, modifying it, and attaching it to a running instance. Certain inputs must be provided by the customer.",
+        "author": "Cymulate",
+        "group": "Cloud Security - AWS",
+        "scenariosDelay": 0,
+        "addCleanup": false,
+        "isTrojan": false,
+        "globalInputs": [
+            "aws_access_key_id",
+            "aws_secret_access_key",
+            "region",
+            "vpc"
+        ],
+        "commands": 3,
+        "date": "2021-06-07T16:10:21.025Z",
+        "lastUpdated": "2022-08-31T16:34:09.673Z",
+        "__v": 0,
+        "os": [
+            "aws"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "60be4233ae15272178b11fad",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "CSPM - AWS: Object substitution",
+        "description": "Substitutes an object in a given S3 bucket. The scenario includes placing a file into S3 bucket of choice and then substituting it with another file, that has the same name but contains an embedded macro.",
+        "author": "Cymulate",
+        "group": "Cloud Security - AWS",
+        "scenariosDelay": 0,
+        "addCleanup": false,
+        "isTrojan": false,
+        "globalInputs": [
+            "aws_access_key_id",
+            "aws_secret_access_key",
+            "region"
+        ],
+        "commands": 2,
+        "date": "2021-06-07T15:58:43.221Z",
+        "lastUpdated": "2022-08-31T16:37:09.902Z",
+        "__v": 0,
+        "os": [
+            "aws"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "60be3e7d339e98057e3f5441",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "CSPM - AWS: EC2 Non-authenticated custom script",
+        "description": "Allows running an arbitrary script on an AWS instance, without authentication. The scenario includes updating a Linux instance, installing the curl tool, downloading and running a bash script. The instance must be provided by the customer. This scenario will only work if AWS SSM is installed on the instance.",
+        "author": "Cymulate",
+        "group": "Cloud Security - AWS",
+        "scenariosDelay": 0,
+        "addCleanup": false,
+        "isTrojan": false,
+        "globalInputs": [
+            "aws_access_key_id",
+            "aws_secret_access_key",
+            "region"
+        ],
+        "commands": 2,
+        "date": "2021-06-07T15:42:53.418Z",
+        "lastUpdated": "2022-08-31T16:40:18.327Z",
+        "__v": 0,
+        "os": [
+            "aws"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "60be3bbb812f9821d8fdedfd",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "CSPM - AWS: Account take-over via Lambda invocation",
+        "description": "Mimics an account takeover, using Lambda function.\nThe scenario includes adding trust relations, that allows service to perform role assumption, creating Lambda function, attaching required trust relations to the function, permitting 3rd party account invocation of that function, and, finally creating/deleting or modifying an IAM user by invoking the function from the 3'rd party account.",
+        "author": "Cymulate",
+        "group": "Cloud Security - AWS",
+        "scenariosDelay": 0,
+        "addCleanup": false,
+        "isTrojan": false,
+        "globalInputs": [
+            "aws_access_key_id",
+            "aws_secret_access_key",
+            "aws_outside_access_key_id",
+            "aws_outside_secret_access_key",
+            "outside_account_id",
+            "account_id",
+            "region",
+            "lambda_name",
+            "iam_role",
+            "lambda_interpreter",
+            "policy_arn"
+        ],
+        "commands": 5,
+        "date": "2021-06-07T15:31:07.360Z",
+        "lastUpdated": "2022-08-31T16:49:25.732Z",
+        "__v": 0,
+        "os": [
+            "aws"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "60b8cd1bbbcacb6ae489413b",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "CSPM - AWS Lambda Functions",
+        "description": "Basic validations of AWS Lambda functions. Includes creation, deletion, and account manipulations with Lambda functions. Some executions require additional configuration or prerequisites in terms of permissions and roles. This can be achieved by manual configuration or by pairing them with executions, dealing with those prerequisites.",
+        "author": "Cymulate",
+        "group": "Cloud Security - AWS",
+        "scenariosDelay": 0,
+        "addCleanup": false,
+        "isTrojan": false,
+        "globalInputs": [
+            "aws_access_key_id",
+            "aws_secret_access_key",
+            "account_id",
+            "region",
+            "outside_account_id",
+            "aws_outside_access_key_id",
+            "aws_outside_secret_access_key"
+        ],
+        "commands": 6,
+        "date": "2021-06-03T12:37:47.182Z",
+        "lastUpdated": "2022-09-01T13:08:20.877Z",
+        "__v": 0,
+        "os": [
+            "aws"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "60b8cb47a9d44235381c0f27",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "CSPM - AWS Infrastructure, VPC and Network",
+        "description": "Basic validations of AWS infrastructure, VPC, and networks. Includes a variety of manipulations with security, network, permissions, backup, and logging elements.",
+        "author": "Cymulate",
+        "group": "Cloud Security - AWS",
+        "scenariosDelay": 0,
+        "addCleanup": false,
+        "isTrojan": false,
+        "globalInputs": [
+            "aws_access_key_id",
+            "aws_secret_access_key",
+            "region",
+            "vpc",
+            "Security_group_id",
+            "clodtrail",
+            "Protocol",
+            "ImageId"
+        ],
+        "commands": 24,
+        "date": "2021-06-03T12:29:59.772Z",
+        "lastUpdated": "2022-09-01T13:26:04.218Z",
+        "__v": 1,
+        "os": [
+            "aws"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "60b8c5e7a9d44235381bf82f",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "CSPM - AWS S3 basic validations",
+        "description": "AWS S3 basic validations. Includes configuration, and permissions manipulations with S3 buckets, ",
+        "author": "Cymulate",
+        "group": "Cloud Security - AWS",
+        "scenariosDelay": 0,
+        "addCleanup": false,
+        "isTrojan": false,
+        "globalInputs": [
+            "aws_access_key_id",
+            "aws_secret_access_key",
+            "region",
+            "encryption"
+        ],
+        "commands": 16,
+        "date": "2021-06-03T12:07:03.031Z",
+        "lastUpdated": "2022-09-01T13:46:15.176Z",
+        "__v": 0,
+        "os": [
+            "aws"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": true
+    },
+    {
+        "cleanup_at_end": false,
+        "_id": "60b8c2299cc0e0349728609b",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell",
+            "python"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "CSPM - AWS IAM basic validations",
+        "description": "Basic validations of AWS IAM service. Includes testing functionalities of a user, group, and permission manipulation.",
+        "author": "Cymulate",
+        "group": "Cloud Security - AWS",
+        "scenariosDelay": 0,
+        "addCleanup": false,
+        "isTrojan": false,
+        "globalInputs": [
+            "aws_access_key_id",
+            "aws_secret_access_key",
+            "region",
+            "account_id"
+        ],
+        "commands": 15,
+        "date": "2021-06-03T11:51:05.663Z",
+        "lastUpdated": "2021-06-03T11:56:31.587Z",
+        "__v": 0,
+        "os": [
+            "aws"
+        ],
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "60ab772eeca05a5c2c84aa1b",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Windows: Malicious SMB Traffic to the Internet",
+        "description": "SMB is a file, printer, and serial port sharing protocol for Windows machines on the same network or domain. Adversaries may use SMB to interact with file shares, allowing them to move laterally throughout a network.\nThe traffic will be generated whether the user used is a local administrator on the remote machine or not.\nSnort rule example: 1-24008",
+        "author": "Cymulate",
+        "group": "Malicious Network Traffic for IPS Assessments",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "commands": 3,
+        "date": "2021-05-24T09:51:42.586Z",
+        "lastUpdated": "2022-09-01T08:07:05.824Z",
+        "__v": 1,
+        "os": [
+            "windows"
+        ],
+        "cleanup_at_end": true,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "60ab76620b4e58436ddba77c",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell",
+            "command_prompt"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Windows: Malicious Traffic to the Internet",
+        "description": "The Windows Component Object Model (COM) is a component of the native Windows application programming interface (API) that enables interaction between software objects, or executable code that implements one or more interfaces. Through COM, a client object can call methods of server objects, which are typically Dynamic Link Libraries (DLL) or executables (EXE). Distributed COM (DCOM) is transparent middleware that extends the functionality of COM beyond a local computer using remote procedure call (RPC) technology.\nThe traffic will be generated whether the user used is a local administrator on the remote machine or not.\nSnot rule example for DCOM traffic detection: https://www.snort.org/rule_docs/1-42185",
+        "author": "Cymulate",
+        "group": "Malicious Network Traffic for IPS Assessments",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "commands": 14,
+        "date": "2021-05-24T09:48:18.804Z",
+        "lastUpdated": "2022-09-14T12:47:48.105Z",
+        "__v": 0,
+        "os": [
+            "windows"
+        ],
+        "cleanup_at_end": true,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "60ab740cc774725ce8e7d874",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Windows: Lateral Movement Traffic over SMB",
+        "description": "SMB is a file, printer, and serial port sharing protocol for Windows machines on the same network or domain. Adversaries may use SMB to interact with file shares, allowing them to move laterally throughout a network.\nThe traffic will be generated whether the user used is a local administrator on the remote machine or not.\nSnort rule example: 1-24008",
+        "author": "Cymulate",
+        "group": "Malicious Network Traffic for IPS Assessments",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "commands": 4,
+        "date": "2021-05-24T09:38:20.537Z",
+        "lastUpdated": "2022-09-18T11:00:21.587Z",
+        "__v": 2,
+        "os": [
+            "windows"
+        ],
+        "cleanup_at_end": true,
+        "isGlobalInputs": false
+    },
+    {
+        "cleanup_at_end": false,
+        "_id": "60a676d43ba9566a2c70cdd3",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell",
+            "command_prompt"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Windows: Lateral movement Traffic over DCOM",
+        "description": "The Windows Component Object Model (COM) is a component of the native Windows application programming interface (API) that enables interaction between software objects, or executable code that implements one or more interfaces. Through COM, a client object can call methods of server objects, which are typically Dynamic Link Libraries (DLL) or executables (EXE). Distributed COM (DCOM) is transparent middleware that extends the functionality of COM beyond a local computer using remote procedure call (RPC) technology.\nThe traffic will be generated whether the user used is a local administrator on the remote machine or not.\nSnot rule example for DCOM traffic detection: https://www.snort.org/rule_docs/1-42185",
+        "author": "Cymulate",
+        "group": "Malicious Network Traffic for IPS Assessments",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "commands": 13,
+        "date": "2021-05-20T14:48:52.478Z",
+        "lastUpdated": "2021-11-02T15:55:48.443Z",
+        "__v": 1,
+        "os": [
+            "windows"
+        ],
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "608e790e14f04b623b966a1b",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell",
+            "python"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Domain Password Strength Evaluation",
+        "description": "This Template asses the strength of your domain passwords by extracting the NTDS.dit file and then feeding it into secretsdump to extract all domain hashes once that is achieved, hashcat attempts to crack those hashes.",
+        "author": "Cymulate",
+        "group": "Cymulate Templates",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "hostname",
+            "username",
+            "password"
+        ],
+        "commands": 3,
+        "date": "2021-05-02T10:03:58.977Z",
+        "lastUpdated": "2022-09-18T10:50:06.808Z",
+        "__v": 1,
+        "os": [
+            "windows"
+        ],
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "604614409e86063b049552c7",
+        "supportedPlatforms": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac"
+        ],
+        "executors": [
+            "command_prompt",
+            "powershell",
+            "sh",
+            "python",
+            "bash"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Ransomware operators' TTPS 2021",
+        "description": "Ransomware operators' TTPS for 2021 based on the MITRE ATT&CK techniques.",
+        "author": "Cymulate",
+        "group": "Malicious Tools",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": null,
+        "commands": 246,
+        "date": "2021-03-08T12:10:40.593Z",
+        "lastUpdated": "2022-10-09T10:59:19.001Z",
+        "__v": 2,
+        "os": [
+            "windows",
+            "azure",
+            "ubuntu",
+            "debian",
+            "centos",
+            "mac",
+            "redhat",
+            "aws",
+            "kubernetes",
+            "gcp"
+        ],
+        "cleanup_at_end": false,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "603b553924a8394e553712a4",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Azure Password Spray to AAD Enumeration",
+        "description": "This Template attempt to password spray a given username lists and if valid will execute different enumeration scripts",
+        "author": "Cymulate",
+        "group": "Cloud Security - Azure",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "azure_password",
+            "azure_users"
+        ],
+        "commands": 11,
+        "date": "2021-02-28T08:32:57.043Z",
+        "lastUpdated": "2023-01-02T09:59:59.224Z",
+        "__v": 0,
+        "os": [
+            "azure"
+        ],
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "603b5458076b553e17238666",
+        "supportedPlatforms": [
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac",
+            "windows"
+        ],
+        "executors": [
+            "python",
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Azure Password spray to Credential Exfiltration",
+        "description": "this template will password spray a list of users with a chosen password then once access is achieved, execute mimikatz on a resource available to the user and exfiltrate the output as a string.",
+        "author": "Cymulate",
+        "group": "Cloud Security - Azure",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "azure_users",
+            "azure_password",
+            "subscription_id",
+            "hostname"
+        ],
+        "commands": 4,
+        "date": "2021-02-28T08:29:12.870Z",
+        "lastUpdated": "2023-01-09T09:58:01.634Z",
+        "__v": 1,
+        "os": [
+            "azure",
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "mac",
+            "redhat"
+        ],
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "603283b224a8394e5513a633",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Azure Security Testing",
+        "description": "Enumerate Various information regarding the Azure account provided, attempt to execute code on the specified target, attempt to download and find sensitive information such as passwords, databases and other sensitive assets that the account have access to. ",
+        "author": "Cymulate",
+        "group": "Cloud Security - Azure",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "azure_username",
+            "azure_password",
+            "group_name",
+            "TenantId"
+        ],
+        "commands": 14,
+        "date": "2021-02-21T16:00:50.460Z",
+        "lastUpdated": "2023-01-08T16:34:31.605Z",
+        "__v": 0,
+        "os": [
+            "azure"
+        ],
+        "cleanup_at_end": true,
+        "isGlobalInputs": true
+    },
+    {
+        "cleanup_at_end": false,
+        "_id": "6032828f565f2f3da321f783",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell",
+            "python"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "AWS Security Testing ",
+        "description": "Enumerate Various information regarding the AWS account provided, attempt to download and find sensitive information such as passwords, databases and other sensitive assets that the account have access to.",
+        "author": "Cymulate",
+        "group": "Cloud Security - AWS",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [
+            "aws_access_key_id",
+            "aws_secret_access_key"
+        ],
+        "commands": 25,
+        "date": "2021-02-21T15:55:59.244Z",
+        "lastUpdated": "2021-02-21T15:55:59.244Z",
+        "__v": 0,
+        "os": [
+            "aws"
+        ],
+        "isGlobalInputs": true
+    },
+    {
+        "_id": "60297842bb61e54e2103b566",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Initial Foothold To Enterprise Admin",
+        "description": "This template uses the SpoolSample vulnerability to force the print service(spooler) to authenticate back to our controlled unconstrained machine. it then proceed to extract the ticket  and pass it using mimikatz. once DA level of Access is achieved it will compromise the parent domain by using the SID History method and gain Enterprise admin level of access. \n",
+        "author": "Cymulate",
+        "group": "Cymulate Templates",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "globalInputs": [],
+        "commands": 5,
+        "date": "2021-02-14T19:21:38.092Z",
+        "lastUpdated": "2022-09-18T09:32:19.378Z",
+        "__v": 2,
+        "os": [
+            "windows"
+        ],
+        "cleanup_at_end": true,
+        "isGlobalInputs": false
+    },
+    {
+        "cleanup_at_end": false,
+        "_id": "6012e8e5710e916d4634b3c3",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "command_prompt",
+            "powershell",
+            "python"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "PyMICROPSIA",
+        "description": "https://unit42.paloaltonetworks.com/pymicropsia/",
+        "author": "Cymulate",
+        "group": "Malicious Tools",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "commands": 8,
+        "date": "2021-01-28T16:40:05.920Z",
+        "lastUpdated": "2021-01-28T16:40:05.920Z",
+        "__v": 0,
+        "globalInputs": null,
+        "os": [
+            "windows"
+        ],
+        "isGlobalInputs": false
+    },
+    {
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "_id": "60096c426b52e55f3941dbef",
+        "supportedPlatforms": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac"
+        ],
+        "executors": [
+            "powershell",
+            "python",
+            "command_prompt"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Windows Security Assurance Basic",
+        "description": "Verify basic defense against most common attack simulations",
+        "author": "Cymulate",
+        "group": "Cymulate Templates",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "commands": 23,
+        "date": "2021-01-21T11:57:54.578Z",
+        "lastUpdated": "2021-01-21T12:07:47.572Z",
+        "__v": 2,
+        "os": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac"
+        ],
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "600946c732275d60202b2085",
+        "supportedPlatforms": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac"
+        ],
+        "executors": [
+            "command_prompt",
+            "python",
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Windows Security Assurance Advanced",
+        "description": "Verify advance defense against most common attack simulations",
+        "author": "Cymulate",
+        "group": "Cymulate Templates",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "commands": 46,
+        "date": "2021-01-21T09:17:59.876Z",
+        "lastUpdated": "2022-09-18T17:14:18.610Z",
+        "__v": 6,
+        "os": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac",
+            "azure"
+        ],
+        "cleanup_at_end": true,
+        "globalInputs": [],
+        "isGlobalInputs": false
+    },
+    {
+        "cleanup_at_end": false,
+        "_id": "5ff1f5067623b50290077b64",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "command_prompt",
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "SolarWinds Supply Chain attack Simulation",
+        "description": "Mimics part of the SolarWinds Supply Chain attack used by the adversaries to gain highest level of privileges and spread Laterally across Multiple Environments.",
+        "author": "Cymulate",
+        "group": "APT & TA Groups - Advanced",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "commands": 9,
+        "date": "2021-01-03T16:47:02.120Z",
+        "lastUpdated": "2021-01-03T16:47:02.120Z",
+        "__v": 0,
+        "globalInputs": null,
+        "os": [
+            "windows"
+        ],
+        "isGlobalInputs": false
+    },
+    {
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "_id": "5fdf726301729ab1b0d260de",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "command_prompt",
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Child domain to parent domain trust compromise",
+        "description": "Compromising parent domain trust leveraging SID History attack.",
+        "author": "Cymulate",
+        "group": "Cymulate Templates",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "clientID_": "5e2db74712f0b55f483f35ab",
+        "commands": 4,
+        "date": "2020-12-20T21:36:17.448Z",
+        "lastUpdated": "2020-12-20T18:36:44.432Z",
+        "__v": 1,
+        "os": [
+            "windows"
+        ],
+        "isGlobalInputs": false
+    },
+    {
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "_id": "5fdf72bd01729ab1b0d403f3",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell",
+            "command_prompt"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Credential gathering for lateral movement using SharpRDP",
+        "description": "Dumping creds of the current logged in user enumerating local admin access and moving laterally using SharpRDP",
+        "author": "Cymulate",
+        "group": "Cymulate Templates",
+        "scenariosDelay": 0,
+        "addCleanup": true,
+        "isTrojan": false,
+        "clientID_": "5e2db74712f0b55f483f35ab",
+        "commands": 3,
+        "date": "2020-12-20T14:45:14.116Z",
+        "lastUpdated": "2020-12-20T18:37:09.600Z",
+        "__v": 0,
+        "os": [
+            "windows"
+        ],
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "5fbae20c7ccf742119069f35",
+        "supportedPlatforms": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac"
+        ],
+        "executors": [
+            "powershell",
+            "python"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Lateral Movement Using Mimikatz and Invoke-TheHash",
+        "description": "Lateral Movement Using Psexec to execute a process on a remote device using credentials dumped by mimikatz and a host that was discovered by port scanning on 443.",
+        "author": "Cymulate",
+        "group": "Cymulate Templates",
+        "scenariosDelay": 0,
+        "isTrojan": false,
+        "commands": 5,
+        "date": "2020-11-22T22:11:24.345Z",
+        "lastUpdated": "2022-09-22T16:02:53.838Z",
+        "__v": 1,
+        "os": [
+            "windows"
+        ],
+        "addCleanup": true,
+        "cleanup_at_end": true,
+        "globalInputs": [],
+        "isGlobalInputs": false
+    },
+    {
+        "addCleanup": true,
+        "cleanup_at_end": false,
+        "_id": "5fbab2ceaa5aff1c71825eac",
+        "supportedPlatforms": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "mac",
+            "redhat"
+        ],
+        "executors": [
+            "command_prompt",
+            "powershell",
+            "bash",
+            "python",
+            "sh"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "RedCanary 2020: Industry - Transportation",
+        "description": "Most used TTPs for the Transportation industry",
+        "author": "Cymulate",
+        "group": "Industry Focused Assessment",
+        "scenariosDelay": 0,
+        "isTrojan": false,
+        "commands": 144,
+        "date": "2020-11-22T18:49:50.359Z",
+        "lastUpdated": "2020-11-22T18:49:50.360Z",
+        "__v": 0,
+        "globalInputs": null,
+        "os": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "mac",
+            "redhat"
+        ],
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "5fbab24189f1a71cf78a20bc",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Kerberoasting Hashes Cracking",
+        "description": "Downloading a Powershell script that users Kerberoasting using Bitsadmin then downloading John the ripper cracking tool to crack the hashes collected",
+        "author": "Cymulate",
+        "group": "Cymulate Templates",
+        "scenariosDelay": 0,
+        "isTrojan": false,
+        "commands": 4,
+        "date": "2020-11-22T18:47:29.122Z",
+        "lastUpdated": "2022-09-18T08:32:56.441Z",
+        "__v": 1,
+        "os": [
+            "windows"
+        ],
+        "addCleanup": true,
+        "cleanup_at_end": true,
+        "globalInputs": [],
+        "isGlobalInputs": false
+    },
+    {
+        "addCleanup": true,
+        "cleanup_at_end": false,
+        "_id": "5fbab1a42b8efb7d319975ea",
+        "supportedPlatforms": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac"
+        ],
+        "executors": [
+            "powershell",
+            "command_prompt",
+            "bash",
+            "python",
+            "sh"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "RedCanary 2020: Industry - Energy",
+        "description": "Most used TTPs for the Energy industry",
+        "author": "Cymulate",
+        "group": "Industry Focused Assessment",
+        "scenariosDelay": 0,
+        "isTrojan": false,
+        "commands": 169,
+        "date": "2020-11-22T18:44:52.524Z",
+        "lastUpdated": "2020-11-22T18:44:52.524Z",
+        "__v": 0,
+        "globalInputs": null,
+        "os": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac"
+        ],
+        "isGlobalInputs": false
+    },
+    {
+        "addCleanup": true,
+        "cleanup_at_end": false,
+        "_id": "5fbab150bc11b81cd4636e12",
+        "supportedPlatforms": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac"
+        ],
+        "executors": [
+            "powershell",
+            "command_prompt",
+            "bash",
+            "python",
+            "sh"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "RedCanary 2020: Industry - Technology",
+        "description": "Most used TTPs for the Technology industry",
+        "author": "Cymulate",
+        "group": "Industry Focused Assessment",
+        "scenariosDelay": 0,
+        "isTrojan": false,
+        "commands": 139,
+        "date": "2020-11-22T18:43:28.233Z",
+        "lastUpdated": "2020-11-22T18:43:28.233Z",
+        "__v": 0,
+        "globalInputs": null,
+        "os": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac"
+        ],
+        "isGlobalInputs": false
+    },
+    {
+        "addCleanup": true,
+        "cleanup_at_end": false,
+        "_id": "5fbab05612dccc1ca6161980",
+        "supportedPlatforms": [
+            "windows",
+            "mac",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat"
+        ],
+        "executors": [
+            "powershell",
+            "command_prompt",
+            "python",
+            "bash",
+            "sh"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "RedCanary 2020: Industry - Services",
+        "description": "Most used TTPs for the Services industry",
+        "author": "Cymulate",
+        "group": "Industry Focused Assessment",
+        "scenariosDelay": 0,
+        "isTrojan": false,
+        "commands": 175,
+        "date": "2020-11-22T18:39:18.884Z",
+        "lastUpdated": "2020-11-22T18:39:18.884Z",
+        "__v": 0,
+        "globalInputs": null,
+        "os": [
+            "windows",
+            "mac",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat"
+        ],
+        "isGlobalInputs": false
+    },
+    {
+        "addCleanup": true,
+        "cleanup_at_end": false,
+        "_id": "5fbaaff42b8efb7d31996e05",
+        "supportedPlatforms": [
+            "windows",
+            "ubuntu",
+            "mac",
+            "debian",
+            "centos",
+            "redhat"
+        ],
+        "executors": [
+            "powershell",
+            "command_prompt",
+            "python",
+            "bash",
+            "sh"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "RedCanary 2020: Industry - Retail",
+        "description": "Most used TTPs for the Retail industry",
+        "author": "Cymulate",
+        "group": "Industry Focused Assessment",
+        "scenariosDelay": 0,
+        "isTrojan": false,
+        "commands": 190,
+        "date": "2020-11-22T18:37:40.940Z",
+        "lastUpdated": "2020-11-22T18:37:40.941Z",
+        "__v": 0,
+        "globalInputs": null,
+        "os": [
+            "windows",
+            "ubuntu",
+            "mac",
+            "debian",
+            "centos",
+            "redhat"
+        ],
+        "isGlobalInputs": false
+    },
+    {
+        "addCleanup": true,
+        "cleanup_at_end": false,
+        "_id": "5fbaaf515e57887dab4e4766",
+        "supportedPlatforms": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "mac",
+            "redhat"
+        ],
+        "executors": [
+            "powershell",
+            "command_prompt",
+            "sh",
+            "bash",
+            "python"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "RedCanary 2020: Industry - Healthcare",
+        "description": "Most used TTPs for the Healthcare industry\n",
+        "author": "Cymulate",
+        "group": "Industry Focused Assessment",
+        "scenariosDelay": 0,
+        "isTrojan": false,
+        "commands": 188,
+        "date": "2020-11-22T18:34:57.330Z",
+        "lastUpdated": "2020-11-22T18:34:57.330Z",
+        "__v": 0,
+        "globalInputs": null,
+        "os": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "mac",
+            "redhat"
+        ],
+        "isGlobalInputs": false
+    },
+    {
+        "addCleanup": true,
+        "cleanup_at_end": false,
+        "_id": "5fbaae6b2b8efb7d3199670d",
+        "supportedPlatforms": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "mac",
+            "redhat"
+        ],
+        "executors": [
+            "powershell",
+            "command_prompt",
+            "sh",
+            "bash",
+            "python"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "RedCanary 2020: Industry - Manufacturing",
+        "description": "Most used TTPs for the Manufacturing industry",
+        "author": "Cymulate",
+        "group": "Industry Focused Assessment",
+        "scenariosDelay": 0,
+        "isTrojan": false,
+        "commands": 201,
+        "date": "2020-11-22T18:31:07.352Z",
+        "lastUpdated": "2020-11-22T18:31:07.352Z",
+        "__v": 0,
+        "globalInputs": null,
+        "os": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "mac",
+            "redhat"
+        ],
+        "isGlobalInputs": false
+    },
+    {
+        "addCleanup": true,
+        "cleanup_at_end": false,
+        "_id": "5fbaade612dccc1ca6160f8d",
+        "supportedPlatforms": [
+            "windows",
+            "mac",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat"
+        ],
+        "executors": [
+            "powershell",
+            "command_prompt",
+            "python",
+            "bash",
+            "sh"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "RedCanary 2020: Industry - Finance",
+        "description": "Most used TTPs for the Finance industry\n",
+        "author": "Cymulate",
+        "group": "Industry Focused Assessment",
+        "scenariosDelay": 0,
+        "isTrojan": false,
+        "commands": 163,
+        "date": "2020-11-22T18:28:54.134Z",
+        "lastUpdated": "2020-11-22T18:29:28.721Z",
+        "__v": 0,
+        "globalInputs": null,
+        "os": [
+            "windows",
+            "mac",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat"
+        ],
+        "isGlobalInputs": false
+    },
+    {
+        "addCleanup": true,
+        "cleanup_at_end": false,
+        "_id": "5fbaaae8f66c4a1cf0a4d114",
+        "supportedPlatforms": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac"
+        ],
+        "executors": [
+            "command_prompt",
+            "powershell",
+            "bash",
+            "python",
+            "sh"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "RedCanary 2020: Industry - Education",
+        "description": "Most used TTPs for the Education industry",
+        "author": "Cymulate",
+        "group": "Industry Focused Assessment",
+        "scenariosDelay": 0,
+        "isTrojan": false,
+        "commands": 140,
+        "date": "2020-11-22T18:25:08.341Z",
+        "lastUpdated": "2020-11-22T18:25:20.940Z",
+        "__v": 0,
+        "globalInputs": null,
+        "os": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac"
+        ],
+        "isGlobalInputs": false
+    },
+    {
+        "addCleanup": true,
+        "globalInputs": [],
+        "cleanup_at_end": false,
+        "_id": "5fbaac0cb56b2d7d88984d63",
+        "supportedPlatforms": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac"
+        ],
+        "executors": [
+            "powershell",
+            "command_prompt",
+            "python"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Zero Trust Security",
+        "description": "Zero Trust Security - Secure Your Organization Beyond Perimeter",
+        "author": "Cymulate",
+        "group": "Cymulate Templates",
+        "scenariosDelay": 0,
+        "isTrojan": false,
+        "commands": 30,
+        "date": "2020-11-22T18:25:00.883Z",
+        "lastUpdated": "2020-11-22T18:25:00.883Z",
+        "__v": 0,
+        "os": [
+            "windows",
+            "ubuntu",
+            "debian",
+            "centos",
+            "redhat",
+            "mac"
+        ],
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "5fbaac3daae1b97d7002f9ee",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "command_prompt",
+            "powershell",
+            "python"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "ComRAT and Zebrocy",
+        "description": "New ComRAT & Zebrocy malwares",
+        "author": "Cymulate",
+        "group": "Malicious Tools",
+        "scenariosDelay": 0,
+        "commands": 9,
+        "date": "2020-11-22T18:21:49.515Z",
+        "lastUpdated": "2022-10-09T11:02:13.626Z",
+        "isTrojan": true,
+        "__v": 0,
+        "globalInputs": null,
+        "os": [
+            "windows"
+        ],
+        "addCleanup": true,
+        "cleanup_at_end": false,
+        "isGlobalInputs": false
+    },
+    {
+        "_id": "5fbaaafd12dccc1ca616065c",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell",
+            "command_prompt"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "T-RAT 2.0",
+        "description": "T-RAT 2.0 - Telegram Used to Issue Commands",
+        "author": "Cymulate",
+        "group": "Malicious Tools",
+        "scenariosDelay": 0,
+        "commands": 10,
+        "date": "2020-11-22T18:16:29.336Z",
+        "lastUpdated": "2022-10-09T11:03:28.405Z",
+        "isTrojan": true,
+        "__v": 0,
+        "globalInputs": null,
+        "os": [
+            "windows"
+        ],
+        "addCleanup": true,
+        "cleanup_at_end": false,
+        "isGlobalInputs": false
+    },
+    {
+        "addCleanup": true,
+        "cleanup_at_end": false,
+        "_id": "5fbaaa3206c21c7d5c4a5779",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "command_prompt",
+            "powershell"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Abbadon RAT",
+        "description": "Abbadon RAT gets commands via Discord",
+        "author": "Cymulate",
+        "group": "Malicious Tools",
+        "scenariosDelay": 0,
+        "commands": 6,
+        "date": "2020-11-22T18:13:06.014Z",
+        "lastUpdated": "2020-11-22T18:17:04.901Z",
+        "isTrojan": true,
+        "__v": 1,
+        "globalInputs": null,
+        "os": [
+            "windows"
+        ],
+        "isGlobalInputs": false
+    },
+    {
+        "addCleanup": true,
+        "cleanup_at_end": false,
+        "_id": "5fbaa9a58e97c91d2e779c8e",
+        "supportedPlatforms": [
+            "windows"
+        ],
+        "executors": [
+            "powershell",
+            "command_prompt",
+            "python"
+        ],
+        "public": true,
+        "visible": true,
+        "name": "Kimsuky Spyware Module",
+        "description": "New Kimsuky Module Makes North Korean Spyware More Powerful",
+        "author": "Cymulate",
+        "group": "Malicious Tools",
+        "scenariosDelay": 0,
+        "commands": 14,
+        "date": "2020-11-22T18:10:45.383Z",
+        "lastUpdated": "2020-11-22T18:18:54.005Z",
+        "isTrojan": true,
+        "__v": 1,
+        "globalInputs": null,
+        "os": [
+            "windows"
+        ],
+        "isGlobalInputs": false
+    }
+]
