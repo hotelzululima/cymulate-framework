@@ -8,19 +8,11 @@ def powershell_encode(cmd: str) -> str:
     return b64encode(cmd.encode('utf_16_le')).decode()
 
 
-def powershell(cmd: str) -> tuple:
-    """Run powershell commands & return output and error"""
+def powershell(cmd: str) -> subprocess.Popen:
+    """Return powershell process"""
     encoded_cmd = powershell_encode(cmd)
     p = subprocess.Popen(f'powershell -ExecutionPolicy RemoteSigned -e {encoded_cmd}', stdin=PIPE, stderr=PIPE,
                          stdout=PIPE)
-    return p.communicate()
+    return p
 
 
-def powershell_return_code(cmd: str) -> int:
-    """
-    Get return code powershell command
-    Example: 0 , 1
-    """
-    encoded_cmd = powershell_encode(cmd)
-    p = run(f'powershell -ExecutionPolicy RemoteSigned -e {encoded_cmd}', stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    return p.returncode
