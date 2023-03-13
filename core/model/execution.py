@@ -89,7 +89,7 @@ class Execution:
     successIndicators: List[SuccessIndicator]
     iocs: list
     tags: list
-    dataSources: list
+    # dataSources: list
     cves: list
     timeout: int
     author: str
