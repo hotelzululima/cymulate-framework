@@ -2,7 +2,7 @@
 Cymulate's Execution Model
 """
 from dataclasses import dataclass
-from typing import List
+from typing import List, Optional
 
 
 @dataclass
@@ -89,7 +89,7 @@ class Execution:
     successIndicators: List[SuccessIndicator]
     iocs: list
     tags: list
-    # dataSources: list
+    dataSources: Optional[list]
     cves: list
     timeout: int
     author: str
