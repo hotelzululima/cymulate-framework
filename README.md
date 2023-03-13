@@ -23,12 +23,29 @@ This project is aimed to help security professionals construct fully customizabl
 - Python 3.11+
 - Poetry (`pip install poetry`)
 
+## Usage
+
+Make sure python 3.11+ and poetry are installed.
+
+Install dependencies:
+
+```powershell
+poetry install
+```
+
+Batch Scripts:
+
+- `client_start.bat` - Reset and update to the latest version of the framework then run `main.py`
+
 ## Development
 
 ### Setup
 
 ```powershell
+# Install dependencies
 poetry install
+
+# Activate the virtual environment
 poetry shell
 ```
 
