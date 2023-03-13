@@ -93,7 +93,7 @@ class Execution:
     cves: list
     timeout: int
     author: str
-    keywords: list
+    keywords: Optional[list]
     date: str
     # not using __v because it has problem with instance private variable -> _Execution__v
     # __v: int
