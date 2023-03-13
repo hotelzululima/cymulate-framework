@@ -1,3 +1,0 @@
-"""
-Cleanup utilities for Linux.
-"""
