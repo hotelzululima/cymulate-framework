@@ -55,11 +55,6 @@ class BaseModule:
         """
         return {arg.name: arg.default[0] for arg in self.execution.inputArguments}
 
-    def check_dependency(self) -> bool:
-        """
-        Check if dependencies are installed
-        """
-
     def resolve_variable(self, command: str, input_arguments: dict = None) -> str:
         """
         Transfer ruby string format variable name to value
@@ -70,11 +65,23 @@ class BaseModule:
             command = command.replace(f'#{{{name}}}', value)
         return command
 
+    @staticmethod
+    def get_phase_msg(phase: str) -> str:
+        """
+        Get formatted phase message
+        """
+        boundary = '*' * len(phase)
+        return f'\n{boundary}\n{phase}\n{boundary}'
+
+    def check_dependency(self) -> bool:
+        """
+        Check if dependencies are installed
+        """
+
     def execute(self):
         """
         Main execution function
         """
-        self.logger.info('***\nExecution Phrase\n***')
 
     def success_indicate(self) -> bool:
         """
@@ -94,10 +101,11 @@ class BaseModule:
         """
         pass
 
-    def run(self):
+    def run(self) -> bool:
         """
         Run the module
         """
+        success_flag = False
         module_info = f"""
         Name: {self.execution.name}
         Description: {self.execution.description}
@@ -109,13 +117,23 @@ class BaseModule:
         Technique: {", ".join([t['name'] for t in self.execution.techniques])}
         """
         self.logger.info(f"Running module:\n---\n {module_info}\n---\n")
+
+        self.logger.info(self.get_phase_msg('Dependency Check Phase'))
         if self.check_dependency():
             self.logger.success('All dependency checks passed')
+            self.logger.info(self.get_phase_msg('Execution Phase'))
             self.execute()
+
+            self.logger.info(self.get_phase_msg('Success Indication Phase'))
             if self.success_indicate():
                 self.logger.success('Module executed successfully')
+                success_flag = True
             else:
                 self.logger.error('Module executed unsuccessfully')
         else:
             self.logger.error('Module dependency check failed')
+
+        self.logger.info(self.get_phase_msg('Cleanup Phase'))
         self.cleanup()
+        return success_flag
+
