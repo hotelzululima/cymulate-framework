@@ -3,7 +3,7 @@ Windows module for execution
 """
 
 from core.module.base import BaseModule
-from core.utils.common import powershell, gain_admin_priv, python_exec, python_run, command_prompt
+from core.utils.common import powershell, gain_admin_priv, python_exec, python_run, command_prompt, create_temp_file
 
 
 class WindowsModule(BaseModule):
@@ -11,6 +11,7 @@ class WindowsModule(BaseModule):
         super().__init__(execution_id=execution_id, debug=debug)
         self.execution_return_code: int = -1
         self.execution_output: str = ''
+        self.execution_output_file: str = ''
 
     def check_dependency(self) -> bool:
         failed_dependency = []
@@ -86,6 +87,8 @@ class WindowsModule(BaseModule):
             self.logger.debug(f'Python script result: \n{out}\n')
             self.execution_output = out
 
+        self.execution_output_file = create_temp_file(self.execution_output)
+
     def success_indicate(self) -> bool:
         # If no success indicators, check executor's return code
         if not self.execution.successIndicators:
@@ -101,9 +104,12 @@ class WindowsModule(BaseModule):
 
             if success_indicator.successIndicatorExecutor == "powershell":
                 self.logger.debug(f'Running Powershell Script: \n{script}\n')
+                # Check if indicator needs to pipe the output of the execution
+                if success_indicator.pipe:
+                    script = f"Get-Content \"{self.execution_output_file}\" | {script}"
                 p = powershell(script)
-                result = p.communicate()
-                self.logger.debug(f'Powershell script result: \n{result}\n')
+                out, err = p.communicate()
+                self.logger.debug(f'Powershell script result: \n{out}\n{err}\n')
                 if p.returncode == 0:
                     self.logger.success(f'Success Indicator: {success_indicator.description}')
                     return True
