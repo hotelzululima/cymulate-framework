@@ -18,9 +18,18 @@ def powershell_encode(cmd: str) -> str:
 
 def powershell(cmd: str) -> subprocess.Popen:
     """Return powershell process"""
+    # Make sure cmd output is in English for parsing
+    cmd = f'chcp 437; {cmd}'
     encoded_cmd = powershell_encode(cmd)
     p = subprocess.Popen(f'powershell -ExecutionPolicy RemoteSigned -e {encoded_cmd}', stdin=PIPE, stderr=PIPE,
                          stdout=PIPE)
     return p
+
+
+def python_exec(cmd: str) -> dict:
+    """Execute python script and return local variables which include: result, exit_code"""
+    loc = {}
+    exec(cmd, globals(), loc)
+    return loc
 
 
