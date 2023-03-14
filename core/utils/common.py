@@ -27,6 +27,16 @@ def powershell(cmd: str) -> subprocess.Popen:
     return p
 
 
+def command_prompt(cmd: str) -> subprocess.Popen:
+    """
+    Run command prompt
+    """
+    # Use chcp 437 to make sure cmd output is in English for parsing
+    cmd = f"chcp 437 > nul\n{cmd}"
+    p = subprocess.Popen(cmd, stderr=PIPE, stdout=PIPE, shell=True, text=True)
+    return p
+
+
 def python_exec(cmd: str, env: dict) -> dict:
     """Execute python script and return local variables which include: result, exit_code"""
     loc = {}
@@ -41,4 +51,3 @@ def python_run(code: str) -> str:
     exec(code)
     sys.stdout = old_stdout
     return redirected_output.getvalue()
-
