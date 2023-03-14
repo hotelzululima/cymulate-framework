@@ -26,10 +26,10 @@ def powershell(cmd: str) -> subprocess.Popen:
     return p
 
 
-def python_exec(cmd: str) -> dict:
+def python_exec(cmd: str, env: dict) -> dict:
     """Execute python script and return local variables which include: result, exit_code"""
     loc = {}
-    exec(cmd, globals(), loc)
+    exec(cmd, env, loc)
     return loc
 
 

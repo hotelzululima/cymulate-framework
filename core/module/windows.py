@@ -94,21 +94,19 @@ class WindowsModule(BaseModule):
                 else:
                     self.logger.warning(f'Failed Success Indicator: {success_indicator.description}')
             elif success_indicator.successIndicatorExecutor == "python":
-                # Replace exit(0) and exit(1) with exit_code = 0 and exit_code = 1
+                # Make script to a function
                 python_script = script.replace('exit(0)', '  return 0').replace('exit(1)', 'return 1')
-
-                # Append the execution output variable to the python script at the beginning
-                python_script = f"piped_output = '''{self.execution_output}'''\n" + python_script
-
-                # Make script to function
                 python_script = "\n    ".join(python_script.splitlines())
                 python_script = f"def py_test():\n    {python_script}"
-
                 # Append variable assignment to the python script at the end
                 python_script = python_script + "\nexit_code = py_test()"
 
                 self.logger.debug(f'Running Python Script: \n{python_script}\n')
-                result = python_exec(python_script)
+                # Add piped output to the environment
+                env = {'piped_output': self.execution_output}
+                env.update(globals())
+
+                result = python_exec(python_script, env)
                 self.logger.debug(f'Python script result: \n{result}\n')
                 if result.get('exit_code') == 0:
                     self.logger.success(f'Success Indicator: {success_indicator.description}')
