@@ -40,7 +40,8 @@ def command_prompt(cmd: str) -> subprocess.Popen:
     Run command prompt
     """
     # Use chcp 437 to make sure cmd output is in English for parsing
-    cmd = f"chcp 437 > nul && {cmd}"
+    cmd = f"cmd.exe /c chcp 437 > nul \n{cmd}"
+    cmd = cmd.replace('\n', ' & ')
     p = subprocess.Popen(cmd, stderr=PIPE, stdout=PIPE, shell=True, text=True)
     return p
 
