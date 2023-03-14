@@ -102,7 +102,7 @@ class WindowsModule(BaseModule):
                     self.logger.warning(f'Failed Success Indicator: {success_indicator.description}')
             elif success_indicator.successIndicatorExecutor == "python":
                 # Make script to a function
-                python_script = script.replace('exit(0)', '  return 0').replace('exit(1)', 'return 1')
+                python_script = script.replace('exit(0)', 'return 0').replace('exit(1)', 'return 1')
                 python_script = "\n    ".join(python_script.splitlines())
                 python_script = f"def py_test():\n    {python_script}"
                 # Append variable assignment to the python script at the end
