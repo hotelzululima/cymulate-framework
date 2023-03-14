@@ -3,7 +3,7 @@ Windows module for execution
 """
 
 from core.module.base import BaseModule
-from core.utils.common import powershell, gain_admin_priv, python_exec
+from core.utils.common import powershell, gain_admin_priv, python_exec, python_run
 
 
 class WindowsModule(BaseModule):
@@ -21,7 +21,7 @@ class WindowsModule(BaseModule):
                 get_pre_req_cmd = self.resolve_variable(dependency.getPrereqCommand)
                 self.logger.debug(f'Running Powershell Script: \n{get_pre_req_cmd}\n')
                 p = powershell(get_pre_req_cmd)
-                result = "\n".join([r.decode('big5') for r in p.communicate()])
+                result = "\n".join([r.decode('utf-8') for r in p.communicate()])
                 self.logger.debug(f'Get-Pre-req command result: \n{result}\n')
 
                 # Get-Pre-req command: Download files...etc
@@ -42,7 +42,7 @@ class WindowsModule(BaseModule):
         Resolve absolute path for the variable in powershell
         """
         p = powershell(f'echo {variable}')
-        return p.communicate()[0].decode('big5').strip()
+        return p.communicate()[0].decode('utf-8').strip()
 
     def set_input_arguments_abs(self):
         """
@@ -58,18 +58,24 @@ class WindowsModule(BaseModule):
             self.logger.info('Elevation required, requesting admin privilege...')
             gain_admin_priv()
 
-        if self.execution.executor.name == 'powershell':
-            # Not resolving absolute path at init because the temp path might change if evaluated to other users
-            self.set_input_arguments_abs()
-            powershell_script = self.resolve_variable(self.execution.executor.command)
-            self.logger.debug(f'Running Powershell Script: \n{powershell_script}\n')
-            p = powershell(powershell_script)
-            result_list = p.communicate()
-            result = "\n".join([r.decode('big5') for r in result_list])
-            self.logger.debug(f'Powershell script result: \n{result}\n')
+        # Not resolving absolute path at init because the temp path might change if evaluated to other users
+        self.set_input_arguments_abs()
+        script = self.resolve_variable(self.execution.executor.command)
 
-        self.execution_output = result_list[0].decode('big5')
-        self.execution_return_code = p.returncode
+        if self.execution.executor.name == 'powershell':
+            self.logger.debug(f'Running Powershell Script: \n{script}\n')
+            p = powershell(script)
+            result_list = p.communicate()
+            result = "\n".join([r.decode('utf-8') for r in result_list])
+            self.logger.debug(f'Powershell script result: \n{result}\n')
+            self.execution_output = result_list[0].decode('utf-8')
+            self.execution_return_code = p.returncode
+
+        elif self.execution.executor.name == 'python':
+            self.logger.debug(f'Running Python Script: \n{script}\n')
+            out = python_run(script)
+            self.logger.debug(f'Python script result: \n{out}\n')
+            self.execution_output = out
 
     def success_indicate(self) -> bool:
         # If no success indicators, check executor's return code
@@ -108,7 +114,8 @@ class WindowsModule(BaseModule):
 
                 result = python_exec(python_script, env)
                 self.logger.debug(f'Python script result: \n{result}\n')
-                if result.get('exit_code') == 0:
+                # Check if the function does not return 1, since some scripts might return None or 0 for success
+                if result.get('exit_code') != 1:
                     self.logger.success(f'Success Indicator: {success_indicator.description}')
                     return True
                 else:

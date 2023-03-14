@@ -1,6 +1,7 @@
 import subprocess
 import ctypes
 import sys
+from io import StringIO
 from subprocess import PIPE
 from base64 import b64encode
 
@@ -19,7 +20,7 @@ def powershell_encode(cmd: str) -> str:
 def powershell(cmd: str) -> subprocess.Popen:
     """Return powershell process"""
     # Make sure cmd output is in English for parsing
-    cmd = f'chcp 437; {cmd}'
+    cmd = f"chcp 437; [cultureinfo]::CurrentUICulture = 'en-US'; {cmd}"
     encoded_cmd = powershell_encode(cmd)
     p = subprocess.Popen(f'powershell -ExecutionPolicy RemoteSigned -e {encoded_cmd}', stdin=PIPE, stderr=PIPE,
                          stdout=PIPE)
@@ -32,4 +33,12 @@ def python_exec(cmd: str, env: dict) -> dict:
     exec(cmd, env, loc)
     return loc
 
+
+def python_run(code: str) -> str:
+    """Execute python code and return output"""
+    old_stdout = sys.stdout
+    redirected_output = sys.stdout = StringIO()
+    exec(code)
+    sys.stdout = old_stdout
+    return redirected_output.getvalue()
 
