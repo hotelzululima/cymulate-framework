@@ -1,6 +1,7 @@
 import subprocess
 import ctypes
 import sys
+import tempfile
 from io import StringIO
 from subprocess import PIPE
 from base64 import b64encode
@@ -15,6 +16,13 @@ def gain_admin_priv():
 def _powershell_encode(cmd: str) -> str:
     """Encode powershell command"""
     return b64encode(cmd.encode('utf_16_le')).decode()
+
+
+def create_temp_file(content: str) -> str:
+    """Create temp file with content"""
+    with tempfile.NamedTemporaryFile(mode='w', delete=False) as f:
+        f.write(content)
+    return f.name
 
 
 def powershell(cmd: str) -> subprocess.Popen:
