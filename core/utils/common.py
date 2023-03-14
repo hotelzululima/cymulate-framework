@@ -12,7 +12,7 @@ def gain_admin_priv():
         ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
 
 
-def powershell_encode(cmd: str) -> str:
+def _powershell_encode(cmd: str) -> str:
     """Encode powershell command"""
     return b64encode(cmd.encode('utf_16_le')).decode()
 
@@ -21,7 +21,7 @@ def powershell(cmd: str) -> subprocess.Popen:
     """Return powershell process"""
     # Make sure cmd output is in English for parsing
     cmd = f"[cultureinfo]::CurrentUICulture = 'en-US'; {cmd}"
-    encoded_cmd = powershell_encode(cmd)
+    encoded_cmd = _powershell_encode(cmd)
     full_cmd = f'powershell -ExecutionPolicy RemoteSigned -e {encoded_cmd}'
     p = subprocess.Popen(full_cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, shell=True, text=True)
     return p
@@ -32,7 +32,7 @@ def command_prompt(cmd: str) -> subprocess.Popen:
     Run command prompt
     """
     # Use chcp 437 to make sure cmd output is in English for parsing
-    cmd = f"chcp 437 > nul\n{cmd}"
+    cmd = f"chcp 437 > nul && {cmd}"
     p = subprocess.Popen(cmd, stderr=PIPE, stdout=PIPE, shell=True, text=True)
     return p
 
