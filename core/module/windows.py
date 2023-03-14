@@ -3,7 +3,7 @@ Windows module for execution
 """
 
 from core.module.base import BaseModule
-from core.utils.common import powershell, gain_admin_priv, python_exec, python_run
+from core.utils.common import powershell, gain_admin_priv, python_exec, python_run, command_prompt
 
 
 class WindowsModule(BaseModule):
@@ -72,6 +72,14 @@ class WindowsModule(BaseModule):
             self.execution_output = result_list[0]
             self.execution_return_code = p.returncode
 
+        elif self.execution.executor.name == 'command_prompt':
+            self.logger.debug(f'Running Command Prompt Script: \n{script}\n')
+            p = command_prompt(script)
+            out, err = p.communicate()
+            result = f"{out}\n\n{err}"
+            self.logger.debug(f'Command Prompt script result: \n{result}\n')
+            self.execution_output = out
+
         elif self.execution.executor.name == 'python':
             self.logger.debug(f'Running Python Script: \n{script}\n')
             out = python_run(script)
@@ -90,16 +98,28 @@ class WindowsModule(BaseModule):
 
         for success_indicator in self.execution.successIndicators:
             script = self.resolve_variable(success_indicator.successIndicatorCommand)
+
             if success_indicator.successIndicatorExecutor == "powershell":
                 self.logger.debug(f'Running Powershell Script: \n{script}\n')
                 p = powershell(script)
                 result = p.communicate()
-                self.logger.debug(f'Powershell script result: {result}\n')
+                self.logger.debug(f'Powershell script result: \n{result}\n')
                 if p.returncode == 0:
                     self.logger.success(f'Success Indicator: {success_indicator.description}')
                     return True
                 else:
                     self.logger.warning(f'Failed Success Indicator: {success_indicator.description}')
+            elif success_indicator.successIndicatorExecutor == "command_prompt":
+                self.logger.debug(f'Running Command Prompt Script: \n{script}\n')
+                p = command_prompt(script)
+                p.communicate()
+                self.logger.debug(f'Command Prompt script return code: {p.returncode}\n')
+                if p.returncode == 0:
+                    self.logger.success(f'Success Indicator: {success_indicator.description}')
+                    return True
+                else:
+                    self.logger.warning(f'Failed Success Indicator: {success_indicator.description}')
+
             elif success_indicator.successIndicatorExecutor == "python":
                 # Make script to a function
                 python_script = script.replace('exit(0)', 'return 0').replace('exit(1)', 'return 1')
