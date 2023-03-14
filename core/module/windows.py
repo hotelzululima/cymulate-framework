@@ -21,7 +21,8 @@ class WindowsModule(BaseModule):
                 get_pre_req_cmd = self.resolve_variable(dependency.getPrereqCommand)
                 self.logger.debug(f'Running Powershell Script: \n{get_pre_req_cmd}\n')
                 p = powershell(get_pre_req_cmd)
-                result = "\n".join([r.decode('utf-8') for r in p.communicate()])
+                out, err = p.communicate()
+                result = f"{out}\n\n{err}"
                 self.logger.debug(f'Get-Pre-req command result: \n{result}\n')
 
                 # Get-Pre-req command: Download files...etc
@@ -42,7 +43,7 @@ class WindowsModule(BaseModule):
         Resolve absolute path for the variable in powershell
         """
         p = powershell(f'echo {variable}')
-        return p.communicate()[0].decode('utf-8').strip()
+        return p.communicate()[0].strip()
 
     def set_input_arguments_abs(self):
         """
@@ -66,9 +67,9 @@ class WindowsModule(BaseModule):
             self.logger.debug(f'Running Powershell Script: \n{script}\n')
             p = powershell(script)
             result_list = p.communicate()
-            result = "\n".join([r.decode('utf-8') for r in result_list])
+            result = "\n".join(result_list)
             self.logger.debug(f'Powershell script result: \n{result}\n')
-            self.execution_output = result_list[0].decode('utf-8')
+            self.execution_output = result_list[0]
             self.execution_return_code = p.returncode
 
         elif self.execution.executor.name == 'python':

@@ -23,7 +23,7 @@ def powershell(cmd: str) -> subprocess.Popen:
     cmd = f"[cultureinfo]::CurrentUICulture = 'en-US'; {cmd}"
     encoded_cmd = powershell_encode(cmd)
     full_cmd = f'powershell -ExecutionPolicy RemoteSigned -e {encoded_cmd}'
-    p = subprocess.Popen(full_cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE)
+    p = subprocess.Popen(full_cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, shell=True, text=True)
     return p
 
 
