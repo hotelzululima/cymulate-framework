@@ -20,10 +20,10 @@ def powershell_encode(cmd: str) -> str:
 def powershell(cmd: str) -> subprocess.Popen:
     """Return powershell process"""
     # Make sure cmd output is in English for parsing
-    cmd = f"chcp 437; [cultureinfo]::CurrentUICulture = 'en-US'; {cmd}"
+    cmd = f"[cultureinfo]::CurrentUICulture = 'en-US'; {cmd}"
     encoded_cmd = powershell_encode(cmd)
-    p = subprocess.Popen(f'powershell -ExecutionPolicy RemoteSigned -e {encoded_cmd}', stdin=PIPE, stderr=PIPE,
-                         stdout=PIPE)
+    full_cmd = f'powershell -ExecutionPolicy RemoteSigned -e {encoded_cmd}'
+    p = subprocess.Popen(full_cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE)
     return p
 
 
