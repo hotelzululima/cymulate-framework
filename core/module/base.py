@@ -106,17 +106,20 @@ class BaseModule:
         Run the module
         """
         success_flag = False
+        os_name = ", ".join(self.execution.os)
+        module_brief_info = f"{os_name.upper()} Module : [{self.execution.id}] - \"{self.execution.name}\""
         module_info = f"""
+        ID: {self.execution.id}
         Name: {self.execution.name}
         Description: {self.execution.description}
-        OS : {", ".join(self.execution.os)}
+        OS : {os_name}
         Platform: {", ".join(self.execution.supportedPlatforms)}
         Elevation Requirement: {self.execution.executor.elevationRequired}
         Execution Timeout: {self.execution.timeout} minutes
         Tactics: {", ".join([t['name'] for t in self.execution.tactics])}
         Technique: {", ".join([t['name'] for t in self.execution.techniques])}
         """
-        self.logger.info(f"Running module:\n---\n {module_info}\n---\n")
+        self.logger.info(f"Running {module_brief_info}\n---\n{module_info}\n---\n")
 
         self.logger.info(self.get_phase_msg('Dependency Check Phase'))
         if self.check_dependency():
@@ -126,10 +129,10 @@ class BaseModule:
 
             self.logger.info(self.get_phase_msg('Success Indication Phase'))
             if self.success_indicate():
-                self.logger.success('Module executed successfully')
+                self.logger.success(f'{module_brief_info} executed successfully')
                 success_flag = True
             else:
-                self.logger.error('Module executed unsuccessfully')
+                self.logger.error(f'{module_brief_info} executed unsuccessfully')
         else:
             self.logger.error('Module dependency check failed')
 
