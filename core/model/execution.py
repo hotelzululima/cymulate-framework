@@ -100,3 +100,7 @@ class Execution:
     nistTechniques: Optional[list]
     displayDate: Optional[str]
 
+    @property
+    def id(self):
+        return self._id
+
