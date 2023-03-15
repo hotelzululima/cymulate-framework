@@ -27,10 +27,10 @@ def create_temp_file(content: str) -> str:
 
 def powershell(cmd: str) -> subprocess.Popen:
     """Return powershell process"""
-    # Make sure cmd output is in English for parsing
-    cmd = f"chcp 437; [cultureinfo]::CurrentUICulture = 'en-US'; {cmd}"
+    # Make sure output is in English for parsing
+    cmd = f"[cultureinfo]::CurrentUICulture = 'en-US'; {cmd}"
     encoded_cmd = _powershell_encode(cmd)
-    full_cmd = f'powershell -ExecutionPolicy RemoteSigned -e {encoded_cmd}'
+    full_cmd = f'chcp 437 > nul & powershell -ExecutionPolicy RemoteSigned -e {encoded_cmd}'
     p = subprocess.Popen(full_cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, shell=True, text=True)
     return p
 
