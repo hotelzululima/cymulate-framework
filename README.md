@@ -22,20 +22,29 @@ This project is aimed to help red team construct fully customizable and automate
 
 ## Usage
 
-### Installation
-
 Make sure `python 3.11+` and `poetry` are installed:
 
 - **Python** - https://www.python.org/downloads/
-- **Poetry** - `pip install poetry`
+- **Poetry** - https://python-poetry.org/docs/#installation
 
-Install required python packages:
+```bash
+git clone https://github.com/opabravo/cymulate-framework
+cd cymulate-framework
 
-```powershell
+# Install required python packages
 poetry install
-```
 
-### Run
+# Activate virtual environment
+poetry shell
+
+# Run default template (APT34)
+python main.py
+
+# Run desired execution module by id
+python main.py <module_id>
+# Ex:
+python main.py 62385f03a0e69ed2274622cc
+```
 
 Batch Scripts:
 
