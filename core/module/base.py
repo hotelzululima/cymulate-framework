@@ -21,9 +21,9 @@ class BaseModule:
         Tactics: ID of MITRE ATT&CK Tactics
         Technique: ID of MITRE ATT&CK Technique
         """
-        log_level = 'DEBUG' if debug else 'INFO'
-        self.logger = Log(log_name='module', log_level=log_level).get_logger()
         self.execution_id = execution_id
+        log_level = 'DEBUG' if debug else 'INFO'
+        self.logger = Log(log_name=execution_id, log_level=log_level).get_logger()
         execution_dict = self.get_execution(execution_id)
         # Deserialize execution json into Execution object
         self.execution = from_dict(data_class=Execution, data=execution_dict)
