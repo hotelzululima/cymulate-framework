@@ -31,8 +31,9 @@ def powershell(cmd: str) -> subprocess.Popen:
     cmd = f"[cultureinfo]::CurrentUICulture = 'en-US'; {cmd}"
     encoded_cmd = _powershell_encode(cmd)
     full_cmd = f'chcp 437 > nul & powershell -ExecutionPolicy RemoteSigned -e {encoded_cmd}'
-    p = subprocess.Popen(full_cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, shell=True, text=True)
-    return p
+    return subprocess.Popen(
+        full_cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, shell=True, text=True
+    )
 
 
 def command_prompt(cmd: str) -> subprocess.Popen:
@@ -42,8 +43,7 @@ def command_prompt(cmd: str) -> subprocess.Popen:
     # Use chcp 437 to make sure cmd output is in English for parsing
     cmd = f"cmd.exe /c chcp 437 > nul \n{cmd}"
     cmd = cmd.replace('\n', ' & ')
-    p = subprocess.Popen(cmd, stderr=PIPE, stdout=PIPE, shell=True, text=True)
-    return p
+    return subprocess.Popen(cmd, stderr=PIPE, stdout=PIPE, shell=True, text=True)
 
 
 def python_exec(cmd: str, env: dict) -> dict:

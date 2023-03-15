@@ -38,8 +38,9 @@ class BaseModule:
         execution_file = Path(__file__).parent.parent / 'assets/executions.json'
         with open(execution_file, 'r', encoding='utf-8') as f:
             execution_data = json.load(f)
-        execution = next((e for e in execution_data['data'] if e['_id'] == execution_id), None)
-        return execution
+        return next(
+            (e for e in execution_data['data'] if e['_id'] == execution_id), None
+        )
 
     def get_enabled_success_indicator(self) -> SuccessIndicator:
         """
@@ -121,18 +122,23 @@ class BaseModule:
         """
         self.logger.info(f"Running {module_brief_info}\n---\n{module_info}\n---\n")
 
+        # Enter dependency check phase
         self.logger.info(self.get_phase_msg('Dependency Check Phase'))
         if self.check_dependency():
             self.logger.success('All dependency checks passed')
+
+            # Enter execution phase
             self.logger.info(self.get_phase_msg('Execution Phase'))
             self.execute()
 
+            # Enter success indication phase
             self.logger.info(self.get_phase_msg('Success Indication Phase'))
             if self.success_indicate():
                 self.logger.success(f'{module_brief_info} executed successfully')
                 success_flag = True
             else:
                 self.logger.error(f'{module_brief_info} executed unsuccessfully')
+
         else:
             self.logger.error('Module dependency check failed')
 
