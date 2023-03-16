@@ -3,6 +3,7 @@ Windows module for execution
 """
 
 from core.module.base import BaseModule
+from core.model.execution import Dependency
 from core.utils.common import powershell, gain_admin_priv, python_exec, python_run, command_prompt, create_temp_file
 
 
@@ -16,6 +17,9 @@ class WindowsModule(BaseModule):
     def check_dependency(self) -> bool:
         failed_dependency = []
         for dependency in self.execution.dependencies:
+            if not dependency.enabled:
+                continue
+
             self.logger.info(f'Checking : {dependency.description}')
             if dependency.dependencyExecutorName == 'powershell':
                 # Get-Pre-req command: DO Download files...etc
