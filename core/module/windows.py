@@ -1,7 +1,6 @@
 """
 Windows module for execution
 """
-
 from core.module.base import BaseModule
 from core.model.execution import Dependency
 from core.utils.common import powershell, gain_admin_priv, python_exec, python_run, command_prompt, create_temp_file
@@ -22,44 +21,49 @@ class WindowsModule(BaseModule):
 
             self.logger.info(f'Checking : {dependency.description}')
             if dependency.dependencyExecutorName == 'powershell':
-                # Get-Pre-req command: DO Download files...etc
-                get_pre_req_cmd = self.resolve_variable(dependency.getPrereqCommand)
-
-                self.logger.debug(f'Running Powershell Script: \n{get_pre_req_cmd}\n')
-                p = powershell(get_pre_req_cmd)
-                out, err = p.communicate()
-                result = f"{out}\n\n{err}"
-                self.logger.debug(f'Get-Pre-req command result: \n{result}\n')
-
-                # Pre-req command: CHECK Download files...etc
-                pre_req_cmd = self.resolve_variable(dependency.prereqCommand)
-
-                p = powershell(pre_req_cmd)
-                p.communicate()
-                is_dependency_installed = (p.returncode == 0)
-                if not is_dependency_installed:
+                if self._check_dependency_powershell(dependency):
+                    self.logger.success(f'Passed this check: {dependency.description}')
+                else:
                     self.logger.error(f'Failed this check: {dependency.description}')
                     failed_dependency.append(dependency.description)
-                else:
-                    self.logger.success(f'Passed this check: {dependency.description}')
         return not failed_dependency
 
+    def _check_dependency_powershell(self, dependency: Dependency) -> bool:
+        """
+        Method to check dependency in powershell
+        """
+        # Get-Pre-req command: DO Download files...etc
+        get_pre_req_cmd = self.resolve_variable(dependency.getPrereqCommand)
+
+        self.logger.debug(f'Running Powershell Script: \n{get_pre_req_cmd}\n')
+        p = powershell(get_pre_req_cmd)
+        out, err = p.communicate()
+        result = f"{out}\n\n{err}"
+        self.logger.debug(f'Get-Pre-req command result: \n{result}\n')
+
+        # Pre-req command: CHECK Download files...etc
+        pre_req_cmd = self.resolve_variable(dependency.prereqCommand)
+
+        p = powershell(pre_req_cmd)
+        p.communicate()
+        return p.returncode == 0
+
     @staticmethod
-    def resolve_file_path(variable: str) -> str:
+    def _resolve_file_path(variable: str) -> str:
         """
         Resolve absolute path for the variable in powershell
         """
         p = powershell(f'echo {variable}')
         return p.communicate()[0].strip()
 
-    def set_input_arguments_abs(self):
+    def _set_input_arguments_abs(self):
         """
         Set input_arguments's values to resolve absolute path for the variable in powershell
         """
         input_arguments = self.get_input_arguments()
         for name, value in input_arguments.items():
             if value.startswith('$env'):
-                self.input_arguments[name] = self.resolve_file_path(value)
+                self.input_arguments[name] = self._resolve_file_path(value)
 
     def execute(self):
         if self.execution.executor.elevationRequired:
@@ -67,7 +71,7 @@ class WindowsModule(BaseModule):
             gain_admin_priv()
 
         # Not resolving absolute path at init because the temp path might change if evaluated to other users
-        self.set_input_arguments_abs()
+        self._set_input_arguments_abs()
 
         script = self.resolve_variable(self.execution.executor.command)
         if self.execution.executor.name == 'powershell':
@@ -134,51 +138,71 @@ class WindowsModule(BaseModule):
                 return False
 
         for success_indicator in self.execution.successIndicators:
+            # Check all success indicators include disabled since enabled one might fail but disabled ones won't
             script = self.resolve_variable(success_indicator.successIndicatorCommand)
 
             if success_indicator.successIndicatorExecutor == "powershell":
-                self.logger.debug(f'Running Powershell Script: \n{script}\n')
-
-                # Check if indicator needs to pipe the output of the execution
-                if success_indicator.pipe:
-                    script = f"Get-Content \"{self.execution_output_file}\" | {script}"
-
-                p = powershell(script)
-                out, err = p.communicate()
-                self.logger.debug(f'Powershell script result: \n{out}\n{err}\n')
-
-                if p.returncode == 0:
+                if self._success_indicate_powershell(success_indicator.pipe, script):
                     self.logger.success(f'Success Indicator: {success_indicator.description}')
                     return True
                 else:
                     self.logger.warning(f'Failed Success Indicator: {success_indicator.description}')
 
             elif success_indicator.successIndicatorExecutor == "command_prompt":
-                self.logger.debug(f'Running Command Prompt Script: \n{script}\n')
-                p = command_prompt(script)
-                p.communicate()
-                self.logger.debug(f'Command Prompt script return code: {p.returncode}\n')
-
-                if p.returncode == 0:
+                if self._success_indicate_cmd(success_indicator.pipe, script):
                     self.logger.success(f'Success Indicator: {success_indicator.description}')
                     return True
                 else:
                     self.logger.warning(f'Failed Success Indicator: {success_indicator.description}')
 
             elif success_indicator.successIndicatorExecutor == "python":
-                python_script = self._adjust_python_script(script)
-                self.logger.debug(f'Running Python Script: \n{python_script}\n')
-
-                # Add piped output to the environment
-                env = {'piped_output': self.execution_output} | globals()
-
-                result = python_exec(python_script, env)
-                self.logger.debug(f'Python script result: \n{result}\n')
-
-                # Check if the function does not return 1, since some scripts might return None or 0 for success
-                if result.get('exit_code') != 1:
+                if self._success_indicate_python(success_indicator.pipe, script):
                     self.logger.success(f'Success Indicator: {success_indicator.description}')
                     return True
                 else:
                     self.logger.warning(f'Failed Success Indicator: {success_indicator.description}')
         return False
+
+    def _success_indicate_powershell(self, pipe: bool, script: str) -> bool:
+        """
+        Method to check if execution succeeded by powershell script
+        """
+        self.logger.debug(f'Running Powershell Script: \n{script}\n')
+
+        # Check if indicator needs to pipe the output of the execution
+        if pipe:
+            script = f"Get-Content \"{self.execution_output_file}\" | {script}"
+
+        p = powershell(script)
+        out, err = p.communicate()
+        self.logger.debug(f'Powershell script result: \n{out}\n{err}\n')
+        return p.returncode == 0
+
+    def _success_indicate_python(self, pipe: bool, script: str) -> bool:
+        """
+        Method to check if execution succeeded by python script
+        """
+        python_script = self._adjust_python_script(script)
+        self.logger.debug(f'Running Python Script: \n{python_script}\n')
+
+        # Add piped output to the environment
+        env = {'piped_output': self.execution_output} | globals()
+
+        result = python_exec(python_script, env)
+        self.logger.debug(f'Python script result: \n{result}\n')
+
+        # Check if the function does not return 1, since some scripts might return None or 0 for success
+        return result.get('exit_code') != 1
+
+    def _success_indicate_cmd(self, pipe: bool, script: str) -> bool:
+        """
+        Method to check if execution succeeded by command prompt script
+        """
+        self.logger.debug(f'Running Command Prompt Script: \n{script}\n')
+        p = command_prompt(script)
+        p.communicate()
+        self.logger.debug(f'Command Prompt script return code: {p.returncode}\n')
+        return p.returncode == 0
+
+
+
