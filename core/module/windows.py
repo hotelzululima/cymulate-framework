@@ -12,6 +12,7 @@ class WindowsModule(BaseModule):
         self.execution_return_code: int = -1
         self.execution_output: str = ''
         self.execution_output_file: str = ''
+        self.output_parser_args = {}
 
     def check_dependency(self) -> bool:
         failed_dependency = []
@@ -204,5 +205,56 @@ class WindowsModule(BaseModule):
         self.logger.debug(f'Command Prompt script return code: {p.returncode}\n')
         return p.returncode == 0
 
+    def output_parser(self):
+        """
+        Method to parse the output of the execution
+        """
+        if not self.execution.outputParser:
+            self.logger.debug(f'No output parser, using raw output: \n{self.execution_output}\n')
+            return
 
+        script = self.resolve_variable(self.execution.outputParser.outputParserCommand)
+        # Save the parsed output which maps suitable input arguments for other modules to use
+        for output_parser in self.execution.outputParsers:
+            if output_parser.outputParserExecutor == "powershell":
+                self._output_parser_powershell(output_parser.pipe, script)
 
+            elif output_parser.outputParserExecutor == "command_prompt":
+                self._output_parser_cmd(output_parser.pipe, script)
+
+            elif output_parser.outputParserExecutor == "python":
+                self._output_parser_python(output_parser.pipe, script)
+
+    def _output_parser_powershell(self, pipe: bool, script: str):
+        """
+        Method to parse the output of the execution by powershell script
+        """
+        self.logger.debug(f'Running Powershell Script: \n{script}\n')
+        p = powershell(script)
+        out, err = p.communicate()
+        self.logger.debug(f'Powershell script result: \n{out}\n{err}\n')
+        self.execution_output = out
+
+    def _output_parser_python(self, pipe: bool, script: str):
+        """
+        Method to parse the output of the execution by python script
+        """
+        python_script = self._adjust_python_script(script)
+        self.logger.debug(f'Running Python Script: \n{python_script}\n')
+
+        # Add piped output to the environment
+        env = {'piped_output': self.execution_output} | globals()
+
+        result = python_exec(python_script, env)
+        self.logger.debug(f'Python script result: \n{result}\n')
+        self.execution_output = result
+
+    def _output_parser_cmd(self, pipe: bool, script: str):
+        """
+        Method to parse the output of the execution by command prompt script
+        """
+        self.logger.debug(f'Running Command Prompt Script: \n{script}\n')
+        p = command_prompt(script)
+        p.communicate()
+        self.logger.debug(f'Command Prompt script return code: {p.returncode}\n')
+        self.execution_output = p.returncode

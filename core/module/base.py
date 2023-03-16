@@ -96,7 +96,7 @@ class BaseModule:
         """
         pass
 
-    def output_parser(self, output: str) -> str:
+    def output_parser(self):
         """
         Parse output result
         """
