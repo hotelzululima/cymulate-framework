@@ -10,7 +10,7 @@ class BaseModule:
     Base class for all modules
     """
 
-    def __init__(self, execution_id: str, debug: bool):
+    def __init__(self, execution_id: str, log_level: str):
         """
         Name: Module Name
         Description: Module Description
@@ -22,7 +22,6 @@ class BaseModule:
         Technique: ID of MITRE ATT&CK Technique
         """
         self.execution_id = execution_id
-        log_level = 'DEBUG' if debug else 'INFO'
         self.logger = Log(log_name=execution_id, log_level=log_level).get_logger()
         execution_dict = self.get_execution(execution_id)
         # Deserialize execution json into Execution object

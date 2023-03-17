@@ -7,7 +7,7 @@ from core.module.windows import WindowsModule
 
 if __name__ == '__main__':
     if len(sys.argv) == 2:
-        WindowsModule(sys.argv[1], debug=True).run()
+        WindowsModule(sys.argv[1]).run()
     else:
         apt34.start()
 
