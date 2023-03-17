@@ -133,7 +133,7 @@ class BaseModule:
             # Enter success indication phase
             self.logger.info(self.get_phase_msg('Success Indication Phase'))
             if self.success_indicate():
-                self.logger.success(f'{module_brief_info} executed successfully')
+                self.logger.success(f'{module_brief_info} executed successfully\n')
                 success_flag = True
             else:
                 self.logger.error(f'{module_brief_info} executed unsuccessfully')
