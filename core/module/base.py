@@ -107,8 +107,11 @@ class BaseModule:
         """
         success_flag = False
         os_name = ", ".join(self.execution.os)
-        module_main_info = f'{os_name.upper()} Module: \nID: {self.execution.id}\nName: {self.execution.name}\n' \
-                           f'Description: {self.execution.description}'
+        module_main_info = f"""
+        {os_name.upper()} Module: ID: {self.execution.id}
+        Name: {self.execution.name}
+        Description: {self.execution.description}
+        """
         module_brief_info = f"{os_name.upper()} Module : [{self.execution.id}] - \"{self.execution.name}\""
         module_info = f"""
         ID: {self.execution.id}
@@ -143,8 +146,8 @@ class BaseModule:
         self.logger.info(self.get_phase_msg('Cleanup Phase'))
         self.cleanup()
         if success_flag:
-            self.logger.success(f'===\nExecuted successfully for {module_main_info}===\n')
+            self.logger.success(f'\n{"*"*5}\n\tExecuted successfully for: \n{module_main_info}{"*"*5}\n{"-"*10}\n')
         else:
-            self.logger.error(f'===\nExecuted unsuccessfully for {module_main_info}===\n')
+            self.logger.error(f'\n{"*"*5}\n\tExecuted unsuccessfully for: \n{module_main_info}{"*"*5}\n{"-"*10}\n')
         return success_flag
 
