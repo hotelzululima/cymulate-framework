@@ -107,6 +107,8 @@ class BaseModule:
         """
         success_flag = False
         os_name = ", ".join(self.execution.os)
+        module_main_info = f'{os_name.upper()} Module: \nID: {self.execution.id}\nName: {self.execution.name}\n' \
+                           f'Description: {self.execution.description}'
         module_brief_info = f"{os_name.upper()} Module : [{self.execution.id}] - \"{self.execution.name}\""
         module_info = f"""
         ID: {self.execution.id}
@@ -133,15 +135,16 @@ class BaseModule:
             # Enter success indication phase
             self.logger.info(self.get_phase_msg('Success Indication Phase'))
             if self.success_indicate():
-                self.logger.success(f'{module_brief_info} executed successfully\n')
                 success_flag = True
-            else:
-                self.logger.error(f'{module_brief_info} executed unsuccessfully')
 
         else:
             self.logger.error('Module dependency check failed')
 
         self.logger.info(self.get_phase_msg('Cleanup Phase'))
         self.cleanup()
+        if success_flag:
+            self.logger.success(f'===\nExecuted successfully for {module_main_info}===\n')
+        else:
+            self.logger.error(f'===\nExecuted unsuccessfully for {module_main_info}===\n')
         return success_flag
 

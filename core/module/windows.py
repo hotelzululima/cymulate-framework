@@ -7,7 +7,7 @@ from core.utils.common import powershell, gain_admin_priv, python_exec, python_r
 
 
 class WindowsModule(BaseModule):
-    def __init__(self, execution_id: str, log_level: str = "DEBUG"):
+    def __init__(self, execution_id: str, log_level: str = "SUCCESS"):
         super().__init__(execution_id=execution_id, log_level=log_level)
         self.execution_return_code: int = -1
         self.execution_output: str = ''

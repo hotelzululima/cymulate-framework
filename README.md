@@ -72,7 +72,7 @@ We can pass self defined parameters to the execution module like this:
 from core.module.windows import WindowsModule
 
 # Create a windows module instance
-execution = WindowsModule("62385f03a0e69ed2274622cc", debug=True)
+execution = WindowsModule("62385f03a0e69ed2274622cc", log_level="DEBUG")
 
 # Update the input arguments to your own ones
 execution.input_arguments.update({
