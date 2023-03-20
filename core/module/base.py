@@ -146,8 +146,8 @@ class BaseModule:
         self.logger.info(self.get_phase_msg('Cleanup Phase'))
         self.cleanup()
         if success_flag:
-            self.logger.success(f'\n***\nExecuted successfully for \n{module_main_info}\n***\n{"-"*10}\n')
+            self.logger.success(f'\n{"*"*5}\n\tExecuted successfully for: \n{module_main_info}{"*"*5}\n{"-"*10}\n')
         else:
-            self.logger.error(f'\n***Executed unsuccessfully for {module_main_info}\n***{"-"*10}\n')
+            self.logger.error(f'\n{"*"*5}\n\tExecuted unsuccessfully for: \n{module_main_info}{"*"*5}\n{"-"*10}\n')
         return success_flag
 
