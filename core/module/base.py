@@ -145,9 +145,11 @@ class BaseModule:
 
         self.logger.info(self.get_phase_msg('Cleanup Phase'))
         self.cleanup()
+        space = ' ' * 4
+        info_msg = f'{space}{"*" * 5}\n{space}Executed {{0}} for: \n{module_main_info}\r{space}{"*" * 5}\n{"-" * 10}\n'
         if success_flag:
-            self.logger.success(f'\n{"*"*5}\n\tExecuted successfully for: \n{module_main_info}{"*"*5}\n{"-"*10}\n')
+            self.logger.success(info_msg.format('successfully'))
         else:
-            self.logger.error(f'\n{"*"*5}\n\tExecuted unsuccessfully for: \n{module_main_info}{"*"*5}\n{"-"*10}\n')
+            self.logger.error(info_msg.format('unsuccessfully'))
         return success_flag
 
