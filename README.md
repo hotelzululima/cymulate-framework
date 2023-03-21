@@ -4,7 +4,7 @@
 
 - **ⓘ Notice**: This project is still under development and not ready for production use.
 
-- **⚠ Warning**: Do not run this project on production environment since it might harm your system.
+- **⚠ Warning**: Do not run this project on production environment if you have no idea what you are doing.
 
 ## Introduction
 
@@ -14,7 +14,7 @@ The framework to automate Cymulate's modules and templates for purple team.
 
 > [Cymualte](https://cymulate.com/) is a BAS (Break and Attack Simulation) platform that provides a comprehensive set of attack simulations based on the **MITRE ATT&CK® framework** to test the effectiveness of your security controls.
 
-This project is aimed to help purple team:
+This project is aimed to help Purple Team to:
 - **Red team** : Construct fully customizable and automated APT attacks easily.
 - **Blue team** : Test their security defenses against APT attacks easily.
 
