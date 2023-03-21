@@ -2,8 +2,9 @@
 Windows module for execution
 """
 from core.module.base import BaseModule
-from core.model.execution import Dependency
+from core.model.execution import Dependency, SuccessIndicator
 from core.utils.common import powershell, gain_admin_priv, python_exec, python_run, command_prompt, create_temp_file
+from typing import List
 
 
 class WindowsModule(BaseModule):
@@ -138,31 +139,43 @@ class WindowsModule(BaseModule):
                 self.logger.warning(f'Executor return code: {self.execution_return_code}')
                 return False
 
-        for success_indicator in self.execution.successIndicators:
+        failed_success_indicators = self._check_success_indicators(self.execution.successIndicators)
+        return not failed_success_indicators
+
+    def _check_success_indicators(self, success_indicators: List[SuccessIndicator]) -> List[SuccessIndicator]:
+        """Method to check success indicators, return failed success indicators if any"""
+        # Record failed success indicators for further use
+        failed_success_indicators = []
+
+        for success_indicator in success_indicators:
             # Check all success indicators include disabled since enabled one might fail but disabled ones won't
             script = self.resolve_variable(success_indicator.successIndicatorCommand)
 
             if success_indicator.successIndicatorExecutor == "powershell":
-                if self._success_indicate_powershell(success_indicator.pipe, script):
-                    self.logger.success(f'Success Indicator: {success_indicator.description}')
-                    return True
-                else:
-                    self.logger.warning(f'Failed Success Indicator: {success_indicator.description}')
+                if not (is_success := self._success_indicate_powershell(success_indicator.pipe, script)):
+                    failed_success_indicators.append(success_indicator)
+                self._success_indicator_log(is_success, success_indicator.description)
 
             elif success_indicator.successIndicatorExecutor == "command_prompt":
-                if self._success_indicate_cmd(success_indicator.pipe, script):
-                    self.logger.success(f'Success Indicator: {success_indicator.description}')
-                    return True
-                else:
-                    self.logger.warning(f'Failed Success Indicator: {success_indicator.description}')
+                if not (is_success := self._success_indicate_cmd(success_indicator.pipe, script)):
+                    failed_success_indicators.append(success_indicator)
+                self._success_indicator_log(is_success, success_indicator.description)
 
             elif success_indicator.successIndicatorExecutor == "python":
-                if self._success_indicate_python(success_indicator.pipe, script):
-                    self.logger.success(f'Success Indicator: {success_indicator.description}')
-                    return True
-                else:
-                    self.logger.warning(f'Failed Success Indicator: {success_indicator.description}')
-        return False
+                if not (is_success := self._success_indicate_python(success_indicator.pipe, script)):
+                    failed_success_indicators.append(success_indicator)
+                self._success_indicator_log(is_success, success_indicator.description)
+
+        return failed_success_indicators
+
+    def _success_indicator_log(self, is_success: bool, description: str):
+        """
+        Method to wrap the logging output of success indicator
+        """
+        if is_success:
+            self.logger.success(f'Success Indicator: {description}')
+        else:
+            self.logger.warning(f'Failed Success Indicator: {description}')
 
     def _success_indicate_powershell(self, pipe: bool, script: str) -> bool:
         """
