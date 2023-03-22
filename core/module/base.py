@@ -10,7 +10,7 @@ class BaseModule:
     Base class for all modules
     """
 
-    def __init__(self, execution_id: str, log_level: str):
+    def __init__(self, execution_id: str, log_level: str, input_arguments: dict = None):
         """
         Name: Module Name
         Description: Module Description
@@ -26,8 +26,20 @@ class BaseModule:
         execution_dict = self.get_execution(execution_id)
         # Deserialize execution json into Execution object
         self.execution = from_dict(data_class=Execution, data=execution_dict)
-        # Replace variable name in powershell script to actual value
-        self.input_arguments = self.get_input_arguments()
+        # Get input arguments in the format : {argument_name: argument_value}
+        self._input_arguments = self.get_input_arguments()
+        if input_arguments:
+            self._input_arguments.update(input_arguments)
+
+    @property
+    def input_arguments(self):
+        """Get input arguments"""
+        return self._input_arguments
+
+    @input_arguments.setter
+    def input_arguments(self, args: dict):
+        """Update input arguments"""
+        self._input_arguments.update(args)
 
     @staticmethod
     def get_execution(execution_id: str) -> dict:
@@ -60,7 +72,7 @@ class BaseModule:
         Transfer ruby string format variable name to value
         Replace input arguments in command -> #{test} -> test_value
         """
-        input_arguments = input_arguments or self.input_arguments
+        input_arguments = input_arguments or self._input_arguments
         for name, value in input_arguments.items():
             command = command.replace(f'#{{{name}}}', value)
         return command
@@ -152,4 +164,3 @@ class BaseModule:
         else:
             self.logger.error(info_msg.format('unsuccessfully'))
         return success_flag
-
