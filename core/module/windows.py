@@ -152,17 +152,17 @@ class WindowsModule(BaseModule):
             script = self.resolve_variable(success_indicator.successIndicatorCommand)
 
             if success_indicator.successIndicatorExecutor == "powershell":
-                if not (is_success := self._success_indicate_powershell(success_indicator.pipe, script)):
+                if not (is_success := self._success_indicate_powershell(script, success_indicator.pipe)):
                     failed_success_indicators.append(success_indicator)
                 self._success_indicator_log(is_success, success_indicator.description)
 
             elif success_indicator.successIndicatorExecutor == "command_prompt":
-                if not (is_success := self._success_indicate_cmd(success_indicator.pipe, script)):
+                if not (is_success := self._success_indicate_cmd(script, success_indicator.pipe)):
                     failed_success_indicators.append(success_indicator)
                 self._success_indicator_log(is_success, success_indicator.description)
 
             elif success_indicator.successIndicatorExecutor == "python":
-                if not (is_success := self._success_indicate_python(success_indicator.pipe, script)):
+                if not (is_success := self._success_indicate_python(script, success_indicator.pipe)):
                     failed_success_indicators.append(success_indicator)
                 self._success_indicator_log(is_success, success_indicator.description)
 
@@ -177,7 +177,7 @@ class WindowsModule(BaseModule):
         else:
             self.logger.warning(f'Failed Success Indicator: {description}')
 
-    def _success_indicate_powershell(self, pipe: bool, script: str) -> bool:
+    def _success_indicate_powershell(self, script: str, pipe: bool) -> bool:
         """
         Method to check if execution succeeded by powershell script
         """
@@ -192,7 +192,7 @@ class WindowsModule(BaseModule):
         self.logger.debug(f'Powershell script result: \n{out}\n{err}\n')
         return p.returncode == 0
 
-    def _success_indicate_python(self, pipe: bool, script: str) -> bool:
+    def _success_indicate_python(self, script: str, pipe: bool) -> bool:
         """
         Method to check if execution succeeded by python script
         """
@@ -208,7 +208,7 @@ class WindowsModule(BaseModule):
         # Check if the function does not return 1, since some scripts might return None or 0 for success
         return result.get('exit_code') != 1
 
-    def _success_indicate_cmd(self, pipe: bool, script: str) -> bool:
+    def _success_indicate_cmd(self, script: str, pipe: bool) -> bool:
         """
         Method to check if execution succeeded by command prompt script
         """
