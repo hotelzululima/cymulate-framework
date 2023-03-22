@@ -25,15 +25,25 @@ def create_temp_file(content: str) -> str:
     return f.name
 
 
-def powershell(cmd: str) -> subprocess.Popen:
-    """Return powershell process"""
-    # Make sure output is in English for parsing
+def _powershell_adjust(cmd: str) -> str:
+    """Adjust powershell command to encode command and let it output english"""
     cmd = f"[cultureinfo]::CurrentUICulture = 'en-US'; {cmd}"
     encoded_cmd = _powershell_encode(cmd)
-    full_cmd = f'chcp 437 > nul & powershell -ExecutionPolicy RemoteSigned -e {encoded_cmd}'
-    return subprocess.Popen(
-        full_cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, shell=True, text=True
-    )
+    return f'chcp 437 > nul & powershell -ExecutionPolicy RemoteSigned -e {encoded_cmd}'
+
+
+def powershell(cmd: str) -> subprocess.Popen:
+    """Return powershell process using subprocess.Popen()"""
+    # Make sure output is in English for parsing
+    full_cmd = _powershell_adjust(cmd)
+    return subprocess.Popen(full_cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, shell=True, text=True)
+
+
+def powershell_run(cmd: str, pipe_data: str = "") -> subprocess.CompletedProcess:
+    """Run powershell command using subprocess.Run()"""
+    # Make sure output is in English for parsing
+    full_cmd = _powershell_adjust(cmd)
+    return subprocess.run(full_cmd, input=pipe_data, capture_output=True, shell=True, text=True)
 
 
 def command_prompt(cmd: str) -> subprocess.Popen:
