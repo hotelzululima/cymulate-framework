@@ -136,34 +136,34 @@ class WindowsModule(BaseModule):
                 self.logger.warning(f'Executor return code: {self.execution_return_code}')
                 return False
 
-        failed_success_indicators = self._check_success_indicators(self.execution.successIndicators)
-        return not failed_success_indicators
+        return self._check_success_indicators(self.execution.successIndicators)
 
-    def _check_success_indicators(self, success_indicators: List[SuccessIndicator]) -> List[SuccessIndicator]:
+    def _check_success_indicators(self, success_indicators: List[SuccessIndicator]) -> bool:
         """Method to check success indicators, return failed success indicators if any"""
-        # Record failed success indicators for further use
-        failed_success_indicators = []
-
+        # Return true if any success indicator is true
         for success_indicator in success_indicators:
-            # Check all success indicators include disabled since enabled one might fail but disabled ones won't
+            is_success = False
+
+            # Check all success indicators include disabled ones since enabled ones might fail but disabled ones won't
             script = self.resolve_variable(success_indicator.successIndicatorCommand)
 
             if success_indicator.successIndicatorExecutor == "powershell":
-                if not (is_success := self._success_indicate_powershell(script, success_indicator.pipe)):
-                    failed_success_indicators.append(success_indicator)
+                is_success = self._success_indicate_powershell(script, success_indicator.pipe)
                 self._success_indicator_log(is_success, success_indicator.description)
 
             elif success_indicator.successIndicatorExecutor == "command_prompt":
-                if not (is_success := self._success_indicate_cmd(script, success_indicator.pipe)):
-                    failed_success_indicators.append(success_indicator)
+                is_success = self._success_indicate_cmd(script, success_indicator.pipe)
                 self._success_indicator_log(is_success, success_indicator.description)
 
             elif success_indicator.successIndicatorExecutor == "python":
-                if not (is_success := self._success_indicate_python(script, success_indicator.pipe)):
-                    failed_success_indicators.append(success_indicator)
+                is_success = self._success_indicate_python(script, success_indicator.pipe)
                 self._success_indicator_log(is_success, success_indicator.description)
 
-        return failed_success_indicators
+            if is_success:
+                return True
+
+        # If no success indicator succeeded, return false
+        return False
 
     def _success_indicator_log(self, is_success: bool, description: str):
         """
