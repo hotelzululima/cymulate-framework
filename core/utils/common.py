@@ -39,11 +39,13 @@ def powershell(cmd: str) -> subprocess.Popen:
     return subprocess.Popen(full_cmd, stdin=PIPE, stderr=PIPE, stdout=PIPE, shell=True, text=True)
 
 
-def powershell_run(cmd: str, pipe_data: str = "") -> subprocess.CompletedProcess:
+def powershell_run(cmd: str, tmp_file_path: str = None) -> subprocess.CompletedProcess:
     """Run powershell command using subprocess.Run()"""
     # Make sure output is in English for parsing
+    if tmp_file_path:
+        cmd = f'Get-Content {tmp_file_path} | {cmd}'
     full_cmd = _powershell_adjust(cmd)
-    return subprocess.run(full_cmd, input=pipe_data, capture_output=True, shell=True, text=True)
+    return subprocess.run(full_cmd, capture_output=True, shell=True, text=True)
 
 
 def command_prompt(cmd: str) -> subprocess.Popen:
@@ -68,3 +70,8 @@ def python_run(code: str) -> str:
     exec(code)
     sys.stdout = old_stdout
     return redirected_output.getvalue()
+
+
+def remove_file(file_path: str):
+    """Remove file via powershell with force option"""
+    powershell_run(f'Remove-Item -Force {file_path}')

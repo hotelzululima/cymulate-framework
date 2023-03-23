@@ -3,7 +3,8 @@ Windows module for execution
 """
 from core.module.base import BaseModule
 from core.model.execution import Dependency, SuccessIndicator
-from core.utils.common import powershell, gain_admin_priv, python_exec, python_run, command_prompt, powershell_run
+from core.utils.common import powershell, gain_admin_priv, python_exec, python_run, command_prompt, powershell_run, \
+    create_temp_file, remove_file
 from typing import List
 
 
@@ -12,6 +13,7 @@ class WindowsModule(BaseModule):
         super().__init__(execution_id=execution_id, log_level=log_level, input_arguments=input_arguments)
         self.execution_return_code: int = -1
         self.execution_output: str = ''
+        self.execution_output_file: str = ''
         self.output_parser_args = {}
 
     def check_dependency(self) -> bool:
@@ -76,6 +78,8 @@ class WindowsModule(BaseModule):
         elif self.execution.executor.name == 'python':
             self._run_python(script)
 
+        self.execution_output_file = create_temp_file(self.execution_output)
+
     def _run_cmd(self, script: str):
         """Method to run command prompt script"""
         self.logger.debug(f'Running Command Prompt Script: \n{script}\n')
@@ -114,15 +118,16 @@ class WindowsModule(BaseModule):
 
     def success_indicate(self) -> bool:
         # If no success indicators, check executor's return code
-        if not self.execution.successIndicators:
-            if self.execution_return_code == 0:
-                self.logger.success(f'Executor return code: {self.execution_return_code}')
-                return True
-            else:
-                self.logger.warning(f'Executor return code: {self.execution_return_code}')
-                return False
-
-        return self._check_success_indicators(self.execution.successIndicators)
+        success_flag = False
+        if self.execution.successIndicators:
+            success_flag = self._check_success_indicators(self.execution.successIndicators)
+        elif success_flag := self.execution_return_code == 0:
+            self.logger.success(f'Executor return code: {self.execution_return_code}')
+        else:
+            self.logger.warning(f'Executor return code: {self.execution_return_code}')
+        # Remove execution output file in temp folder
+        remove_file(self.execution_output_file)
+        return success_flag
 
     def _check_success_indicators(self, success_indicators: List[SuccessIndicator]) -> bool:
         """Method to check success indicators"""
@@ -163,9 +168,9 @@ class WindowsModule(BaseModule):
         self.logger.debug(f'Running Powershell Script: \n{script}\n')
 
         # Check if indicator needs to pipe the output of the execution
-        pipe_data = self.execution_output if pipe else None
+        output_file = self.execution_output_file if pipe else None
 
-        result = powershell_run(script, pipe_data)
+        result = powershell_run(script, output_file)
         self.logger.debug(f'Powershell script result: \n{result.stdout}\n{result.stderr}\n')
         return result.returncode == 0
 
@@ -211,9 +216,9 @@ class WindowsModule(BaseModule):
 
     def _output_parser_powershell(self, pipe: bool, script: str):
         """Method to parse the output of the execution by powershell script"""
-        piped_data = self.execution_output if pipe else None
+        output_file = self.execution_output_file if pipe else None
         self.logger.debug(f'Running Powershell Script: \n{script}\n')
-        result = powershell_run(script, piped_data)
+        result = powershell_run(script, output_file)
         self.logger.debug(f'Powershell script result: \n{result.stdout}\n{result.stderr}\n')
 
     def _output_parser_python(self, pipe: bool, script: str):
