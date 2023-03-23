@@ -61,8 +61,8 @@ class BaseModule:
 
     def resolve_variable(self, command: str, input_arguments: dict = None) -> str:
         """
-        Transfer ruby string format variable name to value
-        Replace input arguments in command -> #{test} -> test_value
+        Transfer ruby string format from variable name to value
+        Ex: Replaces #{test} -> test_value
         """
         input_arguments = input_arguments or self._input_arguments
         for name, value in input_arguments.items():
