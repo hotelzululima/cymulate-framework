@@ -30,9 +30,7 @@ class WindowsModule(BaseModule):
         return not failed_dependency
 
     def _check_dependency_powershell(self, dependency: Dependency) -> bool:
-        """
-        Method to check dependency in powershell
-        """
+        """Method to check dependency in powershell"""
         # Get-Pre-req command: DO Download files...etc
         get_pre_req_cmd = self.resolve_variable(dependency.getPrereqCommand)
 
@@ -51,16 +49,12 @@ class WindowsModule(BaseModule):
 
     @staticmethod
     def _resolve_file_path(variable: str) -> str:
-        """
-        Resolve absolute path for the variable in powershell
-        """
+        """Resolve absolute path for the variable in powershell"""
         p = powershell(f'echo {variable}')
         return p.communicate()[0].strip()
 
     def _set_input_arguments_abs(self):
-        """
-        Set input_arguments's values to resolve absolute path for the variable in powershell
-        """
+        """Set input_arguments's values to resolve absolute path for the variable in powershell"""
         input_arguments = self.get_input_arguments()
         for name, value in input_arguments.items():
             if value.startswith('$env'):
@@ -83,9 +77,7 @@ class WindowsModule(BaseModule):
             self._run_python(script)
 
     def _run_cmd(self, script: str):
-        """
-        Container to run command prompt script
-        """
+        """Method to run command prompt script"""
         self.logger.debug(f'Running Command Prompt Script: \n{script}\n')
         p = command_prompt(script)
         out, err = p.communicate()
@@ -94,9 +86,7 @@ class WindowsModule(BaseModule):
         self.execution_output = out
 
     def _run_powershell(self, script: str):
-        """
-        Container to run powershell script
-        """
+        """Method to run powershell script"""
         self.logger.debug(f'Running Powershell Script: \n{script}\n')
         p = powershell(script)
         result_list = p.communicate()
@@ -106,18 +96,14 @@ class WindowsModule(BaseModule):
         self.execution_return_code = p.returncode
 
     def _run_python(self, script: str):
-        """
-        Container to run python script
-        """
+        """Method to run python script"""
         self.logger.debug(f'Running Python Script: \n{script}\n')
         self.execution_output = python_run(script)
         self.logger.debug(f'Python script result: \n{self.execution_output}\n')
 
     @staticmethod
     def _adjust_python_script(script: str) -> str:
-        """
-        Adjust python script from cymulate format to applicable format
-        """
+        """Adjust python script from cymulate format to applicable format"""
         # Transform script to a function
         python_script = script.replace('exit(0)', 'return 0').replace('exit(1)', 'return 1')
         python_script = "\n    ".join(python_script.splitlines())
@@ -139,7 +125,7 @@ class WindowsModule(BaseModule):
         return self._check_success_indicators(self.execution.successIndicators)
 
     def _check_success_indicators(self, success_indicators: List[SuccessIndicator]) -> bool:
-        """Method to check success indicators, return failed success indicators if any"""
+        """Method to check success indicators"""
         # Return true if any success indicator is true
         for success_indicator in success_indicators:
             is_success = False
@@ -166,18 +152,14 @@ class WindowsModule(BaseModule):
         return False
 
     def _success_indicator_log(self, is_success: bool, description: str):
-        """
-        Method to wrap the logging output of success indicator
-        """
+        """Method to wrap the logging output of success indicator"""
         if is_success:
             self.logger.success(f'Success Indicator: {description}')
         else:
             self.logger.warning(f'Failed Success Indicator: {description}')
 
     def _success_indicate_powershell(self, script: str, pipe: bool) -> bool:
-        """
-        Method to check if execution succeeded by powershell script
-        """
+        """Method to check if execution succeeded by powershell script"""
         self.logger.debug(f'Running Powershell Script: \n{script}\n')
 
         # Check if indicator needs to pipe the output of the execution
@@ -188,9 +170,7 @@ class WindowsModule(BaseModule):
         return result.returncode == 0
 
     def _success_indicate_python(self, script: str, pipe: bool) -> bool:
-        """
-        Method to check if execution succeeded by python script
-        """
+        """Method to check if execution succeeded by python script"""
         python_script = self._adjust_python_script(script)
         self.logger.debug(f'Running Python Script: \n{python_script}\n')
 
@@ -204,9 +184,7 @@ class WindowsModule(BaseModule):
         return result.get('exit_code') != 1
 
     def _success_indicate_cmd(self, script: str, pipe: bool) -> bool:
-        """
-        Method to check if execution succeeded by command prompt script
-        """
+        """Method to check if execution succeeded by command prompt script"""
         self.logger.debug(f'Running Command Prompt Script: \n{script}\n')
         p = command_prompt(script)
         p.communicate()
@@ -214,9 +192,7 @@ class WindowsModule(BaseModule):
         return p.returncode == 0
 
     def output_parser(self):
-        """
-        Method to parse the output of the execution
-        """
+        """Method to parse the output of the execution"""
         if not self.execution.outputParser:
             self.logger.debug(f'No output parser, using raw output: \n{self.execution_output}\n')
             return
@@ -234,18 +210,14 @@ class WindowsModule(BaseModule):
                 self._output_parser_python(output_parser.pipe, script)
 
     def _output_parser_powershell(self, pipe: bool, script: str):
-        """
-        Method to parse the output of the execution by powershell script
-        """
+        """Method to parse the output of the execution by powershell script"""
         piped_data = self.execution_output if pipe else None
         self.logger.debug(f'Running Powershell Script: \n{script}\n')
         result = powershell_run(script, piped_data)
         self.logger.debug(f'Powershell script result: \n{result.stdout}\n{result.stderr}\n')
 
     def _output_parser_python(self, pipe: bool, script: str):
-        """
-        Method to parse the output of the execution by python script
-        """
+        """Method to parse the output of the execution by python script"""
         python_script = self._adjust_python_script(script)
         self.logger.debug(f'Running Python Script: \n{python_script}\n')
 
@@ -257,9 +229,7 @@ class WindowsModule(BaseModule):
         self.execution_output = result
 
     def _output_parser_cmd(self, pipe: bool, script: str):
-        """
-        Method to parse the output of the execution by command prompt script
-        """
+        """Method to parse the output of the execution by command prompt script"""
         self.logger.debug(f'Running Command Prompt Script: \n{script}\n')
         p = command_prompt(script)
         p.communicate()

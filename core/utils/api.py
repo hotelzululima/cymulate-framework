@@ -9,18 +9,14 @@ HEADERS = {
 
 
 def get_executions(token: str):
-    """
-    This endpoint will retrieve a list of Advanced Scenarios executions
-    """
+    """This endpoint will retrieve a list of Advanced Scenarios executions"""
     HEADERS['x-token'] = token
     response = requests.get(f'{BASE_URI}/purple-team/executions/', headers=HEADERS)
     return response.json()
 
 
 def get_templates(token: str, public: bool = True):
-    """
-    This endpoint will retrieve a list of Advanced Scenarios templates
-    """
+    """This endpoint will retrieve a list of Advanced Scenarios templates"""
     HEADERS['x-token'] = token
     response = requests.get(f'{BASE_URI}/purple-team/templates/', headers=HEADERS)
     if public:
@@ -30,8 +26,6 @@ def get_templates(token: str, public: bool = True):
 
 
 def save_results(results: dict):
-    """
-    Save the result to a json file
-    """
+    """Save the result to a json file"""
     with open('results.json', 'w', encoding='utf-8') as f:
         json.dump(results, f, ensure_ascii=False, indent=4)

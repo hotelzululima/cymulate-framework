@@ -6,9 +6,7 @@ from core.utils.log import Log
 
 
 class BaseModule:
-    """
-    Base class for all modules
-    """
+    """Base class for all modules"""
 
     def __init__(self, execution_id: str, log_level: str, input_arguments: dict = None):
         """
@@ -43,9 +41,7 @@ class BaseModule:
 
     @staticmethod
     def get_execution(execution_id: str) -> dict:
-        """
-        Get Execution dict from executions json file by id
-        """
+        """Get Execution dict from executions json file by id"""
         execution_file = Path(__file__).parent.parent / 'assets/executions.json'
         with open(execution_file, 'r', encoding='utf-8') as f:
             execution_data = json.load(f)
@@ -54,17 +50,13 @@ class BaseModule:
         )
 
     def get_enabled_success_indicator(self) -> SuccessIndicator:
-        """
-        Get the enabled success indicator
-        """
+        """Get the enabled success indicator"""
         for indicator in self.execution.successIndicators:
             if indicator.enabled:
                 return indicator
 
     def get_input_arguments(self) -> dict:
-        """
-        Turn input arguments into a dict
-        """
+        """Turn input arguments into a dict"""
         return {arg.name: arg.default[0] for arg in self.execution.inputArguments}
 
     def resolve_variable(self, command: str, input_arguments: dict = None) -> str:
@@ -79,52 +71,41 @@ class BaseModule:
 
     @staticmethod
     def get_phase_msg(phase: str) -> str:
-        """
-        Get formatted phase message
-        """
+        """Get formatted phase message"""
         boundary = '*' * len(phase)
         return f'\n{boundary}\n{phase}\n{boundary}'
 
     def check_dependency(self) -> bool:
-        """
-        Check if dependencies are installed
-        """
+        """Check if dependencies are installed"""
 
     def execute(self):
-        """
-        Main execution function
-        """
+        """Main execution function"""
 
     def success_indicate(self) -> bool:
-        """
-        Check if the output indicates success
-        """
+        """Check if the output indicates success"""
         pass
 
     def cleanup(self):
-        """
-        Clean up after the scenario
-        """
+        """Clean up after the scenario is executed"""
         pass
 
     def output_parser(self):
-        """
-        Parse output result
-        """
+        """Parse output result"""
         pass
 
     def run(self) -> bool:
-        """
-        Run the module
-        """
+        """Run the module"""
         success_flag = False
         os_name = ", ".join(self.execution.os)
+
         module_main_info = f"""
         {os_name.upper()} Module: ID: {self.execution.id}
         Name: {self.execution.name}
         Description: {self.execution.description}
         """
+
         module_brief_info = f"{os_name.upper()} Module : [{self.execution.id}] - \"{self.execution.name}\""
+
         module_info = f"""
         ID: {self.execution.id}
         Name: {self.execution.name}
@@ -136,6 +117,7 @@ class BaseModule:
         Tactics: {", ".join([t['name'] for t in self.execution.tactics])}
         Technique: {", ".join([t['name'] for t in self.execution.techniques])}
         """
+
         self.logger.info(f"Running {module_brief_info}\n---\n{module_info}\n---\n")
 
         # Enter dependency check phase
