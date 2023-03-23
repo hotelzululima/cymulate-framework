@@ -185,6 +185,7 @@ class WindowsModule(BaseModule):
         result = python_exec(python_script, env)
         self.logger.debug(f'Python script result: \n{result}\n')
 
+        # TODO: Check if this is the correct way to check if the script succeeded
         # Check if the function does not return 1, since some scripts might return None or 0 for success
         return result.get('exit_code') != 1
 
