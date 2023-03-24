@@ -9,7 +9,7 @@ from typing import List
 
 
 class WindowsModule(BaseModule):
-    def __init__(self, execution_id: str, log_level: str = "SUCCESS", input_arguments: dict = None):
+    def __init__(self, execution_id: str, log_level: str = "CUSTOM", input_arguments: dict = None):
         super().__init__(execution_id=execution_id, log_level=log_level, input_arguments=input_arguments)
         self.execution_return_code: int = -1
         self.execution_output: str = ''

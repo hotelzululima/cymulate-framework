@@ -24,6 +24,6 @@ PROFILE = {
 
 def start():
     for module_id, args in PROFILE.items():
-        m = WindowsModule(module_id, log_level="SUCCESS")
+        m = WindowsModule(module_id)
         m.input_arguments = args
         m.run()

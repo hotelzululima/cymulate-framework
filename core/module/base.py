@@ -8,7 +8,7 @@ from core.utils.log import Log
 class BaseModule:
     """Base class for all modules"""
 
-    def __init__(self, execution_id: str, log_level: str, input_arguments: dict = None):
+    def __init__(self, execution_id: str, log_level: str = "CUSTOM", input_arguments: dict = None):
         """
         Name: Module Name
         Description: Module Description
@@ -99,14 +99,17 @@ class BaseModule:
         os_name = ", ".join(self.execution.os)
 
         module_main_info = f"""
-        {os_name.upper()} Module: ID: {self.execution.id}
+---
+        {os_name.upper()} Module ({self.execution.id})
         Name: {self.execution.name}
         Description: {self.execution.description}
+---
         """
 
         module_brief_info = f"{os_name.upper()} Module : [{self.execution.id}] - \"{self.execution.name}\""
 
         module_info = f"""
+---
         ID: {self.execution.id}
         Name: {self.execution.name}
         Description: {self.execution.description}
@@ -116,9 +119,12 @@ class BaseModule:
         Execution Timeout: {self.execution.timeout} minutes
         Tactics: {", ".join([t['name'] for t in self.execution.tactics])}
         Technique: {", ".join([t['name'] for t in self.execution.techniques])}
+---
         """
 
-        self.logger.info(f"Running {module_brief_info}\n---\n{module_info}\n---\n")
+        self.logger.log("CUSTOM", f"Running {module_main_info}")
+        self.logger.success(f"Running {module_brief_info}")
+        self.logger.info(module_info)
 
         # Enter dependency check phase
         self.logger.info(self.get_phase_msg('Dependency Check Phase'))
@@ -139,10 +145,12 @@ class BaseModule:
 
         self.logger.info(self.get_phase_msg('Cleanup Phase'))
         self.cleanup()
-        space = ' ' * 4
-        info_msg = f'{space}{"*" * 5}\n{space}Executed {{0}} for: \n{module_main_info}\r{space}{"*" * 5}\n{"-" * 10}\n'
+
+        result_format = f"{{0}} executed module: {self.execution.id}\n====="
         if success_flag:
-            self.logger.success(info_msg.format('successfully'))
+            msg = result_format.format('Successfully')
+            self.logger.success(msg)
+            self.logger.log("CUSTOM", msg)
         else:
-            self.logger.error(info_msg.format('unsuccessfully'))
+            self.logger.error(result_format.format('Unsuccessfully'))
         return success_flag
