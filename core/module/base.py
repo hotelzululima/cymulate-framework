@@ -98,15 +98,11 @@ class BaseModule:
         success_flag = False
         os_name = ", ".join(self.execution.os)
 
-        module_main_info = f"""
----
-        {os_name.upper()} Module ({self.execution.id})
-        Name: {self.execution.name}
-        Description: {self.execution.description}
----
-        """
+        module_main_info = f"""{self.execution.name}
+-> {self.execution.description}
+        """.strip()
 
-        module_brief_info = f"{os_name.upper()} Module : [{self.execution.id}] - \"{self.execution.name}\""
+        module_brief_info = f"{os_name.upper()} Module : [{self.execution.id}] - \"{self.execution.name}\"".strip()
 
         module_info = f"""
 ---
@@ -120,9 +116,9 @@ class BaseModule:
         Tactics: {", ".join([t['name'] for t in self.execution.tactics])}
         Technique: {", ".join([t['name'] for t in self.execution.techniques])}
 ---
-        """
+        """.strip()
 
-        self.logger.log("CUSTOM", f"Running {module_main_info}")
+        self.logger.log("CUSTOM", module_main_info)
         self.logger.success(f"Running {module_brief_info}")
         self.logger.info(module_info)
 
@@ -139,18 +135,14 @@ class BaseModule:
             self.logger.info(self.get_phase_msg('Success Indication Phase'))
             if self.success_indicate():
                 success_flag = True
+            else:
+                failed_indicators = "\n".join([f' -> {s.description}' for s in self.execution.successIndicators if s.enabled])
+                self.logger.error(f'None of below success indicators matched:\n{failed_indicators}')
 
         else:
             self.logger.error('Module dependency check failed')
 
         self.logger.info(self.get_phase_msg('Cleanup Phase'))
         self.cleanup()
-
-        result_format = f"{{0}} executed module: {self.execution.id}\n====="
-        if success_flag:
-            msg = result_format.format('Successfully')
-            self.logger.success(msg)
-            self.logger.log("CUSTOM", msg)
-        else:
-            self.logger.error(result_format.format('Unsuccessfully'))
+        print('====================')
         return success_flag

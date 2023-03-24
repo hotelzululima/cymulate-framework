@@ -124,7 +124,7 @@ class WindowsModule(BaseModule):
         elif success_flag := self.execution_return_code == 0:
             self.logger.success(f'Executor return code: {self.execution_return_code}')
         else:
-            self.logger.warning(f'Executor return code: {self.execution_return_code}')
+            self.logger.error(f'Executor return code: {self.execution_return_code}')
         # Remove execution output file in temp folder
         remove_file(self.execution_output_file)
         return success_flag
@@ -160,6 +160,7 @@ class WindowsModule(BaseModule):
         """Method to wrap the logging output of success indicator"""
         if is_success:
             self.logger.success(f'Success Indicator: {description}')
+            self.logger.log("CUSTOM", f'Success Indicator: {description}')
         else:
             self.logger.warning(f'Failed Success Indicator: {description}')
 
