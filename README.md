@@ -97,7 +97,7 @@ execution.run()
 - `Transform modules and templates` - Transform modules and templates into cymulate-framework modules.
 - `Automate execution` - Automate the execution of templates.
 - `APT Script generator` - Generate scripts for APT template with extracted specific execution scripts (don't wanna load the 20+mb json file) and load corresponding required 3rd party pip packages into scripts
-- `Pack Script to EXE` - Pack generated template script with its requirements(pip packages, execution scripts) into EXE via `pyisntaller`, `py2exe` or `Nuitka`
+- `Pack Script to EXE` - Pack generated template script with its requirements(pip packages, execution scripts) into EXE via `pyinstaller`, `py2exe` or `Nuitka`
 - `ClI` - A CLI to interact with the framework.
 
 ### Notes
