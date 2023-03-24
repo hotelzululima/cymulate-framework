@@ -206,6 +206,9 @@ class WindowsModule(BaseModule):
         script = self.resolve_variable(self.execution.outputParser.outputParserCommand)
         # Save the parsed output which maps suitable input arguments for other modules to use
         for output_parser in self.execution.outputParsers:
+            if not output_parser.enabled:
+                continue
+
             if output_parser.outputParserExecutor == "powershell":
                 self._output_parser_powershell(output_parser.pipe, script)
 
