@@ -122,9 +122,11 @@ class WindowsModule(BaseModule):
         if self.execution.successIndicators:
             success_flag = self._check_success_indicators(self.execution.successIndicators)
         elif success_flag := self.execution_return_code == 0:
-            self.logger.success(f'Executor return code: {self.execution_return_code}')
+            msg = f'Success Indicator: Executor return code: {self.execution_return_code}'
+            self.logger.success(msg)
+            self.logger.log("CUSTOM", msg)
         else:
-            self.logger.error(f'Executor return code: {self.execution_return_code}')
+            self.logger.error(f'Failed Success Indicator: Executor return code: {self.execution_return_code}')
         # Remove execution output file in temp folder
         remove_file(self.execution_output_file)
         return success_flag
