@@ -138,7 +138,11 @@ class BaseModule:
             if self.success_indicate():
                 success_flag = True
             else:
-                failed_indicators = "\n".join([f' -> {s.description}' for s in self.execution.successIndicators if s.enabled])
+                failed_indicators = "\n".join([
+                    f' {i+1}. {s.description}'
+                    for i, s in enumerate(self.execution.successIndicators)
+                    if s.enabled
+                ])
                 self.logger.error(f'None of below success indicators matched:\n{failed_indicators}')
 
         else:
