@@ -1,6 +1,6 @@
 # cymulate-framework
 
-![](https://i.imgur.com/B9Z8nyQ.png)
+![](https://i.imgur.com/AcNYPLp.png)
 
 - **ⓘ Note**: This project is still under development and not ready for production use.
 
