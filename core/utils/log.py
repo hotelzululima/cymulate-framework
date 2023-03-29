@@ -15,6 +15,8 @@ class Log:
         # Add custom log level
         with contextlib.suppress(TypeError):
             logger.level("CUSTOM", no=38, color="<green>", icon="🐍")
+            # Add level with no:100 for printing
+            logger.level("PRINT", no=100, color="<white>", icon="ℹ️")
 
         if self.log_level == "DEBUG":
             logger_format = (

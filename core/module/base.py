@@ -95,6 +95,8 @@ class BaseModule:
 
     def run(self) -> bool:
         """Run the module"""
+        self.logger.log("PRINT", '====================')
+
         success_flag = False
         os_name = ", ".join(self.execution.os)
 
@@ -144,5 +146,4 @@ class BaseModule:
 
         self.logger.info(self.get_phase_msg('Cleanup Phase'))
         self.cleanup()
-        print('====================')
         return success_flag
