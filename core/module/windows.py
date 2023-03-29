@@ -188,9 +188,9 @@ class WindowsModule(BaseModule):
         result = python_exec(python_script, env)
         self.logger.debug(f'Python script result: \n{result}\n')
 
-        # TODO: Check if this is the correct way to check if the script succeeded
-        # Check if the function does not return 1, since some scripts might return None or 0 for success
-        return result.get('exit_code') != 1
+        # Check if the function return 0 or None, since some scripts will return 0 or None for success
+        # Example: ID: 5fb4ec71181932cc0f4ad6cf | name: Base64 Encode a file (Windows)
+        return result["exit_code"] in {0, None}
 
     def _success_indicate_cmd(self, script: str, pipe: bool) -> bool:
         """Method to check if execution succeeded by command prompt script"""
