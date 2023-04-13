@@ -102,7 +102,7 @@ execution.run()
 
 ### Notes
 
-- Using `builtin dataclass` + `dacite` for JSON deserializing model instead of `pydantic` since `dacite` is enough for the purpose.
+- Using `builtin dataclass` + `dacite` for JSON deserialization model instead of `pydantic` since `dacite` is enough for the purpose.
 
 ## Contributing
 
